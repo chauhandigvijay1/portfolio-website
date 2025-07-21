@@ -1,59 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digvijay | Developer Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">Digvijay</div>
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+  <header>
+    <nav>
+      <div class="logo">Digvijay</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Hey, I'm Digvijay 👋</h1>
-    <p>Aspiring Full-Stack Developer</p>
-    <a href="#projects" class="btn">View Projects</a>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="projects">
-    <h2>My Projects</h2>
-    <div class="project-grid">
-      <!-- Cards -->
+  <section id="home">
+    <div class="intro">
+      <h1>Hello, I'm <span>Digvijay</span></h1>
+      <p>Aspiring Full Stack Developer | DSA Enthusiast | MERN Stack Learner</p>
+      <a href="#contact" class="btn">Let's Connect</a>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="about">
+  <section id="about">
     <h2>About Me</h2>
-    <p>Currently pursuing MCA, and learning full-stack development. Passionate about building meaningful digital products.</p>
+    <p>I’m currently pursuing MCA and on a journey to become a full stack developer. With strong interest in Data Structures, Cloud, and DevOps, I’m committed to growing through consistent coding and real-world projects.</p>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+      <li>MongoDB</li>
+      <li>Git & GitHub</li>
+      <li>Postman</li>
+      <li>AWS (Basic)</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Portfolio Website</h3>
+      <p>A personal portfolio made using HTML, CSS, and JavaScript. Deployed via GitHub Pages.</p>
+    </div>
+    <div class="project">
+      <h3>Weather App</h3>
+      <p>Weather app using JavaScript Fetch API. Fetches weather data using OpenWeatherMap API.</p>
+    </div>
+    <div class="project">
+      <h3>Blog Platform</h3>
+      <p>A MERN stack blog app with user login, CRUD functionality, and REST API integration.</p>
+    </div>
+  </section>
+
+  <section id="contact">
     <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required/>
-      <input type="email" placeholder="Your Email" required/>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+    <p>Email: digvijay@example.com</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/digvijay">linkedin.com/in/digvijay</a></p>
+    <p>GitHub: <a href="https://github.com/digvijay">github.com/digvijay</a></p>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 Digvijay | All rights reserved</p>
+  <footer>
+    <p>&copy; 2025 Digvijay. All Rights Reserved.</p>
   </footer>
-
 </body>
 </html>
