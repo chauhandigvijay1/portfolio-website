@@ -1,0 +1,698 @@
+{
+  "profile": {
+    "name": "Digvijay Kumar Singh",
+    "preferredName": "Digvijay",
+    "role": "Full Stack Developer",
+    "tagline": "MCA student building premium, production-style products across the MERN ecosystem.",
+    "intro": "I build developer-focused web products with real authentication, API architecture, deployment workflows, product UI systems, and the kind of implementation detail that makes a project feel usable beyond the demo.",
+    "heroLines": [
+      "full stack developer",
+      "mern ecosystem builder",
+      "next.js product engineer",
+      "shipping real-world projects"
+    ],
+    "availability": "Open to internships, freelance opportunities, and product-focused engineering roles.",
+    "journey": [
+      "I am currently pursuing MCA while using projects as the main way to learn deeply. I prefer building real flows end to end instead of staying in isolated tutorials.",
+      "Most of my growth has come from designing the interface, wiring the backend, handling state, deploying the product, and then refining the experience until it feels closer to something a real user would keep using.",
+      "I am especially interested in the MERN ecosystem, API design, deployment discipline, AI-assisted product flows, and the transition from learning projects to production-minded engineering."
+    ],
+    "education": {
+      "degree": "Master of Computer Applications",
+      "duration": "2024 - 2026",
+      "institution": "IIMT College Of Engineering",
+      "cgpa": "8.35"
+    },
+    "focusAreas": [
+      "MERN ecosystem",
+      "production-style project building",
+      "REST API architecture",
+      "deployment workflows",
+      "authentication systems",
+      "product UI refinement"
+    ],
+    "email": "chauhandigvijay669@gmail.com",
+    "githubUsername": "chauhandigvijay1",
+    "github": "https://github.com/chauhandigvijay1",
+    "linkedin": "https://www.linkedin.com/in/digvijaykumarsingh",
+    "portfolio": "https://dsc-portfolio-website.netlify.app/",
+    "x": "https://x.com/DigvijaySi29958",
+    "instagram": "https://www.instagram.com/chauhan_digvijay_/",
+    "resume": "/assets/resume/digvijay-resume.pdf",
+    "headshot": "/assets/profile/digvijay-portrait-3.jpg"
+  },
+  "highlights": [
+    {
+      "label": "education",
+      "value": "mca 2024-2026",
+      "note": "IIMT College Of Engineering"
+    },
+    {
+      "label": "focus",
+      "value": "full stack products",
+      "note": "MERN, Next.js, APIs, deployments"
+    },
+    {
+      "label": "current direction",
+      "value": "product-minded engineering",
+      "note": "shipping real public builds"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "2024",
+      "title": "Started MCA and shifted into structured full-stack growth",
+      "description": "Moved from foundational web practice into deeper React, backend, and deployment work with a stronger product-building mindset."
+    },
+    {
+      "year": "2025",
+      "title": "Built and shipped internship and responsive frontend work",
+      "description": "Strengthened interface fundamentals, responsive design discipline, GitHub usage, and deployment confidence through consistent shipping."
+    },
+    {
+      "year": "2025 - 2026",
+      "title": "Started building production-style MERN applications",
+      "description": "Used JobPilot AI, DsSyncHub, and DevFlow AI to practice authentication, billing flows, API design, SaaS structure, and more intentional UI decisions."
+    },
+    {
+      "year": "now",
+      "title": "Refining backend depth and product quality",
+      "description": "Continuing with DSA, API architecture, deployment workflows, and cleaner frontends that feel calm, useful, and technically grounded."
+    }
+  ],
+  "technologies": [
+    {
+      "slug": "reactjs",
+      "name": "React.js",
+      "category": "frontend",
+      "summary": "Primary UI layer for dashboards, forms, interactive cards, and stateful product interfaces.",
+      "experience": "Used across every flagship product to build interactive dashboards, responsive layouts, and reusable component patterns.",
+      "implementedFeatures": [
+        "dashboard shells",
+        "stateful task and job views",
+        "theme-aware interface components",
+        "interactive filters and modal flows"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "nextjs",
+      "name": "Next.js",
+      "category": "frontend",
+      "summary": "Used when the product benefits from application routing, richer app structure, and deployment-ready frontend architecture.",
+      "experience": "Applied in JobPilot AI and DevFlow AI to build app-style frontends with structured routing and production deployment flows.",
+      "implementedFeatures": [
+        "application routing",
+        "dashboard pages",
+        "theme support",
+        "frontend deployment on Vercel and Netlify"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "javascript",
+      "name": "JavaScript",
+      "category": "frontend",
+      "summary": "Core language used across product logic, API handling, and component behavior.",
+      "experience": "Used throughout frontend and backend development, from smaller DOM-based builds to full product feature logic in MERN applications.",
+      "implementedFeatures": [
+        "interactive UI behavior",
+        "form handling",
+        "API request flows",
+        "business logic for auth and product features"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "typescript",
+      "name": "TypeScript",
+      "category": "frontend",
+      "summary": "Used to make product interfaces stricter, cleaner, and more maintainable.",
+      "experience": "Applied in DsSyncHub to build a stricter frontend architecture with typed state, forms, and component contracts.",
+      "implementedFeatures": [
+        "typed component props",
+        "safer form models",
+        "typed Redux state",
+        "cleaner client architecture"
+      ],
+      "projectSlugs": [
+        "dssynchub"
+      ]
+    },
+    {
+      "slug": "nodejs",
+      "name": "Node.js",
+      "category": "backend",
+      "summary": "Backend runtime used for APIs, product logic, integrations, and deployment-ready services.",
+      "experience": "Used for every flagship product backend to manage authentication, business logic, email flows, payments, and data access.",
+      "implementedFeatures": [
+        "API services",
+        "auth workflows",
+        "payment handling",
+        "email and AI integrations"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "expressjs",
+      "name": "Express.js",
+      "category": "backend",
+      "summary": "Main API framework for route structure, middleware, validation, and service composition.",
+      "experience": "Used to build REST APIs for auth, project data, job tracking, billing flows, and workspace features.",
+      "implementedFeatures": [
+        "REST endpoints",
+        "protected routes",
+        "middleware-driven auth",
+        "service-oriented backend structure"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "mongodb",
+      "name": "MongoDB",
+      "category": "data",
+      "summary": "Primary database layer for user records, product entities, and subscription-aware data models.",
+      "experience": "Used with Mongoose to persist users, jobs, tasks, chats, subscription state, and other product data.",
+      "implementedFeatures": [
+        "user storage",
+        "job and task persistence",
+        "chat history persistence",
+        "subscription and workspace records"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "tailwindcss",
+      "name": "Tailwind CSS",
+      "category": "frontend",
+      "summary": "Main styling system for rapid composition, theme control, and polished dashboard interfaces.",
+      "experience": "Used to shape responsive product UIs with reusable layout patterns, design consistency, and faster iteration.",
+      "implementedFeatures": [
+        "responsive sections",
+        "dashboard styling systems",
+        "theme variants",
+        "component-level visual consistency"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "redux",
+      "name": "Redux",
+      "category": "state",
+      "summary": "Used for global client state where product behavior needs structure across screens.",
+      "experience": "Applied in DsSyncHub and DevFlow AI to coordinate app state, user context, and product flows across multiple interfaces.",
+      "implementedFeatures": [
+        "global auth state",
+        "shared dashboard data",
+        "cross-screen user context",
+        "predictable UI updates"
+      ],
+      "projectSlugs": [
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "jwt",
+      "name": "JWT",
+      "category": "backend",
+      "summary": "Authentication backbone for protected routes and session-aware product flows.",
+      "experience": "Used across the flagship stack to secure user sessions, guarded APIs, and product-specific access patterns.",
+      "implementedFeatures": [
+        "protected APIs",
+        "session persistence",
+        "authorization-aware dashboards",
+        "secure login flows"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "rest-apis",
+      "name": "REST APIs",
+      "category": "backend",
+      "summary": "Primary communication layer between frontend applications and backend services.",
+      "experience": "Used to structure resources for jobs, tasks, billing, settings, chats, and content retrieval.",
+      "implementedFeatures": [
+        "resource-based endpoints",
+        "frontend-backend integration",
+        "CRUD operations",
+        "modular service boundaries"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "git",
+      "name": "Git",
+      "category": "tooling",
+      "summary": "Version control foundation for iteration, cleanup, and deployment-ready workflow.",
+      "experience": "Used consistently while building, refactoring, and deploying portfolio and product projects.",
+      "implementedFeatures": [
+        "incremental feature shipping",
+        "safe refactors",
+        "deployment-connected workflows",
+        "project history management"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "github",
+      "name": "GitHub",
+      "category": "tooling",
+      "summary": "Main collaboration and public code platform for repositories, project visibility, and deploy-connected workflows.",
+      "experience": "Used to host source code, maintain project history, and connect deployments across Vercel, Render, and Netlify.",
+      "implementedFeatures": [
+        "public repositories",
+        "deployment integrations",
+        "project documentation",
+        "portfolio-ready code sharing"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "postman",
+      "name": "Postman",
+      "category": "tooling",
+      "summary": "Used to inspect, verify, and debug API routes during backend development.",
+      "experience": "Part of the workflow for checking auth flows, CRUD routes, and integration behavior while building backend services.",
+      "implementedFeatures": [
+        "route verification",
+        "payload testing",
+        "auth token inspection",
+        "backend debugging"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "render",
+      "name": "Render",
+      "category": "deployment",
+      "summary": "Primary backend hosting platform for public API deployment.",
+      "experience": "Used to deploy Express APIs for production-style MERN products with environment-based configuration.",
+      "implementedFeatures": [
+        "backend hosting",
+        "environment variable management",
+        "public API deployment",
+        "frontend-backend separation"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "vercel",
+      "name": "Vercel",
+      "category": "deployment",
+      "summary": "Preferred frontend deployment platform for React and Next.js products.",
+      "experience": "Used to ship public frontends for JobPilot AI and DsSyncHub with fast iteration and GitHub-connected deployment.",
+      "implementedFeatures": [
+        "frontend hosting",
+        "preview-friendly deployment",
+        "environment variable management",
+        "production frontend delivery"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub"
+      ]
+    },
+    {
+      "slug": "netlify",
+      "name": "Netlify",
+      "category": "deployment",
+      "summary": "Used for public deployment of static and application frontends during the learning-to-product journey.",
+      "experience": "Used for earlier portfolio shipping and for deploying the DevFlow AI frontend.",
+      "implementedFeatures": [
+        "public portfolio deployment",
+        "frontend hosting",
+        "fast publishing workflow",
+        "product delivery during iteration"
+      ],
+      "projectSlugs": [
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "redis",
+      "name": "Redis",
+      "category": "data",
+      "summary": "Part of the backend scaling toolkit I am exploring for faster stateful workflows and performance-minded architecture.",
+      "experience": "Used as a learning focus while thinking through caching, queue-like behavior, and how real products handle short-lived data more efficiently.",
+      "implementedFeatures": [
+        "caching exploration",
+        "performance-oriented backend thinking",
+        "session and short-lived data awareness"
+      ],
+      "projectSlugs": []
+    },
+    {
+      "slug": "oauth",
+      "name": "OAuth",
+      "category": "integration",
+      "summary": "Used to provide simpler sign-in flows and more realistic product authentication.",
+      "experience": "Integrated Google OAuth into flagship applications to support a more production-style onboarding experience.",
+      "implementedFeatures": [
+        "Google sign-in",
+        "reduced signup friction",
+        "provider-based authentication flows"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub"
+      ]
+    },
+    {
+      "slug": "razorpay",
+      "name": "Razorpay",
+      "category": "integration",
+      "summary": "Used to build payment-aware SaaS flows with plan upgrades and subscription handling.",
+      "experience": "Integrated in DsSyncHub and DevFlow AI to practice billing logic, upgrade paths, and real product monetization patterns.",
+      "implementedFeatures": [
+        "checkout flows",
+        "plan upgrades",
+        "subscription-aware backend logic",
+        "billing screens"
+      ],
+      "projectSlugs": [
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "nodemailer",
+      "name": "Nodemailer",
+      "category": "integration",
+      "summary": "Used for product communication flows such as reminders, resets, and email-driven actions.",
+      "experience": "Applied in job reminder and account-related flows where the product needed outbound email behavior.",
+      "implementedFeatures": [
+        "reminder emails",
+        "account-related messages",
+        "backend-triggered communication"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "jobpilot-ai",
+      "name": "JobPilot AI",
+      "label": "AI job tracker",
+      "summary": "A full-stack job application tracker with analytics, reminders, kanban workflow, and AI-assisted follow-up support.",
+      "description": "JobPilot AI was built around a real problem: keeping a job search organized once applications, reminders, follow-ups, and status changes start spreading across notes and tabs. The product brings those moving pieces into one focused dashboard.",
+      "challenge": "Turn job tracking into a workflow-driven product instead of a basic CRUD list, while still handling authentication, reminders, analytics, and AI assistance without making the interface feel noisy.",
+      "solution": "Structured the product around a clean dashboard, protected auth flows, kanban-based status movement, analytics views, and email reminder support so the experience feels useful beyond a demo.",
+      "palette": [
+        "#7c6df8",
+        "#65e4c8",
+        "#0f172a"
+      ],
+      "stack": [
+        "nextjs",
+        "reactjs",
+        "javascript",
+        "tailwindcss",
+        "nodejs",
+        "expressjs",
+        "mongodb",
+        "jwt",
+        "rest-apis",
+        "oauth",
+        "nodemailer",
+        "vercel",
+        "render"
+      ],
+      "highlights": [
+        "email and username based authentication",
+        "Google OAuth sign-in",
+        "kanban-style job workflow",
+        "AI follow-up message generation",
+        "analytics dashboard",
+        "email reminder system"
+      ],
+      "frontendDetails": [
+        "Next.js application structure for a dashboard-first product",
+        "Tailwind-driven responsive cards, tables, and kanban surfaces",
+        "theme-aware interface patterns for a calmer working experience"
+      ],
+      "backendDetails": [
+        "Express API for authentication, jobs, reminders, and analytics logic",
+        "MongoDB-backed persistence for users, jobs, and workflow data",
+        "JWT-based protected routes and email handling with Nodemailer"
+      ],
+      "architectureHighlights": [
+        "clear frontend and backend separation",
+        "workflow-oriented dashboard instead of simple form pages",
+        "deployment split across Vercel and Render"
+      ],
+      "deployment": {
+        "frontend": "Vercel",
+        "backend": "Render",
+        "database": "MongoDB Atlas"
+      },
+      "links": {
+        "live": "https://jobpilot-client-chi.vercel.app/",
+        "repository": "https://github.com/chauhandigvijay1/web-dev-journey/tree/main/JobPilot",
+        "api": "https://web-dev-journey-cnee.onrender.com"
+      },
+      "images": [
+        "/assets/projects/jobpilot-ai/dashboard.png",
+        "/assets/projects/jobpilot-ai/jobs.png",
+        "/assets/projects/jobpilot-ai/analytics.png"
+      ]
+    },
+    {
+      "slug": "dssynchub",
+      "name": "DsSyncHub",
+      "label": "team workspace saas",
+      "summary": "A production-style collaboration platform for tasks, notes, workspace flows, billing, and team-oriented productivity modules.",
+      "description": "DsSyncHub pushes beyond a single module app. It brings workspace structure, task handling, notes, billing, and team-ready product thinking into one SaaS-style build designed to feel broader and more realistic.",
+      "challenge": "Build a multi-module product without letting the interface or architecture become fragmented, while also handling auth, global state, billing, and a more scalable frontend structure.",
+      "solution": "Used a typed React client, Redux-backed state handling, and modular backend routes so each feature could grow independently while still feeling like one coherent product.",
+      "palette": [
+        "#4f46e5",
+        "#22c55e",
+        "#0f172a"
+      ],
+      "stack": [
+        "reactjs",
+        "typescript",
+        "tailwindcss",
+        "redux",
+        "nodejs",
+        "expressjs",
+        "mongodb",
+        "jwt",
+        "rest-apis",
+        "oauth",
+        "razorpay",
+        "nodemailer",
+        "vercel",
+        "render"
+      ],
+      "highlights": [
+        "workspace creation and management",
+        "task CRUD with status and priority flows",
+        "notes module",
+        "team chat-ready product structure",
+        "Razorpay billing integration",
+        "settings and profile management"
+      ],
+      "frontendDetails": [
+        "React and TypeScript client with a more scalable component structure",
+        "Redux Toolkit for shared auth and application state",
+        "Tailwind-based SaaS interface across dashboard, billing, notes, and task views"
+      ],
+      "backendDetails": [
+        "Express API for auth, workspace flows, tasks, notes, billing, and account logic",
+        "MongoDB and Mongoose for product entities and user state",
+        "JWT security, Google OAuth integration, and Nodemailer support"
+      ],
+      "architectureHighlights": [
+        "typed frontend structure for a broader product surface",
+        "module-oriented SaaS thinking instead of a single-feature app",
+        "public deployment split between Vercel and Render"
+      ],
+      "deployment": {
+        "frontend": "Vercel",
+        "backend": "Render",
+        "database": "MongoDB Atlas"
+      },
+      "links": {
+        "live": "https://dssync-hub-client.vercel.app",
+        "repository": "https://github.com/chauhandigvijay1/web-dev-journey/tree/main/Real-world-projects/DsSyncHub",
+        "api": "https://dssync-hub-api.onrender.com"
+      },
+      "images": [
+        "/assets/projects/dssynchub/homepage.png",
+        "/assets/projects/dssynchub/dashboard.png",
+        "/assets/projects/dssynchub/billing.png"
+      ]
+    },
+    {
+      "slug": "devflow-ai",
+      "name": "DevFlow AI",
+      "label": "AI chat saas",
+      "summary": "A full-stack AI chat product with usage limits, billing, settings, and subscription-aware user flows.",
+      "description": "DevFlow AI focuses on a cleaner SaaS interaction model where chat, limits, billing, and account controls sit inside one cohesive product. It is less about novelty and more about handling several product concerns together.",
+      "challenge": "Blend AI chat interaction, usage restrictions, authentication, and billing into a simple experience that still feels product-ready.",
+      "solution": "Built a full-stack flow around chat persistence, guarded free-plan limits, upgrade paths through Razorpay, and settings-oriented account management backed by a separate API service.",
+      "palette": [
+        "#14b8a6",
+        "#38bdf8",
+        "#111827"
+      ],
+      "stack": [
+        "nextjs",
+        "reactjs",
+        "javascript",
+        "tailwindcss",
+        "redux",
+        "nodejs",
+        "expressjs",
+        "mongodb",
+        "jwt",
+        "rest-apis",
+        "razorpay",
+        "netlify",
+        "render"
+      ],
+      "highlights": [
+        "AI chat flow",
+        "chat history persistence",
+        "daily usage limits for free plans",
+        "Razorpay billing and upgrades",
+        "user settings and plan details",
+        "responsive app-style interface"
+      ],
+      "frontendDetails": [
+        "Next.js frontend organized around chat, billing, and settings flows",
+        "Tailwind-based application UI with account-focused views",
+        "state management for user and plan-aware behavior"
+      ],
+      "backendDetails": [
+        "Express API for auth, chat persistence, usage checks, and billing logic",
+        "MongoDB-backed storage for user and subscription-related data",
+        "JWT-protected routes and payment integration through Razorpay"
+      ],
+      "architectureHighlights": [
+        "subscription-aware product flow",
+        "separate frontend and backend deployment model",
+        "AI interaction integrated into a broader SaaS structure"
+      ],
+      "deployment": {
+        "frontend": "Netlify",
+        "backend": "Render",
+        "database": "MongoDB Atlas"
+      },
+      "links": {
+        "live": "https://devflow-ai-client.netlify.app/",
+        "repository": "https://github.com/chauhandigvijay1/web-dev-journey/tree/main/Real-world-projects/devflow-ai",
+        "api": "https://devflow-api-ubnd.onrender.com"
+      },
+      "images": [
+        "/assets/projects/devflow-ai/chat.png",
+        "/assets/projects/devflow-ai/billing.png",
+        "/assets/projects/devflow-ai/settings.png"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "slug": "responsive-web-design",
+      "title": "Responsive Web Design",
+      "issuer": "freeCodeCamp",
+      "description": "Strengthened layout fundamentals, semantic structure, and responsive thinking that later carried into product UI work.",
+      "credentialUrl": "https://freecodecamp.org/certification/fcc-ac85199a-7052-48c8-a6ef-75176c20ef28/responsive-web-design",
+      "image": "/assets/certifications/responsive-web-design.png"
+    },
+    {
+      "slug": "generative-ai-introduction",
+      "title": "Generative AI: Introduction and Applications",
+      "issuer": "Coursera x IBM",
+      "description": "Helped connect product curiosity with practical AI-assisted workflows and modern tooling awareness.",
+      "credentialUrl": "https://coursera.org/verify/IZJG7CO1IKEL",
+      "image": "/assets/certifications/generative-ai-ibm.png"
+    },
+    {
+      "slug": "javascript-algorithms",
+      "title": "JavaScript Algorithms and Data Structures",
+      "issuer": "freeCodeCamp",
+      "description": "Reinforced core JavaScript problem-solving and laid groundwork for stronger frontend and backend logic.",
+      "credentialUrl": "https://www.freecodecamp.org/certification/fcc-ac85199a-7052-48c8-a6ef-75176c20ef28/javascript-algorithms-and-data-structures-v8",
+      "image": "/assets/certifications/javascript-algorithms.png"
+    }
+  ],
+  "contact": {
+    "heading": "Let us build something that feels finished.",
+    "description": "If you need a developer who likes taking a product from idea to deployed implementation, I am interested in roles and collaborations where engineering quality and user experience both matter.",
+    "email": "chauhandigvijay669@gmail.com",
+    "socials": [
+      {
+        "label": "github",
+        "href": "https://github.com/chauhandigvijay1"
+      },
+      {
+        "label": "linkedin",
+        "href": "https://www.linkedin.com/in/digvijaykumarsingh"
+      },
+      {
+        "label": "x",
+        "href": "https://x.com/DigvijaySi29958"
+      },
+      {
+        "label": "instagram",
+        "href": "https://www.instagram.com/chauhan_digvijay_/"
+      }
+    ]
+  }
+}

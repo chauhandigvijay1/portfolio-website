@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Digvijay portfolio icon">
+  <defs>
+    <linearGradient id="bg" x1="12" x2="116" y1="12" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7aa2ff"/>
+      <stop offset="1" stop-color="#65e0cd"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="36" fill="#0f172a"/>
+  <rect x="10" y="10" width="108" height="108" rx="30" fill="url(#bg)" opacity=".18"/>
+  <path fill="#f8fafc" d="M38 28h22c22.6 0 36 12.4 36 35.6 0 23.4-13.4 36.4-36.2 36.4H38V28Zm20.6 57.4c14 0 22.2-7.8 22.2-21.8 0-13.8-8.2-21.2-22.2-21.2H53.8v43h4.8Z"/>
+</svg>

@@ -1,0 +1,155 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-plus-jakarta-sans);
+  --font-heading: var(--font-manrope);
+  --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+  --radius-sm: calc(var(--radius) * 0.7);
+  --radius-md: calc(var(--radius) * 0.9);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.25);
+  --radius-2xl: calc(var(--radius) * 1.55);
+  --radius-3xl: calc(var(--radius) * 2);
+}
+
+:root {
+  --radius: 1.1rem;
+  --background: oklch(0.97 0.015 85);
+  --foreground: oklch(0.22 0.02 250);
+  --card: oklch(0.99 0.01 85 / 92%);
+  --card-foreground: oklch(0.22 0.02 250);
+  --popover: oklch(0.99 0.01 85 / 96%);
+  --popover-foreground: oklch(0.22 0.02 250);
+  --primary: oklch(0.23 0.03 252);
+  --primary-foreground: oklch(0.99 0.01 85);
+  --secondary: oklch(0.95 0.01 85);
+  --secondary-foreground: oklch(0.28 0.02 250);
+  --muted: oklch(0.95 0.012 85);
+  --muted-foreground: oklch(0.53 0.03 252);
+  --accent: oklch(0.95 0.014 219);
+  --accent-foreground: oklch(0.23 0.03 252);
+  --destructive: oklch(0.6 0.22 24);
+  --border: oklch(0.89 0.015 86);
+  --input: oklch(0.92 0.014 86 / 76%);
+  --ring: oklch(0.69 0.06 240);
+  --page-background: #f4efe7;
+  --page-panel: rgba(255, 255, 255, 0.82);
+  --page-elevated: rgba(255, 255, 255, 0.92);
+  --page-accent: #7aa2ff;
+  --page-accent-strong: #5f8df7;
+}
+
+.dark {
+  --background: oklch(0.16 0.018 258);
+  --foreground: oklch(0.96 0.01 85);
+  --card: oklch(0.2 0.018 258 / 84%);
+  --card-foreground: oklch(0.96 0.01 85);
+  --popover: oklch(0.2 0.018 258 / 94%);
+  --popover-foreground: oklch(0.96 0.01 85);
+  --primary: oklch(0.96 0.01 85);
+  --primary-foreground: oklch(0.16 0.018 258);
+  --secondary: oklch(0.24 0.018 258);
+  --secondary-foreground: oklch(0.96 0.01 85);
+  --muted: oklch(0.24 0.018 258);
+  --muted-foreground: oklch(0.78 0.01 85);
+  --accent: oklch(0.25 0.03 238);
+  --accent-foreground: oklch(0.96 0.01 85);
+  --destructive: oklch(0.68 0.22 24);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 7%);
+  --ring: oklch(0.74 0.06 240);
+  --page-background: #0d1118;
+  --page-panel: rgba(19, 26, 39, 0.74);
+  --page-elevated: rgba(22, 30, 46, 0.88);
+  --page-accent: #8bb6ff;
+  --page-accent-strong: #65e0cd;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--page-background);
+    color: var(--foreground);
+    min-height: 100vh;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), "Plus Jakarta Sans", "Helvetica Neue", sans-serif;
+    letter-spacing: -0.035em;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--page-accent) 22%, transparent);
+  }
+
+  section {
+    scroll-margin-top: 6rem;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--foreground) 16%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
