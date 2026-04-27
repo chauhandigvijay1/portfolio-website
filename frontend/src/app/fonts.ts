@@ -1,4 +1,5 @@
-import { Cutive_Mono, Cormorant_Garamond, Inter, Orbitron } from "next/font/google";
+import { Cutive_Mono, Inter } from "next/font/google";
+import localFont from "next/font/local";
 
 export const inter = Inter({
   variable: "--font-inter",
@@ -14,17 +15,14 @@ export const mono = Cutive_Mono({
   display: "swap",
 });
 
-export const display = Orbitron({
+export const display = localFont({
+  src: "../assets/fonts/nasalization.otf",
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-export const nameFont = Cormorant_Garamond({
+export const nameFont = localFont({
+  src: "../assets/fonts/quentin.otf",
   variable: "--font-name",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
   display: "swap",
 });

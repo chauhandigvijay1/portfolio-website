@@ -31,7 +31,7 @@ export function SectionHeading({
         <h2 className="type-section-title text-balance text-2xl leading-tight text-[hsl(var(--primary))] sm:text-3xl lg:text-[2.15rem]">
           {title}
         </h2>
-        <p className="text-pretty text-base leading-relaxed text-[hsl(var(--muted-foreground))] sm:text-lg">
+        <p className="text-pretty text-base leading-[1.8] text-[hsl(var(--foreground)/0.72)] sm:text-lg">
           {description}
         </p>
       </div>

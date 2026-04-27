@@ -26,6 +26,7 @@ export function GithubSection({ github }: GithubSectionProps) {
   return (
     <section id="github" className="section-pad">
       <div className="section-bridge" />
+      <div className="section-ambient" />
       <div className="mx-auto max-w-6xl space-y-12">
         <SectionReveal>
           <SectionHeading
@@ -47,22 +48,22 @@ export function GithubSection({ github }: GithubSectionProps) {
                   <div className="space-y-2">
                     <p className="type-section-eyebrow text-[var(--page-accent)]">@{github.user.login}</p>
                     <h3 className="font-sans text-2xl font-medium tracking-tight text-white">Public build trail</h3>
-                    <p className="text-sm leading-relaxed text-[var(--muted-foreground)] sm:text-base">
-                      I use GitHub to document product work, keep repositories public, and make the implementation side of
-                      my projects easy to inspect.
+                    <p className="text-sm leading-[1.8] text-[hsl(var(--foreground)/0.7)] sm:text-base">
+                      I use GitHub to document product work, keep repositories public, and make the implementation
+                      side of my projects easy to inspect.
                     </p>
                   </div>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-5">
-                    <p className="type-section-eyebrow text-[var(--muted-foreground)]">Repos</p>
+                  <div className="rounded-[1.35rem] border border-white/8 bg-white/[0.035] px-5 py-5">
+                    <p className="type-section-eyebrow text-[hsl(var(--foreground)/0.48)]">Repos</p>
                     <p className="mt-3 font-sans text-3xl font-medium tracking-tight text-white">
                       {github.user.publicRepos}
                     </p>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-5">
-                    <p className="type-section-eyebrow text-[var(--muted-foreground)]">Recent updates</p>
+                  <div className="rounded-[1.35rem] border border-white/8 bg-white/[0.035] px-5 py-5">
+                    <p className="type-section-eyebrow text-[hsl(var(--foreground)/0.48)]">Recent updates</p>
                     <p className="mt-3 font-sans text-3xl font-medium tracking-tight text-white">
                       {github.recentEvents.length}
                     </p>
@@ -73,7 +74,7 @@ export function GithubSection({ github }: GithubSectionProps) {
                   href={github.user.profileUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-sm tracking-wide text-white/90 transition hover:text-[var(--page-accent)]"
+                  className="inline-flex items-center gap-2 text-sm tracking-[0.12em] text-white/90 transition hover:text-[var(--page-accent)]"
                 >
                   Open GitHub profile
                   <ArrowUpRight className="size-4" />
@@ -98,25 +99,25 @@ export function GithubSection({ github }: GithubSectionProps) {
                         href={repo.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="group rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]"
+                        className="group rounded-[1.35rem] border border-white/8 bg-white/[0.035] px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-white/18 hover:bg-white/[0.06]"
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div>
                             <p className="font-medium tracking-tight text-white">{repo.name}</p>
-                            <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                            <p className="mt-2 line-clamp-3 text-sm leading-[1.7] text-[hsl(var(--foreground)/0.68)]">
                               {repo.description || "Public repository"}
                             </p>
                           </div>
-                          <ArrowUpRight className="mt-1 size-4 shrink-0 text-[var(--muted-foreground)] transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          <ArrowUpRight className="mt-1 size-4 shrink-0 text-[hsl(var(--foreground)/0.44)] transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                         </div>
-                        <div className="mt-4 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+                        <div className="mt-4 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-[hsl(var(--foreground)/0.46)]">
                           <span>{repo.language || "Mixed"}</span>
                           <span>Updated {formatDate(repo.updatedAt)}</span>
                         </div>
                       </a>
                     ))
                   ) : (
-                    <div className="rounded-2xl border border-dashed border-white/15 bg-white/[0.02] px-4 py-6 text-sm leading-relaxed text-[var(--muted-foreground)] sm:col-span-2">
+                    <div className="rounded-[1.35rem] border border-dashed border-white/12 bg-white/[0.02] px-4 py-6 text-sm leading-relaxed text-[hsl(var(--foreground)/0.64)] sm:col-span-2">
                       Repository data will appear here when GitHub is reachable.
                     </div>
                   )}
@@ -136,14 +137,14 @@ export function GithubSection({ github }: GithubSectionProps) {
                     {github.recentEvents.slice(0, 4).map((event) => (
                       <div
                         key={event.id}
-                        className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4"
+                        className="rounded-[1.35rem] border border-white/8 bg-white/[0.035] px-4 py-4"
                       >
                         <div className="flex items-start justify-between gap-4">
                           <div>
                             <p className="text-sm font-medium tracking-tight text-white">{event.action}</p>
-                            <p className="mt-1 text-sm text-[var(--muted-foreground)]">{event.repo}</p>
+                            <p className="mt-1 text-sm text-[hsl(var(--foreground)/0.64)]">{event.repo}</p>
                           </div>
-                          <p className="type-section-eyebrow text-[var(--muted-foreground)]">
+                          <p className="type-section-eyebrow text-[hsl(var(--foreground)/0.44)]">
                             {formatDate(event.createdAt)}
                           </p>
                         </div>

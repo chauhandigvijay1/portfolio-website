@@ -30,7 +30,7 @@ export function ProjectDialog({
     <Dialog open={Boolean(project)} onOpenChange={onOpenChange}>
       <DialogContent
         showCloseButton
-        className="max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-[var(--page-panel)] p-0 text-[var(--foreground)] shadow-[0_30px_120px_rgba(15,23,42,0.32)]"
+        className="max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(18,14,32,0.88),rgba(12,9,24,0.8))] p-0 text-[var(--foreground)] shadow-[0_30px_120px_rgba(15,23,42,0.32)] backdrop-blur-2xl"
       >
         {project ? (
           <ScrollArea className="max-h-[88vh]">
@@ -55,7 +55,7 @@ export function ProjectDialog({
                     href={project.links.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-[var(--foreground)] px-5 py-2.5 text-sm font-medium lowercase text-[var(--background)] shadow-[0_16px_40px_rgba(15,23,42,0.18)] transition hover:translate-y-[-1px] hover:bg-[var(--foreground)]/90"
+                    className="btn-primary-soft inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium lowercase"
                   >
                     live demo
                     <ArrowUpRight className="size-4" />
@@ -64,7 +64,7 @@ export function ProjectDialog({
                     href={project.links.repository}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/14 bg-transparent px-5 py-2.5 text-sm font-medium lowercase text-[var(--foreground)] transition hover:bg-white/6"
+                    className="btn-glass inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium lowercase"
                   >
                     source code
                     <Link2 className="size-4" />
@@ -76,7 +76,7 @@ export function ProjectDialog({
                 {project.images.map((image, index) => (
                   <div
                     key={image}
-                    className="overflow-hidden rounded-[1.75rem] border border-black/8 bg-[var(--page-elevated)] p-2 shadow-[0_14px_50px_rgba(15,23,42,0.08)] dark:border-white/10"
+                    className="overflow-hidden rounded-[1.75rem] border border-white/8 bg-white/[0.04] p-2 shadow-[0_14px_50px_rgba(15,23,42,0.08)]"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden rounded-[1.25rem]">
                       <Image
@@ -115,7 +115,7 @@ export function ProjectDialog({
                       {project.highlights.map((highlight) => (
                         <div
                           key={highlight}
-                          className="rounded-[1.4rem] border border-black/8 bg-white/65 px-4 py-4 text-sm lowercase text-[var(--foreground)] shadow-[0_14px_40px_rgba(15,23,42,0.05)] dark:border-white/10 dark:bg-white/6"
+                          className="rounded-[1.4rem] border border-white/8 bg-white/[0.05] px-4 py-4 text-sm lowercase text-[var(--foreground)] shadow-[0_14px_40px_rgba(15,23,42,0.05)]"
                         >
                           {highlight}
                         </div>
@@ -125,7 +125,7 @@ export function ProjectDialog({
                 </div>
 
                 <div className="space-y-6">
-                  <section className="rounded-[1.75rem] border border-black/8 bg-white/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-white/6">
+                  <section className="rounded-[1.75rem] border border-white/8 bg-white/[0.05] p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
                     <p className="mb-4 text-xs font-medium lowercase tracking-[0.28em] text-[var(--muted-foreground)]">
                       stack
                     </p>
@@ -133,7 +133,7 @@ export function ProjectDialog({
                       {project.stack.map((slug) => (
                         <Badge
                           key={slug}
-                          className="rounded-full border border-black/8 bg-[var(--page-background)] px-3 py-1 lowercase text-[var(--foreground)] dark:border-white/10"
+                          className="rounded-full border border-white/8 bg-white/[0.04] px-3 py-1 lowercase text-[var(--foreground)]"
                         >
                           {techMap.get(slug) ?? slug}
                         </Badge>
@@ -141,7 +141,7 @@ export function ProjectDialog({
                     </div>
                   </section>
 
-                  <section className="rounded-[1.75rem] border border-black/8 bg-white/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-white/6">
+                  <section className="rounded-[1.75rem] border border-white/8 bg-white/[0.05] p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
                     <p className="mb-4 text-xs font-medium lowercase tracking-[0.28em] text-[var(--muted-foreground)]">
                       frontend
                     </p>
@@ -152,7 +152,7 @@ export function ProjectDialog({
                     </ul>
                   </section>
 
-                  <section className="rounded-[1.75rem] border border-black/8 bg-white/70 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-white/6">
+                  <section className="rounded-[1.75rem] border border-white/8 bg-white/[0.05] p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
                     <p className="mb-4 text-xs font-medium lowercase tracking-[0.28em] text-[var(--muted-foreground)]">
                       backend
                     </p>

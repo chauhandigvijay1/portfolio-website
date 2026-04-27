@@ -55,7 +55,7 @@ export function ContactSection({ profile, contact, certifications }: ContactSect
                   <MapPin className="mt-0.5 size-4 shrink-0 text-[var(--page-accent)]" aria-hidden />
                   <span>{locationLine}</span>
                 </div>
-                <p className="mt-6 text-sm leading-relaxed text-[var(--muted-foreground)]">{profile.availability}</p>
+                <p className="mt-6 text-sm leading-[1.8] text-[hsl(var(--foreground)/0.66)]">{profile.availability}</p>
 
                 <div className="mt-8 flex flex-wrap gap-2">
                   {contact.socials.map((social) => (
@@ -64,7 +64,7 @@ export function ContactSection({ profile, contact, certifications }: ContactSect
                       href={social.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-xs uppercase tracking-[0.18em] text-white/80 transition hover:border-white/25 hover:bg-white/[0.08]"
+                      className="btn-glass rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-white/80"
                     >
                       {social.label}
                     </a>
@@ -93,7 +93,7 @@ export function ContactSection({ profile, contact, certifications }: ContactSect
                         <p className="mt-1 text-xs uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
                           {certification.issuer}
                         </p>
-                        <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                        <p className="mt-2 text-sm leading-[1.75] text-[hsl(var(--foreground)/0.66)]">
                           {certification.description}
                         </p>
                       </div>

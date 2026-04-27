@@ -12,15 +12,30 @@ interface CursorColorRevealProps {
   priority?: boolean;
 }
 
-const REVEAL_RADIUS = 140;
-const LERP = 0.16;
+const LERP = 0.14;
+const TILT_RANGE = 6;
 
-function applyMask(el: HTMLDivElement, x: number, y: number, active: number) {
-  const radius = REVEAL_RADIUS * active;
-  const mask = `radial-gradient(circle ${radius}px at ${x * 100}% ${y * 100}%, black 0%, rgba(0,0,0,0.88) 38%, transparent 72%)`;
-  el.style.opacity = active > 0.02 ? "1" : "0";
-  el.style.webkitMaskImage = mask;
-  el.style.maskImage = mask;
+interface MotionState {
+  active: number;
+  tiltX: number;
+  tiltY: number;
+  x: number;
+  y: number;
+}
+
+function applyFrame(
+  container: HTMLDivElement,
+  colorLayer: HTMLDivElement,
+  glowLayer: HTMLDivElement,
+  state: MotionState,
+) {
+  const scale = 1 + state.active * 0.015;
+
+  container.style.transform = `perspective(1200px) rotateX(${state.tiltX}deg) rotateY(${state.tiltY}deg) scale(${scale})`;
+  colorLayer.style.opacity = `${0.08 + state.active * 0.88}`;
+  colorLayer.style.filter = `saturate(${1 + state.active * 0.14}) contrast(${1 + state.active * 0.04})`;
+  glowLayer.style.opacity = `${state.active * 0.92}`;
+  glowLayer.style.background = `radial-gradient(circle at ${state.x * 100}% ${state.y * 100}%, rgba(255,255,255,0.18) 0%, rgba(174,122,255,0.14) 16%, rgba(91,33,182,0.05) 42%, transparent 68%)`;
 }
 
 export function CursorColorReveal({
@@ -32,32 +47,61 @@ export function CursorColorReveal({
 }: CursorColorRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const colorLayerRef = useRef<HTMLDivElement>(null);
+  const glowLayerRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
-  const targetRef = useRef({ x: 0.5, y: 0.5, active: 0 });
-  const currentRef = useRef({ x: 0.5, y: 0.5, active: 0 });
+  const targetRef = useRef<MotionState>({
+    active: 0,
+    tiltX: 0,
+    tiltY: 0,
+    x: 0.5,
+    y: 0.5,
+  });
+  const currentRef = useRef<MotionState>({
+    active: 0,
+    tiltX: 0,
+    tiltY: 0,
+    x: 0.5,
+    y: 0.5,
+  });
 
   useEffect(() => {
-    const layer = colorLayerRef.current;
-    if (layer) {
-      applyMask(layer, 0.5, 0.5, 0);
+    const container = containerRef.current;
+    const colorLayer = colorLayerRef.current;
+    const glowLayer = glowLayerRef.current;
+
+    if (!container || !colorLayer || !glowLayer) {
+      return;
     }
 
+    applyFrame(container, colorLayer, glowLayer, currentRef.current);
+
     const runTick = () => {
-      const colorLayer = colorLayerRef.current;
-      if (!colorLayer) return;
+      const nextContainer = containerRef.current;
+      const nextColorLayer = colorLayerRef.current;
+      const nextGlowLayer = glowLayerRef.current;
 
-      const cur = currentRef.current;
-      const tgt = targetRef.current;
-      cur.x += (tgt.x - cur.x) * LERP;
-      cur.y += (tgt.y - cur.y) * LERP;
-      cur.active += (tgt.active - cur.active) * LERP;
+      if (!nextContainer || !nextColorLayer || !nextGlowLayer) {
+        frameRef.current = null;
+        return;
+      }
 
-      applyMask(colorLayer, cur.x, cur.y, cur.active);
+      const current = currentRef.current;
+      const target = targetRef.current;
+
+      current.x += (target.x - current.x) * LERP;
+      current.y += (target.y - current.y) * LERP;
+      current.active += (target.active - current.active) * LERP;
+      current.tiltX += (target.tiltX - current.tiltX) * LERP;
+      current.tiltY += (target.tiltY - current.tiltY) * LERP;
+
+      applyFrame(nextContainer, nextColorLayer, nextGlowLayer, current);
 
       const settling =
-        Math.abs(tgt.x - cur.x) > 0.001 ||
-        Math.abs(tgt.y - cur.y) > 0.001 ||
-        Math.abs(tgt.active - cur.active) > 0.008;
+        Math.abs(target.x - current.x) > 0.001 ||
+        Math.abs(target.y - current.y) > 0.001 ||
+        Math.abs(target.active - current.active) > 0.008 ||
+        Math.abs(target.tiltX - current.tiltX) > 0.02 ||
+        Math.abs(target.tiltY - current.tiltY) > 0.02;
 
       if (settling) {
         frameRef.current = requestAnimationFrame(runTick);
@@ -72,31 +116,38 @@ export function CursorColorReveal({
       }
     };
 
-    const container = containerRef.current;
-    if (!container) return;
-
-    const onEnter = (e: PointerEvent) => {
+    const updateTarget = (event: PointerEvent, active: number) => {
       const rect = container.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+
       targetRef.current = {
-        x: (e.clientX - rect.left) / rect.width,
-        y: (e.clientY - rect.top) / rect.height,
-        active: 1,
+        active,
+        x,
+        y,
+        tiltX: (0.5 - y) * TILT_RANGE,
+        tiltY: (x - 0.5) * TILT_RANGE,
       };
+    };
+
+    const onEnter = (event: PointerEvent) => {
+      updateTarget(event, 1);
       scheduleTick();
     };
 
-    const onMove = (e: PointerEvent) => {
-      const rect = container.getBoundingClientRect();
-      targetRef.current = {
-        x: (e.clientX - rect.left) / rect.width,
-        y: (e.clientY - rect.top) / rect.height,
-        active: 1,
-      };
+    const onMove = (event: PointerEvent) => {
+      updateTarget(event, 1);
       scheduleTick();
     };
 
     const onLeave = () => {
-      targetRef.current = { ...targetRef.current, active: 0 };
+      targetRef.current = {
+        active: 0,
+        x: 0.5,
+        y: 0.5,
+        tiltX: 0,
+        tiltY: 0,
+      };
       scheduleTick();
     };
 
@@ -108,6 +159,7 @@ export function CursorColorReveal({
       container.removeEventListener("pointerenter", onEnter);
       container.removeEventListener("pointermove", onMove);
       container.removeEventListener("pointerleave", onLeave);
+
       if (frameRef.current !== null) {
         cancelAnimationFrame(frameRef.current);
       }
@@ -115,18 +167,23 @@ export function CursorColorReveal({
   }, []);
 
   return (
-    <div ref={containerRef} className={cn("relative overflow-hidden", className)}>
+    <div
+      ref={containerRef}
+      className={cn("relative overflow-hidden transition-transform duration-500 [transform-style:preserve-3d]", className)}
+    >
       <Image
         src={src}
         alt={alt}
         fill
         priority={priority}
-        className="object-cover object-top grayscale contrast-[1.04] brightness-[0.9]"
+        className="object-cover object-top grayscale contrast-[1.06] brightness-[0.9]"
         sizes={sizes}
       />
-      <div ref={colorLayerRef} className="pointer-events-none absolute inset-0 will-change-[mask-image,opacity]">
+      <div ref={colorLayerRef} className="pointer-events-none absolute inset-0 opacity-[0.08] will-change-[opacity,filter]">
         <Image src={src} alt="" aria-hidden fill className="object-cover object-top" sizes={sizes} />
       </div>
+      <div ref={glowLayerRef} className="pointer-events-none absolute inset-0 opacity-0 mix-blend-screen will-change-[background,opacity]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_22%,rgba(5,3,12,0.14)_100%)]" />
     </div>
   );
 }

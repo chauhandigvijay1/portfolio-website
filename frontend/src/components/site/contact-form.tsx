@@ -79,7 +79,7 @@ export function ContactForm() {
           <Input
             {...register("name")}
             placeholder="Digvijay Kumar Singh"
-            className="h-12 rounded-2xl border-white/12 bg-white/[0.05] px-4 text-white shadow-none placeholder:text-white/40"
+            className="h-11 rounded-[1.35rem] border-white/10 bg-white/[0.035] px-4 text-white shadow-none placeholder:text-white/36 focus-visible:border-white/18"
           />
           {errors.name ? (
             <span className="text-xs lowercase text-rose-500">{errors.name.message}</span>
@@ -93,7 +93,7 @@ export function ContactForm() {
           <Input
             {...register("email")}
             placeholder="you@example.com"
-            className="h-12 rounded-2xl border-white/12 bg-white/[0.05] px-4 text-white shadow-none placeholder:text-white/40"
+            className="h-11 rounded-[1.35rem] border-white/10 bg-white/[0.035] px-4 text-white shadow-none placeholder:text-white/36 focus-visible:border-white/18"
           />
           {errors.email ? (
             <span className="text-xs lowercase text-rose-500">{errors.email.message}</span>
@@ -109,7 +109,7 @@ export function ContactForm() {
           <Input
             {...register("company")}
             placeholder="optional"
-            className="h-12 rounded-2xl border-white/12 bg-white/[0.05] px-4 text-white shadow-none placeholder:text-white/40"
+            className="h-11 rounded-[1.35rem] border-white/10 bg-white/[0.035] px-4 text-white shadow-none placeholder:text-white/36 focus-visible:border-white/18"
           />
         </label>
 
@@ -120,7 +120,7 @@ export function ContactForm() {
           <Input
             {...register("subject")}
             placeholder="project inquiry"
-            className="h-12 rounded-2xl border-white/12 bg-white/[0.05] px-4 text-white shadow-none placeholder:text-white/40"
+            className="h-11 rounded-[1.35rem] border-white/10 bg-white/[0.035] px-4 text-white shadow-none placeholder:text-white/36 focus-visible:border-white/18"
           />
           {errors.subject ? (
             <span className="text-xs lowercase text-rose-500">{errors.subject.message}</span>
@@ -133,7 +133,7 @@ export function ContactForm() {
         <Textarea
           {...register("message")}
           placeholder="share the product, role, or collaboration you have in mind"
-          className="min-h-36 rounded-[1.5rem] border-white/12 bg-white/[0.05] px-4 py-4 text-white shadow-none placeholder:text-white/40"
+          className="min-h-36 rounded-[1.55rem] border-white/10 bg-white/[0.035] px-4 py-4 text-white shadow-none placeholder:text-white/36 focus-visible:border-white/18"
         />
         {errors.message ? (
           <span className="text-xs lowercase text-rose-500">{errors.message.message}</span>
@@ -143,7 +143,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="h-12 rounded-full bg-white px-8 text-[11px] font-medium uppercase tracking-[0.2em] text-[#0a0612] shadow-none transition hover:bg-white/90"
+        className="btn-primary-soft h-11 rounded-full px-7 text-[11px] font-medium uppercase tracking-[0.2em]"
       >
         {isSubmitting ? (
           <>

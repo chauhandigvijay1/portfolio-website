@@ -1,9 +1,9 @@
 "use client";
 
-import { MapPin } from "lucide-react";
-import { CursorColorReveal } from "@/components/site/cursor-color-reveal";
-import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { MapPin } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { CursorColorReveal } from "@/components/site/cursor-color-reveal";
 import { display } from "@/app/fonts";
 import type { Profile } from "@/types/portfolio";
 import { easePremium } from "@/lib/motion";
@@ -36,7 +36,7 @@ const itemVariants = {
 export function AboutSection({ profile }: AboutSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const locationLine = `${profile.education.institution} · ${profile.education.duration}`;
+  const locationLine = `${profile.education.institution} - ${profile.education.duration}`;
 
   return (
     <section id="about" className="section-pad">
@@ -59,26 +59,27 @@ export function AboutSection({ profile }: AboutSectionProps) {
             {profile.journey.map((paragraph) => (
               <p
                 key={paragraph}
-                className="text-pretty text-base leading-[1.85] text-[hsl(var(--muted-foreground))] sm:text-lg"
+                className="text-pretty text-base leading-[1.88] text-[hsl(var(--foreground)/0.74)] sm:text-lg"
               >
                 {paragraph}
               </p>
             ))}
           </div>
 
-          <div className="mt-8 flex items-start gap-3 text-sm text-[hsl(var(--muted-foreground))]">
+          <div className="mt-8 flex items-start gap-3 text-sm text-[hsl(var(--foreground)/0.66)]">
             <MapPin className="mt-0.5 size-4 shrink-0 text-[hsl(var(--secondary))]" aria-hidden />
             <span>{locationLine}</span>
           </div>
         </motion.div>
 
         <motion.div variants={itemVariants} className="order-1 lg:order-2">
-          <div className="glass-card relative mx-auto max-w-md overflow-hidden rounded-2xl p-2 lg:mx-0 lg:max-w-none">
+          <div className="glass-card relative mx-auto max-w-md overflow-hidden rounded-[1.85rem] p-2.5 shadow-[0_22px_80px_rgba(9,6,24,0.18)] lg:mx-0 lg:max-w-none">
+            <div className="pointer-events-none absolute inset-[1px] rounded-[1.75rem] ring-1 ring-inset ring-white/6" />
             <CursorColorReveal
               src={profile.headshot}
               alt={`${profile.preferredName} portrait`}
               sizes="(max-width: 1024px) 100vw, 44vw"
-              className="aspect-[4/5] rounded-xl"
+              className="aspect-[4/5] rounded-[1.4rem]"
             />
           </div>
         </motion.div>
