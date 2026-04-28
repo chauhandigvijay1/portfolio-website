@@ -13,6 +13,11 @@ const app = express();
 
 app.set("trust proxy", 1);
 
+app.use((request, response, next) => {
+  logger.info({ method: request.method, path: request.path }, "Incoming request");
+  next();
+});
+
 app.use(
   pinoHttp({
     logger

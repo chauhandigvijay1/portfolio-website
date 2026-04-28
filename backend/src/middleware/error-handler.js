@@ -1,7 +1,10 @@
 const { ZodError } = require("zod");
 const { AppError } = require("../utils/app-error");
+const { logger } = require("../config/logger");
 
 function errorHandler(error, request, response, next) {
+  logger.error({ err: error, path: request.path, method: request.method }, "Error in handler");
+
   if (response.headersSent) {
     return next(error);
   }

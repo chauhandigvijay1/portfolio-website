@@ -12,40 +12,48 @@ const escapeHtml = (value) =>
 
 async function createTransporter() {
   if (!env.smtpHost || !env.smtpUser || !env.smtpPass) {
+    logger.info("SMTP credentials not configured, email delivery will be skipped");
     return null;
   }
 
-  const transporter = nodemailer.createTransport({
-    host: env.smtpHost,
-    port: env.smtpPort,
-    secure: env.smtpSecure,
-    auth: {
-      user: env.smtpUser,
-      pass: env.smtpPass
-    }
-  });
+  try {
+    const transporter = nodemailer.createTransport({
+      host: env.smtpHost,
+      port: env.smtpPort,
+      secure: env.smtpSecure,
+      auth: {
+        user: env.smtpUser,
+        pass: env.smtpPass
+      }
+    });
 
-  await transporter.verify();
-  return transporter;
+    await transporter.verify();
+    logger.info("SMTP transporter verified successfully");
+    return transporter;
+  } catch (error) {
+    logger.error({ err: error }, "Failed to create/verify SMTP transporter");
+    return null;
+  }
 }
 
 async function sendContactEmail(payload) {
-  const transporter = await createTransporter();
+  try {
+    const transporter = await createTransporter();
 
-  if (!transporter) {
-    logger.warn(
-      { email: payload.email },
-      "SMTP credentials are missing. Contact email delivery was skipped."
-    );
+    if (!transporter) {
+      logger.warn(
+        { email: payload.email },
+        "SMTP credentials are missing. Contact email delivery was skipped."
+      );
 
-    return {
-      delivered: false,
-      skipped: true
-    };
-  }
+      return {
+        delivered: false,
+        skipped: true
+      };
+    }
 
-  const subject = `[Portfolio] ${payload.subject}`;
-  const html = `
+    const subject = `[Portfolio] ${payload.subject}`;
+    const html = `
     <div style="font-family: Inter, Arial, sans-serif; line-height: 1.6; color: #111827;">
       <h2 style="margin-bottom: 16px;">New portfolio inquiry</h2>
       <p><strong>Name:</strong> ${escapeHtml(payload.name)}</p>
@@ -57,32 +65,39 @@ async function sendContactEmail(payload) {
     </div>
   `;
 
-  const text = [
-    "New portfolio inquiry",
-    `Name: ${payload.name}`,
-    `Email: ${payload.email}`,
-    `Company: ${payload.company || "Not provided"}`,
-    `Subject: ${payload.subject}`,
-    "Message:",
-    payload.message
-  ].join("\n");
+    const text = [
+      "New portfolio inquiry",
+      `Name: ${payload.name}`,
+      `Email: ${payload.email}`,
+      `Company: ${payload.company || "Not provided"}`,
+      `Subject: ${payload.subject}`,
+      "Message:",
+      payload.message
+    ].join("\n");
 
-  const info = await transporter.sendMail({
-    from: env.mailFrom || env.smtpUser,
-    to: env.mailTo,
-    replyTo: payload.email,
-    subject,
-    html,
-    text
-  });
+    const info = await transporter.sendMail({
+      from: env.mailFrom || env.smtpUser,
+      to: env.mailTo,
+      replyTo: payload.email,
+      subject,
+      html,
+      text
+    });
 
-  logger.info({ messageId: info.messageId }, "Portfolio contact email delivered.");
+    logger.info({ messageId: info.messageId }, "Portfolio contact email delivered.");
 
-  return {
-    delivered: true,
-    skipped: false,
-    messageId: info.messageId
-  };
+    return {
+      delivered: true,
+      skipped: false,
+      messageId: info.messageId
+    };
+  } catch (error) {
+    logger.error({ err: error }, "Failed to send contact email");
+    return {
+      delivered: false,
+      skipped: false
+    };
+  }
 }
 
 module.exports = {

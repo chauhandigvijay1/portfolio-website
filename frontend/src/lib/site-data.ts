@@ -26,16 +26,19 @@ export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:30
 
 async function fetchJson<T>(pathname: string, fallback: T, revalidate = 3600): Promise<T> {
   try {
-    const response = await fetch(`${apiBaseUrl}${pathname}`, {
+    const url = `${apiBaseUrl}${pathname}`;
+    const response = await fetch(url, {
       next: { revalidate },
     });
 
     if (!response.ok) {
+      console.error(`API request failed: ${url} - Status: ${response.status}`);
       throw new Error(`Failed to fetch ${pathname}: ${response.status}`);
     }
 
     return (await response.json()) as T;
-  } catch {
+  } catch (error) {
+    console.error(`Error fetching ${pathname}:`, error);
     return fallback;
   }
 }
@@ -46,10 +49,10 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
 
 export async function getGithubSummary(): Promise<GithubSummary> {
   return fetchJson<GithubSummary>(
-  `${process.env.NEXT_PUBLIC_API_URL}/api/github/summary`,
-  defaultGithubSummary,
-  1800
-);
+    "/api/github/summary",
+    defaultGithubSummary,
+    1800
+  );
 }
 
 export { portfolioFallback };

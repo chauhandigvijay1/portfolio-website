@@ -3,6 +3,7 @@ const { z } = require("zod");
 const { validate } = require("../middleware/validate");
 const { asyncHandler } = require("../utils/async-handler");
 const { submitContactMessage } = require("../services/contact.service");
+const { logger } = require("../config/logger");
 
 const router = express.Router();
 
@@ -16,12 +17,19 @@ const contactSchema = z.object({
 
 router.post(
   "/",
+  (request, response, next) => {
+    logger.info({ method: request.method, path: request.path }, "Contact POST route matched");
+    next();
+  },
   validate(contactSchema),
   asyncHandler(async (request, response) => {
+    logger.info("Contact form handler started");
     const result = await submitContactMessage(request.body, {
       userAgent: request.get("user-agent"),
       source: "portfolio-contact-form"
     });
+
+    logger.info({ stored: result.stored, delivered: result.delivery.delivered }, "Contact message processed");
 
     response.status(201).json({
       message: result.delivery.skipped

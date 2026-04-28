@@ -42,22 +42,29 @@ export function ContactForm() {
   });
 
   const onSubmit = async (values: ContactFormValues) => {
-    const response = await fetch(`${apiBaseUrl}/api/contact`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    });
+    const url = `${apiBaseUrl}/api/contact`;
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
 
-    const payload = (await response.json()) as { message?: string };
+      const payload = (await response.json()) as { message?: string };
 
-    if (!response.ok) {
-      throw new Error(payload.message || "Unable to send message right now.");
+      if (!response.ok) {
+        console.error(`Contact form submission failed: ${url} - Status: ${response.status}`, payload);
+        throw new Error(payload.message || "Unable to send message right now.");
+      }
+
+      toast.success(payload.message || "Message sent.");
+      reset();
+    } catch (error) {
+      console.error(`Error submitting contact form to ${url}:`, error);
+      throw error;
     }
-
-    toast.success(payload.message || "Message sent.");
-    reset();
   };
 
   return (
