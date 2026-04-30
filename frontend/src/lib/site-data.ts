@@ -45,7 +45,11 @@ export async function getPortfolioContent(): Promise<PortfolioContent> {
 }
 
 export async function getGithubSummary(): Promise<GithubSummary> {
-  return fetchJson<GithubSummary>("/api/github/summary", defaultGithubSummary, 1800);
+  return fetchJson<GithubSummary>(
+  `${process.env.NEXT_PUBLIC_API_URL}/api/github/summary`,
+  defaultGithubSummary,
+  1800
+);
 }
 
 export { portfolioFallback };
