@@ -1,8 +1,20 @@
 # Digvijay Portfolio
 
-Premium full-stack portfolio rebuilt as a production-style monorepo with a dedicated `frontend/` and `backend/`.
+![Next JS](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Node JS](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express JS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
+![Render](https://img.shields.io/badge/Render-430098?style=for-the-badge&logo=render&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
-The old static HTML portfolio has been replaced with:
+Premium full-stack portfolio rebuilt as a production-style monorepo.
+
 
 - `frontend/`: Next.js App Router, React, TypeScript, Tailwind CSS, Framer Motion, GSAP, Zustand, shadcn/ui
 - `backend/`: Express.js, MongoDB-ready content system, GitHub integration, Nodemailer contact API
@@ -10,11 +22,11 @@ The old static HTML portfolio has been replaced with:
 
 ## Live References
 
-- Current portfolio: `https://dsc-portfolio-website.netlify.app/`
-- GitHub: `https://github.com/chauhandigvijay1`
-- Main repository: `https://github.com/chauhandigvijay1/web-dev-journey`
+- Current portfolio: [https://dsc-portfolio-website.netlify.app/](https://dsc-portfolio-website.netlify.app/)
+- GitHub: [https://github.com/chauhandigvijay1](https://github.com/chauhandigvijay1)
+- Main repository: [https://github.com/chauhandigvijay1/web-dev-journey](https://github.com/chauhandigvijay1/web-dev-journey)
 
-## What is Included
+## Features
 
 - Cinematic hero section with rotating roles and subtle GSAP motion
 - Editorial about section with education, journey, and interactive timeline
