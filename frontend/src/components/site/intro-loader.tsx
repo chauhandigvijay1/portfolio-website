@@ -3,11 +3,18 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Profile } from "@/types/portfolio";
+import { display, mono, nameFont } from "@/app/fonts";
+import { AtmosphericBackground } from "@/components/site/atmospheric-background";
+import { DigvijayLogo } from "@/components/site/digvijay-logo";
+import { easePremium } from "@/lib/motion";
+import { cn } from "@/lib/utils";
 
 interface IntroLoaderProps {
   profile: Profile;
   onComplete: () => void;
 }
+
+const INTRO_HOLD_MS = 2800;
 
 function splitDisplayName(fullName: string, preferred: string) {
   const trimmed = fullName.trim();
@@ -18,9 +25,20 @@ function splitDisplayName(fullName: string, preferred: string) {
   if (parts.length === 1) {
     return { first: parts[0] ?? preferred, rest: "" };
   }
-  const first = parts[0] ?? preferred;
-  const rest = parts.slice(1).join(" ");
-  return { first, rest };
+  return { first: parts[0] ?? preferred, rest: parts.slice(1).join(" ") };
+}
+
+function NamePart({ name, yInitial }: { name: string; yInitial: number }) {
+  return (
+    <motion.h1
+      className={cn(display.className, "text-4xl tracking-[0.14em] text-slate-200/95 sm:text-5xl md:text-6xl")}
+      initial={{ y: yInitial, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7, ease: easePremium }}
+    >
+      {name}
+    </motion.h1>
+  );
 }
 
 export function IntroLoader({ profile, onComplete }: IntroLoaderProps) {
@@ -31,77 +49,80 @@ export function IntroLoader({ profile, onComplete }: IntroLoaderProps) {
   );
 
   useEffect(() => {
-    const totalMs = 2400;
-    const id = window.setTimeout(() => {
-      setVisible(false);
-    }, totalMs);
-    return () => window.clearTimeout(id);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const holdTimer = window.setTimeout(() => setVisible(false), INTRO_HOLD_MS);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.clearTimeout(holdTimer);
+    };
   }, []);
 
   return (
-    <AnimatePresence
-      onExitComplete={() => {
-        onComplete();
-      }}
-    >
+    <AnimatePresence onExitComplete={onComplete}>
       {visible ? (
         <motion.div
           key="intro"
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#050208] text-white"
+          className="fixed inset-0 z-[200] flex flex-col items-center justify-center"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.85, ease: easePremium }}
         >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_20%,rgba(139,92,246,0.35),transparent_55%),radial-gradient(ellipse_60%_50%_at_30%_80%,rgba(76,29,149,0.4),transparent_50%)]" />
-          <motion.div
-            className="pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-overlay"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-            }}
-          />
+          <AtmosphericBackground />
+
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/50" />
 
           <motion.div
-            className="relative z-[1] flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 px-6 text-center"
-            initial={{ opacity: 0, filter: "blur(12px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative z-10 flex flex-col items-center px-6 text-center"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: easePremium }}
           >
-            <motion.span
-              className="font-display text-[clamp(2.5rem,8vw,4.5rem)] leading-none tracking-[0.02em] text-white"
-              initial={{ opacity: 0, y: 12 }}
+            <motion.div
+              initial={{ opacity: 0, y: -12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.6, delay: 0.1, ease: easePremium }}
+              className="mb-10"
             >
-              {first}
-            </motion.span>
-            <motion.span
-              className="font-display text-[clamp(1.5rem,4vw,2rem)] font-light text-white/35"
+              <DigvijayLogo size={56} variant="full" className="drop-shadow-[0_0_28px_hsl(275_60%_45%_/_0.35)]" />
+            </motion.div>
+
+            <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-2">
+              <NamePart name={first} yInitial={36} />
+              <motion.span
+                className={cn(display.className, "text-3xl text-slate-300/60 sm:text-4xl")}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.55, delay: 0.15, ease: easePremium }}
+              >
+                /
+              </motion.span>
+              {rest ? <NamePart name={rest} yInitial={-36} /> : null}
+            </div>
+
+            <motion.p
+              className={cn(mono.className, "mt-8 text-sm tracking-[0.22em] text-[hsl(275_60%_72%)] sm:text-base")}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35, ease: easePremium }}
+            >
+              {profile.role}
+            </motion.p>
+
+            <motion.p
+              className={cn(
+                nameFont.className,
+                "mt-5 max-w-md text-pretty text-base font-light italic tracking-wide text-slate-300/55 sm:text-lg",
+              )}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.35, duration: 0.6 }}
+              transition={{ duration: 0.7, delay: 0.5, ease: easePremium }}
             >
-              /
-            </motion.span>
-            {rest ? (
-              <motion.span
-                className="font-display text-[clamp(2.5rem,8vw,4.5rem)] leading-none tracking-[0.02em] text-white"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.28, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {rest}
-              </motion.span>
-            ) : null}
+              {profile.tagline}
+            </motion.p>
           </motion.div>
-
-          <motion.p
-            className="relative z-[1] mt-10 max-w-md px-6 text-center text-xs uppercase tracking-[0.35em] text-white/45"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.55, duration: 0.8 }}
-          >
-            {profile.role}
-          </motion.p>
         </motion.div>
       ) : null}
     </AnimatePresence>

@@ -38,7 +38,7 @@ export function GithubSection({ github }: GithubSectionProps) {
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <SectionReveal delay={0.06}>
-            <div className="glass-panel h-full rounded-[1.65rem] p-7 sm:p-8">
+            <div className="glass-card h-full rounded-[1.65rem] p-7 sm:p-8">
               <div className="flex flex-col gap-8">
                 <div className="flex items-start gap-4">
                   <div className="inline-flex rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-white">
@@ -84,7 +84,7 @@ export function GithubSection({ github }: GithubSectionProps) {
 
           <div className="space-y-6">
             <SectionReveal delay={0.1}>
-              <div className="glass-panel rounded-[1.65rem] p-7 sm:p-8">
+              <div className="glass-card rounded-[1.65rem] p-7 sm:p-8">
                 <div className="mb-6 flex items-center gap-3">
                   <SiGithub className="size-4 text-[var(--page-accent)]" />
                   <p className="type-section-eyebrow text-white/80">Selected repositories</p>
@@ -126,7 +126,7 @@ export function GithubSection({ github }: GithubSectionProps) {
 
             {github.recentEvents.length ? (
               <SectionReveal delay={0.14}>
-                <div className="glass-panel rounded-[1.65rem] p-7 sm:p-8">
+                <div className="glass-card rounded-[1.65rem] p-7 sm:p-8">
                   <div className="mb-6 flex items-center gap-3">
                     <GitBranchPlus className="size-4 text-[var(--page-accent)]" />
                     <p className="type-section-eyebrow text-white/80">Recent activity</p>

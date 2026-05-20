@@ -1,3 +1,4 @@
+import { display } from "@/app/fonts";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
@@ -23,12 +24,14 @@ export function SectionHeading({
         className,
       )}
     >
-      <p className="type-section-eyebrow text-[var(--muted-foreground)]">{eyebrow}</p>
+      <p className={cn(display.className, "type-section-eyebrow text-[hsl(var(--secondary))]")}>
+        {eyebrow}
+      </p>
       <div className="space-y-4">
-        <h2 className="type-section-title text-balance text-2xl leading-tight text-[var(--foreground)] sm:text-3xl lg:text-[2.15rem]">
+        <h2 className="type-section-title text-balance text-2xl leading-tight text-[hsl(var(--primary))] sm:text-3xl lg:text-[2.15rem]">
           {title}
         </h2>
-        <p className="text-pretty text-base leading-relaxed text-[var(--muted-foreground)] sm:text-lg">
+        <p className="text-pretty text-base leading-relaxed text-[hsl(var(--muted-foreground))] sm:text-lg">
           {description}
         </p>
       </div>

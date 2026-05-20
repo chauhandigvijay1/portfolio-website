@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Command, Menu } from "lucide-react";
+import { motion } from "framer-motion";
 import {
   SocialGithubIcon,
   SocialInstagramIcon,
@@ -27,10 +28,12 @@ import { ContactSection } from "@/components/site/contact-section";
 import { ProjectDialog } from "@/components/site/project-dialog";
 import { CommandMenu } from "@/components/site/command-menu";
 import { ThemeToggle } from "@/components/site/theme-toggle";
-import { CursorGlow } from "@/components/site/cursor-glow";
-import { CinematicBackground } from "@/components/site/cinematic-background";
+import { AtmosphericBackground } from "@/components/site/atmospheric-background";
 import { IntroLoader } from "@/components/site/intro-loader";
+import { DigvijayLogo } from "@/components/site/digvijay-logo";
 import { usePortfolioStore } from "@/store/portfolio-store";
+import { nameFont } from "@/app/fonts";
+import { easePremium } from "@/lib/motion";
 import type { GithubSummary, PortfolioContent } from "@/types/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -59,9 +62,11 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
   const selectedProjectSlug = usePortfolioStore((state) => state.selectedProjectSlug);
   const setSelectedProjectSlug = usePortfolioStore((state) => state.setSelectedProjectSlug);
   const setCommandMenuOpen = usePortfolioStore((state) => state.setCommandMenuOpen);
+  const [introComplete, setIntroComplete] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [introDismissed, setIntroDismissed] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
+  const [navScrolled, setNavScrolled] = useState(false);
+  const lastScrollY = useRef(0);
 
   const selectedProject = useMemo(
     () => content.projects.find((project) => project.slug === selectedProjectSlug) || null,
@@ -69,49 +74,76 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
   );
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 24);
+    if (!introComplete) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 100 && !navScrolled) {
+        setNavScrolled(true);
+      } else if (currentScrollY <= 100 && navScrolled) {
+        setNavScrolled(false);
+      }
+
+      if (currentScrollY < lastScrollY.current || currentScrollY < 100) {
+        setNavVisible(true);
+      } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setNavVisible(false);
+        setMobileMenuOpen(false);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [navScrolled, introComplete]);
+
+  if (!introComplete) {
+    return <IntroLoader profile={content.profile} onComplete={() => setIntroComplete(true)} />;
+  }
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[var(--page-background)] text-[var(--foreground)]">
-      <CinematicBackground />
-      <div className="noise-overlay" />
-      <CursorGlow />
-
-      {!introDismissed ? (
-        <IntroLoader profile={content.profile} onComplete={() => setIntroDismissed(true)} />
-      ) : null}
+    <motion.div
+      className="relative min-h-screen overflow-x-hidden text-foreground"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.9, ease: easePremium }}
+    >
+      <AtmosphericBackground />
 
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color,box-shadow,padding] duration-[520ms]",
-          scrolled
-            ? "border-b border-white/[0.05] bg-[#010103]/55 shadow-[0_12px_40px_rgba(0,0,0,0.38)] backdrop-blur-2xl backdrop-saturate-125"
-            : "border-b border-transparent bg-transparent",
+          "fixed inset-x-0 top-0 z-50 transition-[transform,opacity,background,backdrop-filter,border-color] duration-500",
+          navVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0",
         )}
         style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
       >
         <div
           className={cn(
             "mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10",
-            scrolled ? "py-3.5" : "py-5",
+            navScrolled ? "py-3" : "py-5",
           )}
         >
-          <a href="#top" className="font-display text-xl tracking-tight text-white sm:text-2xl">
-            {content.profile.preferredName}
+          <a href="#top" className="group flex items-center gap-3">
+            <DigvijayLogo size={36} className="transition-transform duration-500 group-hover:scale-105" />
+            <span
+              className={cn(
+                nameFont.className,
+                "hidden text-lg tracking-wide text-[hsl(var(--primary))] sm:inline sm:text-xl",
+              )}
+            >
+              {content.profile.preferredName}
+            </span>
           </a>
 
-          <nav className="hidden items-center gap-8 text-[11px] uppercase tracking-[0.22em] text-white/50 md:flex">
+          <nav className="hidden items-center gap-8 md:flex">
             {navigation.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="relative py-1 transition-colors duration-300 hover:text-white/95 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-center after:scale-x-0 after:bg-white/40 after:transition-transform after:duration-300 after:[transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:after:scale-x-100"
+                className="text-sm tracking-wide text-[hsl(var(--foreground)/0.65)] transition-colors duration-300 hover:text-[hsl(var(--primary))]"
               >
                 {item.label}
               </a>
@@ -124,7 +156,7 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
               variant="ghost"
               size="sm"
               onClick={() => setCommandMenuOpen(true)}
-              className="h-9 rounded-full border border-white/10 bg-white/[0.04] px-3 text-[11px] uppercase tracking-[0.2em] text-white/80 hover:bg-white/[0.08]"
+              className="btn-glass h-9 rounded-full px-4 text-xs tracking-wide"
             >
               <Command className="mr-2 size-3.5 opacity-70" />
               Menu
@@ -133,9 +165,7 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
               href={content.profile.resume}
               target="_blank"
               rel="noreferrer"
-              className={cn(
-                "inline-flex h-9 items-center justify-center rounded-full bg-white px-5 text-[11px] font-medium uppercase tracking-[0.18em] text-[#0a0612] transition hover:bg-white/90",
-              )}
+              className="btn-glass inline-flex h-9 items-center justify-center rounded-full px-5 text-xs font-medium tracking-wide"
             >
               Resume
             </a>
@@ -146,7 +176,7 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
               href={content.profile.resume}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-9 items-center justify-center rounded-full bg-white px-4 text-[11px] font-medium uppercase tracking-[0.16em] text-[#0a0612] transition hover:bg-white/90"
+              className="btn-glass inline-flex h-9 items-center justify-center rounded-full px-4 text-xs tracking-wide"
             >
               Resume
             </a>
@@ -157,19 +187,19 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
                     type="button"
                     variant="ghost"
                     size="icon-sm"
-                    className="rounded-full border border-white/10 bg-white/[0.04] text-white"
+                    className="btn-glass rounded-full text-foreground"
                   />
                 }
               >
                 <Menu className="size-4" />
               </SheetTrigger>
-              <SheetContent
-                side="right"
-                className="border-white/10 bg-[#0b0714]/95 text-white backdrop-blur-2xl"
-              >
+              <SheetContent side="right" className="glass-panel border-[hsl(var(--glass-border))] text-foreground">
                 <SheetHeader className="px-2 pb-2 pt-2">
-                  <SheetTitle className="font-display text-2xl tracking-tight">Navigate</SheetTitle>
-                  <SheetDescription className="text-sm text-white/55">
+                  <SheetTitle className="flex items-center gap-3">
+                    <DigvijayLogo size={28} />
+                    <span className={cn(nameFont.className, "text-2xl tracking-wide")}>Navigate</span>
+                  </SheetTitle>
+                  <SheetDescription className="text-sm text-[hsl(var(--muted-foreground))]">
                     Jump to a section or open the command palette.
                   </SheetDescription>
                 </SheetHeader>
@@ -179,7 +209,7 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-sm uppercase tracking-[0.18em]"
+                      className="glass-card block rounded-2xl px-4 py-4 text-sm tracking-wide"
                     >
                       {item.label}
                     </a>
@@ -190,7 +220,7 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
                       setMobileMenuOpen(false);
                       setCommandMenuOpen(true);
                     }}
-                    className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 text-left text-sm uppercase tracking-[0.18em]"
+                    className="glass-card w-full rounded-2xl px-4 py-4 text-left text-sm tracking-wide"
                   >
                     Quick menu
                   </button>
@@ -202,7 +232,7 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
       </header>
 
       <main className="relative z-10">
-        <HeroSection profile={content.profile} highlights={content.highlights} />
+        <HeroSection profile={content.profile} />
         <AboutSection profile={content.profile} />
         <StackSection technologies={content.technologies} />
         <ExperienceSection timeline={content.timeline} />
@@ -215,10 +245,13 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
         />
       </main>
 
-      <footer className="relative z-10 border-t border-[var(--border)] px-5 py-12 sm:px-8 lg:px-16">
+      <footer className="relative z-10 border-t border-[hsl(var(--border))] px-5 py-12 sm:px-8 lg:px-16">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-          <a href="#top" className="font-display text-2xl tracking-tight text-[var(--foreground)]">
-            {content.profile.preferredName}
+          <a href="#top" className="flex items-center gap-3">
+            <DigvijayLogo size={32} />
+            <span className={cn(nameFont.className, "text-2xl tracking-wide text-[hsl(var(--primary))]")}>
+              {content.profile.preferredName}
+            </span>
           </a>
           <div className="flex flex-wrap items-center gap-3">
             {content.contact.socials.map((social) => {
@@ -231,7 +264,7 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full border border-[var(--border)] px-4 py-2 text-xs uppercase tracking-[0.2em] text-[var(--muted-foreground)] transition hover:border-[var(--foreground)]/20 hover:text-[var(--foreground)]"
+                    className="tech-badge rounded-full px-4 py-2 text-xs uppercase tracking-[0.2em]"
                   >
                     {social.label}
                   </a>
@@ -244,7 +277,7 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.label}
-                  className="flex size-11 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted-foreground)] transition hover:border-[var(--foreground)]/20 hover:text-[var(--foreground)]"
+                  className="glass-card flex size-11 items-center justify-center rounded-full text-[hsl(var(--foreground)/0.8)]"
                 >
                   <Icon className="size-5" />
                 </a>
@@ -253,7 +286,7 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
             <ThemeToggle />
           </div>
         </div>
-        <p className="mx-auto mt-10 max-w-6xl text-center text-[11px] uppercase tracking-[0.28em] text-[var(--muted-foreground)]">
+        <p className="mx-auto mt-10 max-w-6xl text-center text-xs tracking-[0.28em] text-[hsl(var(--muted-foreground))]">
           © {new Date().getFullYear()} {content.profile.name}. Crafted with intention.
         </p>
       </footer>
@@ -268,6 +301,6 @@ export function PortfolioShell({ content, github }: PortfolioShellProps) {
         }}
       />
       <CommandMenu content={content} />
-    </div>
+    </motion.div>
   );
 }

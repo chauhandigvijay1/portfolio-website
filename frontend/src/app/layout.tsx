@@ -1,32 +1,8 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Instrument_Serif, Plus_Jakarta_Sans, Syncopate } from "next/font/google";
 import "./globals.css";
+import { display, inter, mono, nameFont } from "@/app/fonts";
 import { portfolioFallback, siteUrl } from "@/lib/site-data";
 import { AppProviders } from "@/components/providers/app-providers";
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
-  subsets: ["latin"],
-});
-
-const syncopate = Syncopate({
-  variable: "--font-syncopate",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const heroEditorial = Cormorant_Garamond({
-  variable: "--font-hero-editorial",
-  subsets: ["latin"],
-  weight: ["300"],
-  style: ["italic"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -81,9 +57,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${plusJakartaSans.variable} ${syncopate.variable} ${instrumentSerif.variable} ${heroEditorial.variable} h-full antialiased`}
+      className={`dark ${inter.variable} ${mono.variable} ${display.variable} ${nameFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full font-sans">
+      <body className="min-h-full bg-background font-sans text-foreground">
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

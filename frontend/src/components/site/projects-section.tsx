@@ -41,7 +41,7 @@ export function ProjectsSection({ projects, technologies }: ProjectsSectionProps
 
         {activeTechnology ? (
           <SectionReveal delay={0.05}>
-            <div className="glass-panel flex flex-wrap items-center gap-3 rounded-2xl px-4 py-3 text-sm text-white/80">
+            <div className="glass-card flex flex-wrap items-center gap-3 rounded-2xl px-4 py-3 text-sm text-[hsl(var(--foreground)/0.8)]">
               <span className="type-section-eyebrow text-[var(--page-accent)]">Filtered</span>
               <span>
                 Showing work involving <span className="text-white">{activeTechnology.name}</span>
@@ -77,7 +77,7 @@ export function ProjectsSection({ projects, technologies }: ProjectsSectionProps
                   transition={{ duration: 0.7, delay: index * 0.05, ease: easePremium }}
                 >
                   <motion.div
-                    className="glass-panel glass-panel-interactive relative flex h-full flex-col overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem]"
+                    className="project-card relative flex h-full flex-col overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem]"
                     whileHover={{ y: -6 }}
                     transition={{ duration: 0.5, ease: easePremium }}
                   >
@@ -100,7 +100,7 @@ export function ProjectsSection({ projects, technologies }: ProjectsSectionProps
                     <div className="flex flex-1 flex-col gap-5 p-6 sm:p-7">
                       <div>
                         <p className="type-section-eyebrow text-[var(--page-accent)]">{project.label}</p>
-                        <h3 className="mt-2.5 font-sans text-xl font-medium tracking-[-0.01em] text-white">
+                        <h3 className="mt-2.5 text-xl font-medium tracking-[-0.01em] text-[hsl(var(--primary))]">
                           {project.name}
                         </h3>
                         <p className="mt-3 line-clamp-3 text-sm leading-[1.7] text-[var(--muted-foreground)]">
@@ -110,10 +110,7 @@ export function ProjectsSection({ projects, technologies }: ProjectsSectionProps
 
                       <div className="flex flex-wrap gap-2">
                         {project.stack.slice(0, 5).map((slug) => (
-                          <span
-                            key={slug}
-                            className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] tracking-wide text-white/72"
-                          >
+                          <span key={slug} className="tech-badge text-[11px]">
                             {techMap.get(slug) ?? slug}
                           </span>
                         ))}
@@ -123,7 +120,7 @@ export function ProjectsSection({ projects, technologies }: ProjectsSectionProps
                         <Button
                           type="button"
                           onClick={() => setSelectedProjectSlug(project.slug)}
-                          className="flex-1 rounded-full bg-white py-2.5 text-sm font-medium tracking-wide text-[#0a0612] shadow-none transition duration-300 hover:bg-white/90 sm:flex-none"
+                          className="btn-glass flex-1 rounded-full py-2.5 text-sm font-medium tracking-wide sm:flex-none"
                         >
                           View
                         </Button>

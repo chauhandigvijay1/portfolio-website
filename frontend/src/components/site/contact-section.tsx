@@ -31,7 +31,7 @@ export function ContactSection({ profile, contact, certifications }: ContactSect
 
         <div className="grid gap-10 xl:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] xl:items-start">
           <SectionReveal delay={0.06}>
-            <div className="glass-panel rounded-[1.65rem] p-7 sm:p-9">
+            <div className="glass-card rounded-[1.65rem] p-7 sm:p-9">
               <div className="mb-8 flex items-center gap-3">
                 <Mail className="size-4 text-[var(--page-accent)]" />
                 <p className="type-section-eyebrow text-white/80">Send a message</p>
@@ -42,7 +42,7 @@ export function ContactSection({ profile, contact, certifications }: ContactSect
 
           <div className="space-y-8">
             <SectionReveal delay={0.1}>
-              <div className="glass-panel rounded-[1.65rem] p-7 sm:p-8">
+              <div className="glass-card rounded-[1.65rem] p-7 sm:p-8">
                 <p className="type-section-eyebrow text-[var(--page-accent)]">Direct</p>
                 <a
                   href={`mailto:${contact.email}`}
@@ -74,7 +74,7 @@ export function ContactSection({ profile, contact, certifications }: ContactSect
             </SectionReveal>
 
             <SectionReveal delay={0.14}>
-              <div className="glass-panel rounded-[1.65rem] p-7 sm:p-8">
+              <div className="glass-card rounded-[1.65rem] p-7 sm:p-8">
                 <div className="mb-6 flex items-center gap-3">
                   <BadgeCheck className="size-4 text-[var(--page-accent)]" />
                   <p className="type-section-eyebrow text-white/80">Credentials</p>
