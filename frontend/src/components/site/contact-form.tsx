@@ -73,13 +73,13 @@ export function ContactForm() {
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="space-y-2">
-          <span className="text-xs font-medium lowercase tracking-[0.22em] text-[var(--muted-foreground)]">
+          <span className="type-section-eyebrow text-white/50">
             name
           </span>
           <Input
             {...register("name")}
             placeholder="Digvijay Kumar Singh"
-            className="h-12 rounded-2xl border-black/8 bg-white/70 px-4 text-[var(--foreground)] shadow-none placeholder:text-[var(--muted-foreground)] dark:border-white/10 dark:bg-white/6"
+            className="h-12 rounded-2xl border-white/12 bg-white/[0.05] px-4 text-white shadow-none placeholder:text-white/40"
           />
           {errors.name ? (
             <span className="text-xs lowercase text-rose-500">{errors.name.message}</span>
@@ -87,13 +87,13 @@ export function ContactForm() {
         </label>
 
         <label className="space-y-2">
-          <span className="text-xs font-medium lowercase tracking-[0.22em] text-[var(--muted-foreground)]">
+          <span className="type-section-eyebrow text-white/50">
             email
           </span>
           <Input
             {...register("email")}
             placeholder="you@example.com"
-            className="h-12 rounded-2xl border-black/8 bg-white/70 px-4 text-[var(--foreground)] shadow-none placeholder:text-[var(--muted-foreground)] dark:border-white/10 dark:bg-white/6"
+            className="h-12 rounded-2xl border-white/12 bg-white/[0.05] px-4 text-white shadow-none placeholder:text-white/40"
           />
           {errors.email ? (
             <span className="text-xs lowercase text-rose-500">{errors.email.message}</span>
@@ -103,24 +103,24 @@ export function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-[0.85fr_1.15fr]">
         <label className="space-y-2">
-          <span className="text-xs font-medium lowercase tracking-[0.22em] text-[var(--muted-foreground)]">
+          <span className="type-section-eyebrow text-white/50">
             company
           </span>
           <Input
             {...register("company")}
             placeholder="optional"
-            className="h-12 rounded-2xl border-black/8 bg-white/70 px-4 text-[var(--foreground)] shadow-none placeholder:text-[var(--muted-foreground)] dark:border-white/10 dark:bg-white/6"
+            className="h-12 rounded-2xl border-white/12 bg-white/[0.05] px-4 text-white shadow-none placeholder:text-white/40"
           />
         </label>
 
         <label className="space-y-2">
-          <span className="text-xs font-medium lowercase tracking-[0.22em] text-[var(--muted-foreground)]">
+          <span className="type-section-eyebrow text-white/50">
             subject
           </span>
           <Input
             {...register("subject")}
             placeholder="project inquiry"
-            className="h-12 rounded-2xl border-black/8 bg-white/70 px-4 text-[var(--foreground)] shadow-none placeholder:text-[var(--muted-foreground)] dark:border-white/10 dark:bg-white/6"
+            className="h-12 rounded-2xl border-white/12 bg-white/[0.05] px-4 text-white shadow-none placeholder:text-white/40"
           />
           {errors.subject ? (
             <span className="text-xs lowercase text-rose-500">{errors.subject.message}</span>
@@ -129,13 +129,11 @@ export function ContactForm() {
       </div>
 
       <label className="space-y-2">
-        <span className="text-xs font-medium lowercase tracking-[0.22em] text-[var(--muted-foreground)]">
-          message
-        </span>
+        <span className="type-section-eyebrow text-white/50">message</span>
         <Textarea
           {...register("message")}
           placeholder="share the product, role, or collaboration you have in mind"
-          className="min-h-36 rounded-[1.5rem] border-black/8 bg-white/70 px-4 py-4 text-[var(--foreground)] shadow-none placeholder:text-[var(--muted-foreground)] dark:border-white/10 dark:bg-white/6"
+          className="min-h-36 rounded-[1.5rem] border-white/12 bg-white/[0.05] px-4 py-4 text-white shadow-none placeholder:text-white/40"
         />
         {errors.message ? (
           <span className="text-xs lowercase text-rose-500">{errors.message.message}</span>
@@ -145,7 +143,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="h-12 rounded-full bg-[var(--foreground)] px-6 lowercase text-[var(--background)] shadow-[0_18px_40px_rgba(15,23,42,0.18)] transition hover:translate-y-[-1px] hover:bg-[var(--foreground)]/92"
+        className="h-12 rounded-full bg-white px-8 text-[11px] font-medium uppercase tracking-[0.2em] text-[#0a0612] shadow-none transition hover:bg-white/90"
       >
         {isSubmitting ? (
           <>

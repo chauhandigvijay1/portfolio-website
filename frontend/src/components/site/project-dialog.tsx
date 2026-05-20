@@ -40,10 +40,10 @@ export function ProjectDialog({
                   <Badge className="rounded-full border border-white/12 bg-white/8 px-3 py-1 text-[11px] font-medium lowercase tracking-[0.2em] text-[var(--muted-foreground)]">
                     {project.label}
                   </Badge>
-                  <div className="h-px w-12 bg-[linear-gradient(90deg,transparent,var(--page-accent),transparent)]" />
+                  <div className="h-px w-12 bg-[linear-gradient(90deg,transparent,var(--page-accent-strong),transparent)]" />
                 </div>
                 <div className="space-y-4">
-                  <DialogTitle className="text-balance text-3xl font-semibold tracking-[-0.06em] sm:text-4xl">
+                  <DialogTitle className="font-sans text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
                     {project.name}
                   </DialogTitle>
                   <DialogDescription className="max-w-3xl text-base leading-8 text-[var(--muted-foreground)]">

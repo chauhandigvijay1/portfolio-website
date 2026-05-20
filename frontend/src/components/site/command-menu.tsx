@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { ArrowUpRight, BriefcaseBusiness, FileText, Home, Layers3, UserRound } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness, CalendarRange, FileText, Home, Layers3, UserRound } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import {
   Command,
   CommandDialog,
@@ -23,8 +24,10 @@ interface CommandMenuProps {
 const sectionCommands = [
   { label: "hero", href: "#top", icon: Home, shortcut: "h" },
   { label: "about", href: "#about", icon: UserRound, shortcut: "a" },
-  { label: "stack", href: "#stack", icon: Layers3, shortcut: "s" },
+  { label: "skills", href: "#skills", icon: Layers3, shortcut: "s" },
+  { label: "experience", href: "#experience", icon: CalendarRange, shortcut: "e" },
   { label: "projects", href: "#projects", icon: BriefcaseBusiness, shortcut: "p" },
+  { label: "github", href: "#github", icon: SiGithub, shortcut: "g" },
   { label: "contact", href: "#contact", icon: FileText, shortcut: "c" },
 ];
 

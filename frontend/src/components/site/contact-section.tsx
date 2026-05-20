@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, BadgeCheck, Mail, Sparkles } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, Mail, MapPin } from "lucide-react";
 import type { Certification, ContactContent, Profile } from "@/types/portfolio";
 import { ContactForm } from "@/components/site/contact-form";
 import { SectionHeading } from "@/components/site/section-heading";
@@ -13,44 +13,58 @@ interface ContactSectionProps {
 }
 
 export function ContactSection({ profile, contact, certifications }: ContactSectionProps) {
+  const locationLine = `${profile.education.institution}`;
+
   return (
-    <section id="contact" className="px-4 py-20 sm:px-6 lg:px-10">
-      <div className="mx-auto max-w-7xl space-y-10">
+    <section id="contact" className="section-pad">
+      <div className="section-bridge" />
+      <div className="section-ambient" />
+      <div className="mx-auto max-w-6xl space-y-12">
         <SectionReveal>
           <SectionHeading
-            eyebrow="contact"
+            align="center"
+            eyebrow="Let's connect"
             title={contact.heading}
             description={contact.description}
           />
         </SectionReveal>
 
-        <div className="grid gap-8 xl:grid-cols-[0.88fr_1.12fr]">
-          <div className="space-y-6">
-            <SectionReveal delay={0.06}>
-              <div className="rounded-[2rem] border border-black/8 bg-white/76 p-6 shadow-[0_28px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/6">
-                <div className="flex items-center gap-3">
-                  <Mail className="size-4 text-[var(--page-accent)]" />
-                  <p className="text-sm font-medium lowercase text-[var(--foreground)]">direct contact</p>
-                </div>
+        <div className="grid gap-10 xl:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] xl:items-start">
+          <SectionReveal delay={0.06}>
+            <div className="glass-panel rounded-[1.65rem] p-7 sm:p-9">
+              <div className="mb-8 flex items-center gap-3">
+                <Mail className="size-4 text-[var(--page-accent)]" />
+                <p className="type-section-eyebrow text-white/80">Send a message</p>
+              </div>
+              <ContactForm />
+            </div>
+          </SectionReveal>
+
+          <div className="space-y-8">
+            <SectionReveal delay={0.1}>
+              <div className="glass-panel rounded-[1.65rem] p-7 sm:p-8">
+                <p className="type-section-eyebrow text-[var(--page-accent)]">Direct</p>
                 <a
                   href={`mailto:${contact.email}`}
-                  className="mt-4 inline-flex items-center gap-2 text-xl font-semibold tracking-[-0.05em] text-[var(--foreground)] transition hover:text-[var(--page-accent)] sm:text-2xl"
+                  className="mt-4 inline-flex items-center gap-2 break-all text-xl font-medium tracking-tight text-white transition hover:text-[var(--page-accent)] sm:text-2xl"
                 >
                   {contact.email}
-                  <ArrowUpRight className="size-4" />
+                  <ArrowUpRight className="size-4 shrink-0" />
                 </a>
-                <p className="mt-3 text-sm leading-7 text-[var(--muted-foreground)]">
-                  {profile.availability}
-                </p>
+                <div className="mt-6 flex items-start gap-3 text-sm text-[var(--muted-foreground)]">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-[var(--page-accent)]" aria-hidden />
+                  <span>{locationLine}</span>
+                </div>
+                <p className="mt-6 text-sm leading-relaxed text-[var(--muted-foreground)]">{profile.availability}</p>
 
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-8 flex flex-wrap gap-2">
                   {contact.socials.map((social) => (
                     <a
                       key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="rounded-full border border-black/8 bg-[var(--page-background)] px-4 py-2 text-sm lowercase text-[var(--foreground)] transition hover:-translate-y-0.5 dark:border-white/10"
+                      className="rounded-full border border-white/12 bg-white/[0.04] px-4 py-2 text-xs uppercase tracking-[0.18em] text-white/80 transition hover:border-white/25 hover:bg-white/[0.08]"
                     >
                       {social.label}
                     </a>
@@ -59,29 +73,27 @@ export function ContactSection({ profile, contact, certifications }: ContactSect
               </div>
             </SectionReveal>
 
-            <SectionReveal delay={0.1}>
-              <div className="rounded-[2rem] border border-black/8 bg-white/76 p-6 shadow-[0_28px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/6">
-                <div className="mb-5 flex items-center gap-3">
+            <SectionReveal delay={0.14}>
+              <div className="glass-panel rounded-[1.65rem] p-7 sm:p-8">
+                <div className="mb-6 flex items-center gap-3">
                   <BadgeCheck className="size-4 text-[var(--page-accent)]" />
-                  <p className="text-sm font-medium lowercase text-[var(--foreground)]">selected credentials</p>
+                  <p className="type-section-eyebrow text-white/80">Credentials</p>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {certifications.map((certification) => (
                     <a
                       key={certification.slug}
                       href={certification.credentialUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="group flex items-start justify-between gap-4 rounded-[1.5rem] border border-black/8 bg-[var(--page-background)] px-4 py-4 transition hover:-translate-y-0.5 dark:border-white/10"
+                      className="group flex items-start justify-between gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 transition hover:border-white/20 hover:bg-white/[0.06]"
                     >
                       <div>
-                        <p className="font-medium lowercase text-[var(--foreground)]">
-                          {certification.title}
-                        </p>
-                        <p className="mt-1 text-sm lowercase tracking-[0.18em] text-[var(--muted-foreground)]">
+                        <p className="font-medium tracking-tight text-white">{certification.title}</p>
+                        <p className="mt-1 text-xs uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
                           {certification.issuer}
                         </p>
-                        <p className="mt-2 text-sm leading-7 text-[var(--muted-foreground)]">
+                        <p className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
                           {certification.description}
                         </p>
                       </div>
@@ -92,18 +104,6 @@ export function ContactSection({ profile, contact, certifications }: ContactSect
               </div>
             </SectionReveal>
           </div>
-
-          <SectionReveal delay={0.12}>
-            <div className="rounded-[2.2rem] border border-black/8 bg-white/80 p-6 shadow-[0_30px_100px_rgba(15,23,42,0.1)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/7 lg:p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <Sparkles className="size-4 text-[var(--page-accent)]" />
-                <p className="text-sm font-medium lowercase text-[var(--foreground)]">
-                  start the conversation
-                </p>
-              </div>
-              <ContactForm />
-            </div>
-          </SectionReveal>
         </div>
       </div>
     </section>

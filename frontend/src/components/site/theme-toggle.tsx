@@ -4,6 +4,7 @@ import { MoonStar, SunMedium } from "lucide-react";
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const subscribe = () => () => {};
 
@@ -17,7 +18,7 @@ export function ThemeToggle() {
         type="button"
         variant="outline"
         size="icon-sm"
-        className="rounded-full border-white/15 bg-white/60 backdrop-blur-xl dark:bg-white/6"
+        className="rounded-full border-[var(--border)] bg-[var(--page-panel)] text-[var(--foreground)] backdrop-blur-xl"
         aria-label="toggle theme"
       >
         <SunMedium className="size-4" />
@@ -33,7 +34,10 @@ export function ThemeToggle() {
       variant="outline"
       size="icon-sm"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="rounded-full border-white/15 bg-white/60 text-[var(--foreground)] shadow-[0_14px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl hover:bg-white/80 dark:bg-white/6 dark:hover:bg-white/10"
+      className={cn(
+        "rounded-full border-[var(--border)] bg-[var(--page-panel)] text-[var(--foreground)] backdrop-blur-xl",
+        "hover:border-[var(--foreground)]/15 hover:bg-[var(--muted)]",
+      )}
       aria-label="toggle theme"
     >
       {isDark ? <SunMedium className="size-4" /> : <MoonStar className="size-4" />}

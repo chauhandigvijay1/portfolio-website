@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Layers3, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { SocialGithubIcon } from "@/components/site/social-icons";
 import { SectionHeading } from "@/components/site/section-heading";
 import { SectionReveal } from "@/components/site/section-reveal";
 import { usePortfolioStore } from "@/store/portfolio-store";
+import { easePremium } from "@/lib/motion";
 import type { Project, Technology } from "@/types/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -25,168 +26,133 @@ export function ProjectsSection({ projects, technologies }: ProjectsSectionProps
   const techMap = new Map(technologies.map((technology) => [technology.slug, technology.name]));
 
   return (
-    <section id="projects" className="px-4 py-20 sm:px-6 lg:px-10">
-      <div className="mx-auto max-w-7xl space-y-10">
+    <section id="projects" className="section-pad">
+      <div className="section-bridge" />
+      <div className="section-ambient" />
+      <div className="relative mx-auto max-w-6xl space-y-12">
         <SectionReveal>
           <SectionHeading
-            eyebrow="projects"
-            title="Three flagship builds, each shaped like a product case study instead of a throwaway card."
-            description="These are the projects that best represent how I approach interface systems, backend structure, integrations, deployment, and product detail."
+            align="center"
+            eyebrow="My projects"
+            title="Flagship builds with deployment discipline and product-level detail."
+            description="Each card opens into a deeper case study while live links stay one tap away."
           />
         </SectionReveal>
 
         {activeTechnology ? (
           <SectionReveal delay={0.05}>
-            <div className="flex flex-wrap items-center gap-3 rounded-[1.6rem] border border-black/8 bg-white/76 px-4 py-4 shadow-[0_18px_50px_rgba(15,23,42,0.05)] backdrop-blur-xl dark:border-white/10 dark:bg-white/6">
-              <Badge className="rounded-full border border-black/8 bg-[var(--page-background)] px-3 py-1 text-[11px] font-medium lowercase tracking-[0.2em] text-[var(--muted-foreground)] dark:border-white/10">
-                active filter
-              </Badge>
-              <p className="text-sm lowercase text-[var(--foreground)]">
-                showing where <span className="font-medium">{activeTechnology.name}</span> appears across the work
-              </p>
+            <div className="glass-panel flex flex-wrap items-center gap-3 rounded-2xl px-4 py-3 text-sm text-white/80">
+              <span className="type-section-eyebrow text-[var(--page-accent)]">Filtered</span>
+              <span>
+                Showing work involving <span className="text-white">{activeTechnology.name}</span>
+              </span>
               <button
                 type="button"
                 onClick={() => setActiveTechSlug(null)}
-                className="ml-auto inline-flex items-center gap-2 rounded-full border border-black/8 bg-[var(--page-background)] px-3 py-2 text-sm lowercase text-[var(--foreground)] transition hover:bg-white dark:border-white/10 dark:hover:bg-white/8"
+                className="ml-auto rounded-full border border-white/15 px-4 py-1.5 text-xs tracking-wide text-white/90 transition duration-300 hover:bg-white/10"
               >
-                clear filter
-                <X className="size-4" />
+                Clear
               </button>
             </div>
           </SectionReveal>
         ) : null}
 
-        <div className="space-y-8">
-          {projects.map((project, index) => {
-            const isRelated = activeTechnology ? project.stack.includes(activeTechnology.slug) : true;
+        <SectionReveal delay={0.08}>
+          <div className="scrollbar-none -mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pb-4 pt-2 sm:-mx-8 sm:px-8 lg:-mx-16 lg:px-16">
+            {projects.map((project, index) => {
+              const isRelated = activeTechnology ? project.stack.includes(activeTechnology.slug) : true;
 
-            return (
-              <SectionReveal key={project.slug} delay={index * 0.06}>
+              return (
                 <motion.article
+                  key={project.slug}
                   id={`project-${project.slug}`}
-                  whileHover={{ y: -3 }}
+                  style={{ scrollSnapAlign: "start" }}
                   className={cn(
-                    "overflow-hidden rounded-[2.3rem] border p-4 shadow-[0_30px_100px_rgba(15,23,42,0.08)] transition-all backdrop-blur-2xl sm:p-6 lg:p-8",
-                    isRelated
-                      ? "border-black/8 bg-white/82 dark:border-white/10 dark:bg-white/6"
-                      : "border-black/5 bg-white/48 opacity-65 dark:border-white/8 dark:bg-white/4",
+                    "group w-[min(100%,22rem)] shrink-0 snap-start sm:w-[26rem]",
+                    !isRelated && "pointer-events-none opacity-40",
                   )}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.7, delay: index * 0.05, ease: easePremium }}
                 >
-                  <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-                    <div className={cn(index % 2 === 1 && "lg:order-2")}>
-                      <div
-                        className="relative overflow-hidden rounded-[2rem] p-3"
-                        style={{
-                          background: `linear-gradient(145deg, ${project.palette[0]}20, ${project.palette[1]}18, transparent)`,
-                        }}
-                      >
-                        <div className="grid gap-3 sm:grid-cols-[1.15fr_0.85fr]">
-                          <div className="relative overflow-hidden rounded-[1.6rem] border border-white/12 bg-black/10">
-                            <div className="relative aspect-[4/3]">
-                              <Image
-                                src={project.images[0]}
-                                alt={`${project.name} primary screenshot`}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 1024px) 100vw, 40vw"
-                              />
-                            </div>
-                          </div>
-
-                          <div className="grid gap-3">
-                            {project.images.slice(1).map((image) => (
-                              <div
-                                key={image}
-                                className="relative overflow-hidden rounded-[1.3rem] border border-white/12 bg-black/10"
-                              >
-                                <div className="relative aspect-[4/3]">
-                                  <Image
-                                    src={image}
-                                    alt={`${project.name} supporting screenshot`}
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 1024px) 100vw, 20vw"
-                                  />
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                  <motion.div
+                    className="glass-panel glass-panel-interactive relative flex h-full flex-col overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem]"
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.5, ease: easePremium }}
+                  >
+                    <div className="pointer-events-none absolute inset-0 rounded-[inherit] ring-1 ring-inset ring-white/[0.05]" />
+                    <div className="relative aspect-[16/11] overflow-hidden">
+                      <Image
+                        src={project.images[0]}
+                        alt={`${project.name} preview`}
+                        fill
+                        priority={index === 0}
+                        className="object-cover transition duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+                        sizes="(max-width: 640px) 90vw, 26rem"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06040c]/88 via-[#06040c]/12 to-transparent transition-opacity duration-500 group-hover:from-[#06040c]/72" />
+                      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                        <div className="project-card-shine absolute inset-y-0 left-0 w-[70%] bg-gradient-to-r from-transparent via-white/[0.1] to-transparent" />
                       </div>
                     </div>
 
-                    <div className={cn("space-y-6", index % 2 === 1 && "lg:order-1")}>
-                      <div className="flex flex-wrap items-center gap-3">
-                        <Badge className="rounded-full border border-black/8 bg-[var(--page-background)] px-3 py-1 text-[11px] font-medium lowercase tracking-[0.2em] text-[var(--muted-foreground)] dark:border-white/10">
-                          {project.label}
-                        </Badge>
-                        <div className="hidden h-px w-12 bg-[linear-gradient(90deg,transparent,var(--page-accent),transparent)] sm:block" />
-                        <p className="text-xs lowercase tracking-[0.24em] text-[var(--muted-foreground)]">
-                          {project.deployment.frontend} + {project.deployment.backend}
-                        </p>
-                      </div>
-
-                      <div className="space-y-4">
-                        <h3 className="text-balance text-3xl font-semibold tracking-[-0.06em] text-[var(--foreground)] sm:text-4xl">
+                    <div className="flex flex-1 flex-col gap-5 p-6 sm:p-7">
+                      <div>
+                        <p className="type-section-eyebrow text-[var(--page-accent)]">{project.label}</p>
+                        <h3 className="mt-2.5 font-sans text-xl font-medium tracking-[-0.01em] text-white">
                           {project.name}
                         </h3>
-                        <p className="text-pretty text-base leading-8 text-[var(--muted-foreground)]">
+                        <p className="mt-3 line-clamp-3 text-sm leading-[1.7] text-[var(--muted-foreground)]">
                           {project.summary}
                         </p>
-                        <p className="text-sm leading-7 text-[var(--muted-foreground)]">{project.solution}</p>
                       </div>
 
                       <div className="flex flex-wrap gap-2">
-                        {project.stack.slice(0, 8).map((slug) => (
+                        {project.stack.slice(0, 5).map((slug) => (
                           <span
                             key={slug}
-                            className="rounded-full border border-black/8 bg-[var(--page-background)] px-3 py-1.5 text-xs lowercase text-[var(--foreground)] dark:border-white/10"
+                            className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] tracking-wide text-white/72"
                           >
                             {techMap.get(slug) ?? slug}
                           </span>
                         ))}
                       </div>
 
-                      <div className="grid gap-3 sm:grid-cols-2">
-                        {project.architectureHighlights.map((highlight) => (
-                          <div
-                            key={highlight}
-                            className="rounded-[1.4rem] border border-black/8 bg-[var(--page-background)]/80 px-4 py-4 text-sm lowercase text-[var(--foreground)] dark:border-white/10"
-                          >
-                            <div className="flex items-start gap-3">
-                              <Layers3 className="mt-0.5 size-4 shrink-0 text-[var(--page-accent)]" />
-                              <span>{highlight}</span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="flex flex-wrap gap-3">
+                      <div className="mt-auto flex flex-wrap gap-3 border-t border-white/[0.06] pt-5">
                         <Button
                           type="button"
                           onClick={() => setSelectedProjectSlug(project.slug)}
-                          className="rounded-full bg-[var(--foreground)] px-5 lowercase text-[var(--background)] shadow-[0_18px_40px_rgba(15,23,42,0.18)] transition hover:translate-y-[-1px] hover:bg-[var(--foreground)]/92"
+                          className="flex-1 rounded-full bg-white py-2.5 text-sm font-medium tracking-wide text-[#0a0612] shadow-none transition duration-300 hover:bg-white/90 sm:flex-none"
                         >
-                          open case study
-                          <ArrowRight className="size-4" />
+                          View
                         </Button>
+                        <a
+                          href={project.links.repository}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-white/14 bg-transparent py-2.5 text-sm tracking-wide text-white/88 transition duration-300 hover:border-white/24 hover:bg-white/[0.06] sm:flex-none sm:px-5"
+                        >
+                          <SocialGithubIcon className="size-4" />
+                          GitHub
+                        </a>
                         <a
                           href={project.links.live}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-5 py-2.5 text-sm font-medium lowercase text-[var(--foreground)] transition hover:bg-white dark:border-white/10 dark:bg-white/6 dark:hover:bg-white/10"
+                          className="inline-flex size-11 items-center justify-center rounded-full border border-white/14 text-white/88 transition duration-300 hover:border-white/24 hover:bg-white/[0.06]"
+                          aria-label={`${project.name} live demo`}
                         >
-                          visit live
                           <ArrowUpRight className="size-4" />
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.article>
-              </SectionReveal>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        </SectionReveal>
       </div>
     </section>
   );

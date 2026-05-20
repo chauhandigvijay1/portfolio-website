@@ -20,8 +20,8 @@ function getSnapshot() {
 export function CursorGlow() {
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
-  const smoothX = useSpring(x, { stiffness: 120, damping: 22, mass: 0.3 });
-  const smoothY = useSpring(y, { stiffness: 120, damping: 22, mass: 0.3 });
+  const smoothX = useSpring(x, { stiffness: 90, damping: 26, mass: 0.35 });
+  const smoothY = useSpring(y, { stiffness: 90, damping: 26, mass: 0.35 });
   const enabled = useSyncExternalStore(subscribe, getSnapshot, () => false);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export function CursorGlow() {
   return (
     <motion.div
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-30 hidden h-48 w-48 rounded-full bg-[radial-gradient(circle,_rgba(105,169,255,0.18)_0%,_rgba(105,169,255,0.08)_34%,_transparent_72%)] blur-3xl lg:block"
+      className="pointer-events-none fixed left-0 top-0 z-30 hidden h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.018)_0%,rgba(120,100,160,0.03)_40%,transparent_75%)] blur-3xl lg:block"
       style={{
         translateX: smoothX,
         translateY: smoothY,

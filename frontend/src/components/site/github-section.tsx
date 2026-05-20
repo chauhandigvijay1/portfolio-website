@@ -24,51 +24,46 @@ export function GithubSection({ github }: GithubSectionProps) {
   }
 
   return (
-    <section className="px-4 py-20 sm:px-6 lg:px-10">
-      <div className="mx-auto max-w-7xl space-y-10">
+    <section id="github" className="section-pad">
+      <div className="section-bridge" />
+      <div className="mx-auto max-w-6xl space-y-12">
         <SectionReveal>
           <SectionHeading
-            eyebrow="github"
-            title="GitHub, kept focused."
-            description="A cleaner look at the public side of my work: selected repositories and recent activity without the extra profile noise."
+            align="center"
+            eyebrow="GitHub"
+            title="Public repositories and recent motion on the graph."
+            description="A quieter lens on the work behind the projects: repositories, languages, and the cadence of commits."
           />
         </SectionReveal>
 
-        <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <SectionReveal delay={0.06}>
-            <div className="rounded-[2.1rem] border border-black/8 bg-white/76 p-6 shadow-[0_28px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/6">
-              <div className="flex flex-col gap-6">
+            <div className="glass-panel h-full rounded-[1.65rem] p-7 sm:p-8">
+              <div className="flex flex-col gap-8">
                 <div className="flex items-start gap-4">
-                  <div className="inline-flex rounded-2xl border border-black/8 bg-[var(--page-background)] p-4 text-[var(--foreground)] dark:border-white/10">
-                    <SiGithub className="size-6" />
+                  <div className="inline-flex rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-white">
+                    <SiGithub className="size-7" />
                   </div>
                   <div className="space-y-2">
-                    <p className="text-xs font-medium lowercase tracking-[0.24em] text-[var(--muted-foreground)]">
-                      @{github.user.login}
-                    </p>
-                    <h3 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--foreground)]">
-                      public build trail
-                    </h3>
-                    <p className="text-sm leading-7 text-[var(--muted-foreground)]">
-                      I use GitHub to document product work, keep repositories public, and make the implementation side of my projects easy to inspect.
+                    <p className="type-section-eyebrow text-[var(--page-accent)]">@{github.user.login}</p>
+                    <h3 className="font-sans text-2xl font-medium tracking-tight text-white">Public build trail</h3>
+                    <p className="text-sm leading-relaxed text-[var(--muted-foreground)] sm:text-base">
+                      I use GitHub to document product work, keep repositories public, and make the implementation side of
+                      my projects easy to inspect.
                     </p>
                   </div>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-[1.5rem] border border-black/8 bg-[var(--page-background)] px-4 py-5 dark:border-white/10">
-                    <p className="text-xs font-medium lowercase tracking-[0.24em] text-[var(--muted-foreground)]">
-                      repos
-                    </p>
-                    <p className="mt-3 text-2xl font-semibold tracking-[-0.05em]">
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-5">
+                    <p className="type-section-eyebrow text-[var(--muted-foreground)]">Repos</p>
+                    <p className="mt-3 font-sans text-3xl font-medium tracking-tight text-white">
                       {github.user.publicRepos}
                     </p>
                   </div>
-                  <div className="rounded-[1.5rem] border border-black/8 bg-[var(--page-background)] px-4 py-5 dark:border-white/10">
-                    <p className="text-xs font-medium lowercase tracking-[0.24em] text-[var(--muted-foreground)]">
-                      recent updates
-                    </p>
-                    <p className="mt-3 text-2xl font-semibold tracking-[-0.05em]">
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-5">
+                    <p className="type-section-eyebrow text-[var(--muted-foreground)]">Recent updates</p>
+                    <p className="mt-3 font-sans text-3xl font-medium tracking-tight text-white">
                       {github.recentEvents.length}
                     </p>
                   </div>
@@ -78,9 +73,9 @@ export function GithubSection({ github }: GithubSectionProps) {
                   href={github.user.profileUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium lowercase text-[var(--foreground)] transition hover:text-[var(--page-accent)]"
+                  className="inline-flex items-center gap-2 text-sm tracking-wide text-white/90 transition hover:text-[var(--page-accent)]"
                 >
-                  open GitHub profile
+                  Open GitHub profile
                   <ArrowUpRight className="size-4" />
                 </a>
               </div>
@@ -89,10 +84,10 @@ export function GithubSection({ github }: GithubSectionProps) {
 
           <div className="space-y-6">
             <SectionReveal delay={0.1}>
-              <div className="rounded-[2rem] border border-black/8 bg-white/76 p-6 shadow-[0_28px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/6">
-                <div className="mb-5 flex items-center gap-3">
+              <div className="glass-panel rounded-[1.65rem] p-7 sm:p-8">
+                <div className="mb-6 flex items-center gap-3">
                   <SiGithub className="size-4 text-[var(--page-accent)]" />
-                  <p className="text-sm font-medium lowercase text-[var(--foreground)]">selected repositories</p>
+                  <p className="type-section-eyebrow text-white/80">Selected repositories</p>
                 </div>
 
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -103,25 +98,25 @@ export function GithubSection({ github }: GithubSectionProps) {
                         href={repo.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="group rounded-[1.5rem] border border-black/8 bg-[var(--page-background)] px-4 py-4 transition hover:-translate-y-1 dark:border-white/10"
+                        className="group rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]"
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div>
-                            <p className="font-medium lowercase text-[var(--foreground)]">{repo.name}</p>
-                            <p className="mt-2 text-sm leading-7 text-[var(--muted-foreground)]">
-                              {repo.description || "public repository"}
+                            <p className="font-medium tracking-tight text-white">{repo.name}</p>
+                            <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                              {repo.description || "Public repository"}
                             </p>
                           </div>
                           <ArrowUpRight className="mt-1 size-4 shrink-0 text-[var(--muted-foreground)] transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                         </div>
-                        <div className="mt-4 flex items-center gap-3 text-xs lowercase tracking-[0.18em] text-[var(--muted-foreground)]">
-                          <span>{repo.language || "mixed"}</span>
-                          <span>updated {formatDate(repo.updatedAt)}</span>
+                        <div className="mt-4 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+                          <span>{repo.language || "Mixed"}</span>
+                          <span>Updated {formatDate(repo.updatedAt)}</span>
                         </div>
                       </a>
                     ))
                   ) : (
-                    <div className="rounded-[1.5rem] border border-dashed border-black/10 bg-[var(--page-background)] px-4 py-5 text-sm leading-7 text-[var(--muted-foreground)] dark:border-white/10 sm:col-span-2">
+                    <div className="rounded-2xl border border-dashed border-white/15 bg-white/[0.02] px-4 py-6 text-sm leading-relaxed text-[var(--muted-foreground)] sm:col-span-2">
                       Repository data will appear here when GitHub is reachable.
                     </div>
                   )}
@@ -131,28 +126,24 @@ export function GithubSection({ github }: GithubSectionProps) {
 
             {github.recentEvents.length ? (
               <SectionReveal delay={0.14}>
-                <div className="rounded-[2rem] border border-black/8 bg-white/76 p-6 shadow-[0_28px_80px_rgba(15,23,42,0.08)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/6">
-                  <div className="mb-5 flex items-center gap-3">
+                <div className="glass-panel rounded-[1.65rem] p-7 sm:p-8">
+                  <div className="mb-6 flex items-center gap-3">
                     <GitBranchPlus className="size-4 text-[var(--page-accent)]" />
-                    <p className="text-sm font-medium lowercase text-[var(--foreground)]">recent activity</p>
+                    <p className="type-section-eyebrow text-white/80">Recent activity</p>
                   </div>
 
                   <div className="space-y-3">
-                    {github.recentEvents.slice(0, 3).map((event) => (
+                    {github.recentEvents.slice(0, 4).map((event) => (
                       <div
                         key={event.id}
-                        className="rounded-[1.4rem] border border-black/8 bg-[var(--page-background)] px-4 py-4 dark:border-white/10"
+                        className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4"
                       >
                         <div className="flex items-start justify-between gap-4">
                           <div>
-                            <p className="text-sm font-medium lowercase text-[var(--foreground)]">
-                              {event.action}
-                            </p>
-                            <p className="mt-1 text-sm leading-7 text-[var(--muted-foreground)]">
-                              {event.repo}
-                            </p>
+                            <p className="text-sm font-medium tracking-tight text-white">{event.action}</p>
+                            <p className="mt-1 text-sm text-[var(--muted-foreground)]">{event.repo}</p>
                           </div>
-                          <p className="text-xs lowercase tracking-[0.18em] text-[var(--muted-foreground)]">
+                          <p className="type-section-eyebrow text-[var(--muted-foreground)]">
                             {formatDate(event.createdAt)}
                           </p>
                         </div>

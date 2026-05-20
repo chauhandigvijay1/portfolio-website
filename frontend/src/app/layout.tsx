@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, Instrument_Serif, Plus_Jakarta_Sans, Syncopate } from "next/font/google";
 import "./globals.css";
 import { portfolioFallback, siteUrl } from "@/lib/site-data";
 import { AppProviders } from "@/components/providers/app-providers";
@@ -9,9 +9,23 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const syncopate = Syncopate({
+  variable: "--font-syncopate",
   subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const heroEditorial = Cormorant_Garamond({
+  variable: "--font-hero-editorial",
+  subsets: ["latin"],
+  weight: ["300"],
+  style: ["italic"],
 });
 
 export const metadata: Metadata = {
@@ -67,7 +81,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${plusJakartaSans.variable} ${manrope.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${syncopate.variable} ${instrumentSerif.variable} ${heroEditorial.variable} h-full antialiased`}
     >
       <body className="min-h-full font-sans">
         <AppProviders>{children}</AppProviders>
