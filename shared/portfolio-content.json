@@ -3,19 +3,19 @@
     "name": "Digvijay Kumar Singh",
     "preferredName": "Digvijay",
     "role": "Full Stack Developer",
-    "tagline": "MCA student building premium, production-style products across the MERN ecosystem.",
-    "intro": "I build developer-focused web products with real authentication, API architecture, deployment workflows, product UI systems, and the kind of implementation detail that makes a project feel usable beyond the demo.",
+    "tagline": "Building production-ready SaaS applications with Next.js, MERN, and AI integrations.",
+    "intro": "I build full-stack web applications focused on real-world product workflows, authentication, payments, AI integrations, and scalable backend architecture. My work centers around turning ideas into deployable products that go beyond tutorials and demonstrate practical engineering decisions.",
     "heroLines": [
       "full stack developer",
-      "mern ecosystem builder",
-      "next.js product engineer",
-      "shipping real-world projects"
+      "next.js engineer",
+      "saas application builder",
+      "ai-powered product developer"
     ],
-    "availability": "Open to internships, freelance opportunities, and product-focused engineering roles.",
+    "availability": "Open to full-time roles, freelance projects, and product engineering opportunities.",
     "journey": [
-      "I am currently pursuing MCA while using projects as the main way to learn deeply. I prefer building real flows end to end instead of staying in isolated tutorials.",
-      "Most of my growth has come from designing the interface, wiring the backend, handling state, deploying the product, and then refining the experience until it feels closer to something a real user would keep using.",
-      "I am especially interested in the MERN ecosystem, API design, deployment discipline, AI-assisted product flows, and the transition from learning projects to production-minded engineering."
+      "My learning approach has always been project-first. Instead of relying only on tutorials, I focus on building complete products from frontend interfaces to backend systems and deployments.",
+      "Over time, I moved from simple web applications to SaaS-style products involving authentication, billing, AI integrations, dashboards, and multi-module workflows.",
+      "Today, my focus is on building scalable web applications while improving backend architecture, product quality, and engineering depth."
     ],
     "education": {
       "degree": "Master of Computer Applications",
@@ -24,12 +24,12 @@
       "cgpa": "8.35"
     },
     "focusAreas": [
-      "MERN ecosystem",
-      "production-style project building",
-      "REST API architecture",
-      "deployment workflows",
-      "authentication systems",
-      "product UI refinement"
+      "Full Stack Development",
+      "Next.js Applications",
+      "SaaS Architecture",
+      "REST API Development",
+      "AI Integrations",
+      "Deployment & DevOps"
     ],
     "email": "chauhandigvijay669@gmail.com",
     "githubUsername": "chauhandigvijay1",
@@ -43,30 +43,30 @@
   },
   "highlights": [
     {
-      "label": "education",
-      "value": "mca 2024-2026",
-      "note": "IIMT College Of Engineering"
+      "label":"projects",
+      "value":"3 production-style saas apps",
+      "note":"authentication, payments, ai"
     },
     {
-      "label": "focus",
-      "value": "full stack products",
-      "note": "MERN, Next.js, APIs, deployments"
+      "label":"stack",
+      "value":"next.js + mern",
+      "note":"frontend to deployment"
     },
     {
-      "label": "current direction",
-      "value": "product-minded engineering",
-      "note": "shipping real public builds"
+      "label":"focus",
+      "value":"full stack engineering",
+      "note":"building deployable products"
     }
   ],
   "timeline": [
     {
       "year": "2024",
-      "title": "Started MCA and shifted into structured full-stack growth",
+      "title": "Transitioned from foundational web development into structured full-stack application development using React, Node.js, and MongoDB.",
       "description": "Moved from foundational web practice into deeper React, backend, and deployment work with a stronger product-building mindset."
     },
     {
       "year": "2025",
-      "title": "Built and shipped internship and responsive frontend work",
+      "title": "Built and deployed multiple production-style web applications while strengthening frontend architecture, backend systems, and deployment workflows.",
       "description": "Strengthened interface fundamentals, responsive design discipline, GitHub usage, and deployment confidence through consistent shipping."
     },
     {
@@ -76,7 +76,7 @@
     },
     {
       "year": "now",
-      "title": "Refining backend depth and product quality",
+      "title": "Actively improving system design, backend engineering, and product development practices while pursuing software engineering opportunities.",
       "description": "Continuing with DSA, API architecture, deployment workflows, and cleaner frontends that feel calm, useful, and technically grounded."
     }
   ],
@@ -673,8 +673,8 @@
     }
   ],
   "contact": {
-    "heading": "Let us build something that feels finished.",
-    "description": "If you need a developer who likes taking a product from idea to deployed implementation, I am interested in roles and collaborations where engineering quality and user experience both matter.",
+    "heading": "Let's build scalable products together.",
+    "description": "I am interested in software engineering opportunities, freelance projects, and collaborations focused on building high-quality web applications and modern digital products. Feel free to reach out if you want to connect, collaborate, or just chat about web development and product engineering.",
     "email": "chauhandigvijay669@gmail.com",
     "socials": [
       {
