@@ -3,33 +3,33 @@
     "name": "Digvijay Kumar Singh",
     "preferredName": "Digvijay",
     "role": "Full Stack Developer",
-    "tagline": "Building production-ready SaaS applications with Next.js, MERN, and AI integrations.",
-    "intro": "I build full-stack web applications focused on real-world product workflows, authentication, payments, AI integrations, and scalable backend architecture. My work centers around turning ideas into deployable products that go beyond tutorials and demonstrate practical engineering decisions.",
+    "tagline": "4 deployed products — MERN, Next.js, TypeScript, Supabase, and AI integrations shipped end to end.",
+    "intro": "I build full-stack products that ship to production — four live applications covering an autonomous AI career OS with a 37-table PostgreSQL schema, a job tracker with a custom Cheerio web scraper for one-click import from any job board, a multi-tenant SaaS workspace with Socket.io real-time chat, and an AI chat platform with API-enforced role-based access control. Every project owns the full stack: schema design, REST API architecture, AI integrations, billing flows, and deployment.",
     "heroLines": [
       "full stack developer",
-      "next.js engineer",
-      "saas application builder",
-      "ai-powered product developer"
+      "ai integration engineer",
+      "mern + supabase builder",
+      "4 deployed products live"
     ],
-    "availability": "Open to full-time roles, freelance projects, and product engineering opportunities.",
+    "availability": "Open to full-stack and SDE-1 roles — internship now, full-time from June 2026.",
     "journey": [
-      "My learning approach has always been project-first. Instead of relying only on tutorials, I focus on building complete products from frontend interfaces to backend systems and deployments.",
-      "Over time, I moved from simple web applications to SaaS-style products involving authentication, billing, AI integrations, dashboards, and multi-module workflows.",
-      "Today, my focus is on building scalable web applications while improving backend architecture, product quality, and engineering depth."
+      "Started MCA while restructuring web practice around end-to-end product builds — React, Node.js, Express, MongoDB, and multi-platform deployment learned not through isolated tutorials but by shipping real, working applications.",
+      "Built and deployed three production-style SaaS applications across the MERN ecosystem: an AI job tracker with Cheerio web scraping and Groq integration, a multi-tenant collaboration workspace with Razorpay billing, and an AI chat SaaS with role-based access control — each deployed with separate frontend and backend services.",
+      "Currently building Valtrexa V2, an autonomous AI career OS with a 37-table PostgreSQL schema in Supabase, multi-model AI routing via OpenRouter and Groq, TanStack Start for SSR, row-level security, and N8N workflow automation — the most architecturally complex system I have designed."
     ],
     "education": {
       "degree": "Master of Computer Applications",
       "duration": "2024 - 2026",
       "institution": "IIMT College Of Engineering",
-      "cgpa": "8.35"
+      "cgpa": "8.28"
     },
     "focusAreas": [
-      "Full Stack Development",
-      "Next.js Applications",
-      "SaaS Architecture",
-      "REST API Development",
-      "AI Integrations",
-      "Deployment & DevOps"
+      "MERN ecosystem and Next.js architecture",
+      "PostgreSQL schema design and Supabase",
+      "AI integration with Groq and OpenRouter",
+      "production SaaS patterns — auth, billing, RBAC",
+      "REST API design and multi-platform deployment",
+      "TanStack and modern React application structure"
     ],
     "email": "chauhandigvijay669@gmail.com",
     "githubUsername": "chauhandigvijay1",
@@ -43,41 +43,41 @@
   },
   "highlights": [
     {
-      "label":"projects",
-      "value":"3 production-style saas apps",
-      "note":"authentication, payments, ai"
+      "label": "education",
+      "value": "mca 2024-2026",
+      "note": "IIMT College Of Engineering"
     },
     {
-      "label":"stack",
-      "value":"next.js + mern",
-      "note":"frontend to deployment"
+      "label": "focus",
+      "value": "4 deployed products",
+      "note": "MERN, Next.js, Supabase, AI APIs"
     },
     {
-      "label":"focus",
-      "value":"full stack engineering",
-      "note":"building deployable products"
+      "label": "current direction",
+      "value": "Valtrexa V2 in active build",
+      "note": "AI OS · 37-table schema · multi-model routing"
     }
   ],
   "timeline": [
     {
       "year": "2024",
-      "title": "Transitioned from foundational web development into structured full-stack application development using React, Node.js, and MongoDB.",
-      "description": "Moved from foundational web practice into deeper React, backend, and deployment work with a stronger product-building mindset."
+      "title": "Started MCA and rebuilt full-stack practice around real product shipping",
+      "description": "Shifted from foundational web exercises into end-to-end React, Node.js, Express, and deployment workflows — using shipped applications rather than isolated tutorials as the core learning mechanism."
     },
     {
       "year": "2025",
-      "title": "Built and deployed multiple production-style web applications while strengthening frontend architecture, backend systems, and deployment workflows.",
-      "description": "Strengthened interface fundamentals, responsive design discipline, GitHub usage, and deployment confidence through consistent shipping."
+      "title": "InternPe internship and first wave of deployed SaaS products",
+      "description": "Completed frontend development internship while simultaneously deploying three production SaaS applications — AI job tracker, team collaboration workspace, and AI chat platform — each with auth, APIs, and real third-party integrations."
     },
     {
       "year": "2025 - 2026",
-      "title": "Started building production-style MERN applications",
-      "description": "Used JobPilot AI, DsSyncHub, and DevFlow AI to practice authentication, billing flows, API design, SaaS structure, and more intentional UI decisions."
+      "title": "Expanded into PostgreSQL, TanStack, and multi-model AI architecture",
+      "description": "Moved beyond MERN into PostgreSQL with Supabase, TanStack Start for SSR, multi-model AI routing via OpenRouter and Groq, and N8N workflow automation — all applied in the Valtrexa V2 build."
     },
     {
       "year": "now",
-      "title": "Actively improving system design, backend engineering, and product development practices while pursuing software engineering opportunities.",
-      "description": "Continuing with DSA, API architecture, deployment workflows, and cleaner frontends that feel calm, useful, and technically grounded."
+      "title": "Shipping Valtrexa V2 and deepening architecture fundamentals",
+      "description": "Finalizing Valtrexa V2 — a 37-table PostgreSQL career OS with autonomous AI workflows — while reinforcing DSA practice, improving API architecture depth, and targeting full-stack SDE-1 and internship roles."
     }
   ],
   "technologies": [
@@ -85,15 +85,16 @@
       "slug": "reactjs",
       "name": "React.js",
       "category": "frontend",
-      "summary": "Primary UI layer for dashboards, forms, interactive cards, and stateful product interfaces.",
-      "experience": "Used across every flagship product to build interactive dashboards, responsive layouts, and reusable component patterns.",
+      "summary": "Primary UI layer for dashboards, forms, interactive product surfaces, and stateful SaaS interfaces — used up to React 19.",
+      "experience": "Applied across all four flagship products, from MERN-stack dashboards to a React 19 application with TanStack Start SSR and a full Radix UI component system in Valtrexa V2.",
       "implementedFeatures": [
-        "dashboard shells",
-        "stateful task and job views",
+        "dashboard shells and kanban surfaces",
+        "stateful task, job, and chat views",
         "theme-aware interface components",
-        "interactive filters and modal flows"
+        "React 19 with TanStack Start SSR in Valtrexa V2"
       ],
       "projectSlugs": [
+        "valtrexa-v2",
         "jobpilot-ai",
         "dssynchub",
         "devflow-ai"
@@ -103,13 +104,13 @@
       "slug": "nextjs",
       "name": "Next.js",
       "category": "frontend",
-      "summary": "Used when the product benefits from application routing, richer app structure, and deployment-ready frontend architecture.",
-      "experience": "Applied in JobPilot AI and DevFlow AI to build app-style frontends with structured routing and production deployment flows.",
+      "summary": "Used for application routing, SSR, and deployment-ready frontend architecture across two AI product builds.",
+      "experience": "Applied in JobPilot AI and DevFlow AI using Next.js 14 with TypeScript — structured routing, dashboard pages, and Vercel/Netlify-connected deployment.",
       "implementedFeatures": [
-        "application routing",
-        "dashboard pages",
-        "theme support",
-        "frontend deployment on Vercel and Netlify"
+        "Next.js 14 application routing with TypeScript",
+        "server-side rendering for faster initial page loads",
+        "dashboard pages and account-focused views",
+        "Vercel and Netlify production deployment"
       ],
       "projectSlugs": [
         "jobpilot-ai",
@@ -120,13 +121,13 @@
       "slug": "javascript",
       "name": "JavaScript",
       "category": "frontend",
-      "summary": "Core language used across product logic, API handling, and component behavior.",
-      "experience": "Used throughout frontend and backend development, from smaller DOM-based builds to full product feature logic in MERN applications.",
+      "summary": "Core scripting layer for product logic, API interactions, and backend service behavior across MERN-stack products.",
+      "experience": "Used throughout Node.js backend services and DevFlow AI's frontend — increasingly complemented by TypeScript in newer production projects.",
       "implementedFeatures": [
-        "interactive UI behavior",
-        "form handling",
-        "API request flows",
-        "business logic for auth and product features"
+        "backend API logic and middleware services",
+        "frontend interactive behavior and form handling",
+        "async API request flows",
+        "Node.js service-level business logic"
       ],
       "projectSlugs": [
         "jobpilot-ai",
@@ -137,29 +138,147 @@
       "slug": "typescript",
       "name": "TypeScript",
       "category": "frontend",
-      "summary": "Used to make product interfaces stricter, cleaner, and more maintainable.",
-      "experience": "Applied in DsSyncHub to build a stricter frontend architecture with typed state, forms, and component contracts.",
+      "summary": "Used to build stricter, more maintainable product code — TypeScript 5 throughout Valtrexa V2 and typed frontend architecture in JobPilot AI and DsSyncHub.",
+      "experience": "Applied in Valtrexa V2 (TypeScript 5 strict mode, Supabase-generated types, Zod validation), JobPilot AI (Next.js 14 TypeScript frontend), and DsSyncHub (typed Redux state and component contracts).",
       "implementedFeatures": [
-        "typed component props",
-        "safer form models",
-        "typed Redux state",
-        "cleaner client architecture"
+        "TypeScript 5 strict mode throughout Valtrexa V2",
+        "Supabase-generated type definitions from PostgreSQL schema",
+        "typed Redux state slices and component props",
+        "Zod schema validation integrated with react-hook-form"
       ],
       "projectSlugs": [
+        "valtrexa-v2",
+        "jobpilot-ai",
         "dssynchub"
+      ]
+    },
+    {
+      "slug": "tanstack-router",
+      "name": "TanStack Router",
+      "category": "frontend",
+      "summary": "File-based routing and SSR framework used in Valtrexa V2 — TanStack Start for server-side rendering and a structured 15+ view application architecture.",
+      "experience": "Used TanStack Start (file-based SSR) in Valtrexa V2 to structure 15+ views across job tracking, recruiter CRM, resume management, and interview prep modules alongside TanStack Query for server state.",
+      "implementedFeatures": [
+        "TanStack Start file-based SSR routing",
+        "15+ structured application views",
+        "TanStack Query for server-state synchronization",
+        "route-based code splitting and module architecture"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2"
+      ]
+    },
+    {
+      "slug": "radix-ui",
+      "name": "Radix UI",
+      "category": "frontend",
+      "summary": "Accessible, headless UI primitive library used as the component foundation in Valtrexa V2 and JobPilot AI.",
+      "experience": "Applied in Valtrexa V2 as a full component library and in JobPilot AI for accessible interactive components — both composited with Tailwind CSS and shadcn/ui patterns.",
+      "implementedFeatures": [
+        "full Radix UI component library in Valtrexa V2",
+        "accessible modal, dropdown, and form primitives",
+        "composable integration with Tailwind CSS utility classes",
+        "base layer for shadcn/ui component patterns in JobPilot AI"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2",
+        "jobpilot-ai"
+      ]
+    },
+    {
+      "slug": "shadcn-ui",
+      "name": "shadcn/ui",
+      "category": "frontend",
+      "summary": "Composable, copy-paste component system built on Radix UI and Tailwind CSS — used for production-quality UI components in JobPilot AI.",
+      "experience": "Applied in JobPilot AI as the component system — form controls, data tables, modal dialogs, and navigation with consistent Tailwind-based styling and Radix accessibility primitives.",
+      "implementedFeatures": [
+        "form components with react-hook-form integration",
+        "data table and card layout components",
+        "modal and sheet dialogs for job and task flows",
+        "Radix-backed accessible component primitives"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai"
+      ]
+    },
+    {
+      "slug": "dnd-kit",
+      "name": "DnD Kit",
+      "category": "frontend",
+      "summary": "Drag-and-drop library used to build the Kanban pipeline in JobPilot AI — stage movement with position persistence and Redux-backed state updates.",
+      "experience": "Implemented @dnd-kit/core in JobPilot AI for the Kanban job pipeline — drag across Applied, Interview, Offer, and Rejected columns with real-time Redux state updates and persistence.",
+      "implementedFeatures": [
+        "drag-and-drop Kanban pipeline with 4 stage columns",
+        "Redux Toolkit position persistence on drop",
+        "real-time state updates during drag interaction",
+        "accessible drag handles and keyboard navigation support"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai"
+      ]
+    },
+    {
+      "slug": "zod",
+      "name": "Zod",
+      "category": "frontend",
+      "summary": "Runtime schema validation library used in Valtrexa V2 for form validation, API input parsing, and type-safe data contracts.",
+      "experience": "Used throughout Valtrexa V2 integrated with react-hook-form — schema-first validation for all user inputs with TypeScript inference for safe data handling across 15+ views.",
+      "implementedFeatures": [
+        "form schema validation with react-hook-form integration",
+        "API response parsing and runtime type checking",
+        "TypeScript type inference from Zod schemas",
+        "field-level error messages and async validation support"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2"
+      ]
+    },
+    {
+      "slug": "react-hook-form",
+      "name": "React Hook Form",
+      "category": "frontend",
+      "summary": "Performant, uncontrolled form management used in Valtrexa V2 — integrated with Zod for schema-driven validation and minimal re-render overhead.",
+      "experience": "Applied in Valtrexa V2 for all form surfaces — resume upload, recruiter entry, outreach drafts, and interview prep forms — with Zod-resolver integration across 15+ application views.",
+      "implementedFeatures": [
+        "Zod-resolver integration for schema-first validation",
+        "uncontrolled form state with minimal re-renders",
+        "async validation support and field error display",
+        "form management across resume, recruiter, and outreach flows"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2"
+      ]
+    },
+    {
+      "slug": "tailwindcss",
+      "name": "Tailwind CSS",
+      "category": "frontend",
+      "summary": "Primary styling system across all four products — rapid composition, consistent design tokens, and responsive SaaS interface patterns.",
+      "experience": "Used to build dashboard layouts, kanban surfaces, billing screens, and chat UIs across all projects with component-level visual consistency.",
+      "implementedFeatures": [
+        "dashboard and SaaS interface systems",
+        "responsive kanban and data table layouts",
+        "dark mode theme variants across all products",
+        "composable utility patterns for consistent visual language"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2",
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
       ]
     },
     {
       "slug": "nodejs",
       "name": "Node.js",
       "category": "backend",
-      "summary": "Backend runtime used for APIs, product logic, integrations, and deployment-ready services.",
-      "experience": "Used for every flagship product backend to manage authentication, business logic, email flows, payments, and data access.",
+      "summary": "Backend runtime for REST APIs, authentication, AI integrations, email delivery, payments, and deployment-ready services across three SaaS products.",
+      "experience": "Used across JobPilot AI (Express 5 with native ESM modules), DsSyncHub (Express 4 with multi-tenant workspace APIs and Socket.io), and DevFlow AI (Express with RBAC and billing).",
       "implementedFeatures": [
-        "API services",
-        "auth workflows",
-        "payment handling",
-        "email and AI integrations"
+        "Express 5 backend with native ESM modules in JobPilot AI",
+        "asyncHandler middleware pattern and Swagger/OpenAPI docs",
+        "AI integration, cron scheduling, and email delivery services",
+        "multi-tenant API architecture for SaaS workspace"
       ],
       "projectSlugs": [
         "jobpilot-ai",
@@ -171,31 +290,79 @@
       "slug": "expressjs",
       "name": "Express.js",
       "category": "backend",
-      "summary": "Main API framework for route structure, middleware, validation, and service composition.",
-      "experience": "Used to build REST APIs for auth, project data, job tracking, billing flows, and workspace features.",
+      "summary": "Primary API framework across all three Node.js-backed products — used in both v4 and v5 with middleware-driven architecture, protected routes, and structured service layers.",
+      "experience": "Deployed Express 5 with native ESM modules in JobPilot AI, Express 4 for DsSyncHub workspace and Socket.io APIs, and Express for DevFlow AI RBAC and billing flows.",
       "implementedFeatures": [
-        "REST endpoints",
-        "protected routes",
-        "middleware-driven auth",
-        "service-oriented backend structure"
+        "Express 5 with ESM modules and asyncHandler pattern",
+        "middleware-driven JWT auth and role guards",
+        "Swagger/OpenAPI documentation layer in JobPilot AI",
+        "Helmet, bcrypt, rate-limiting, and input sanitization"
       ],
       "projectSlugs": [
         "jobpilot-ai",
         "dssynchub",
         "devflow-ai"
+      ]
+    },
+    {
+      "slug": "socket-io",
+      "name": "Socket.io",
+      "category": "backend",
+      "summary": "Real-time WebSocket library used in DsSyncHub for room-scoped chat messaging and live typing indicators.",
+      "experience": "Implemented Socket.io in DsSyncHub to enable real-time team chat — room-scoped message delivery and typing indicator events for workspace channels alongside MongoDB message persistence.",
+      "implementedFeatures": [
+        "room-scoped real-time chat message delivery",
+        "live typing indicator events per channel",
+        "WebSocket connection management with fallback transport",
+        "integrated with MongoDB-backed message persistence"
+      ],
+      "projectSlugs": [
+        "dssynchub"
+      ]
+    },
+    {
+      "slug": "node-cron",
+      "name": "node-cron",
+      "category": "backend",
+      "summary": "Cron-based task scheduler used in JobPilot AI to automate follow-up reminder emails on a configurable sweep interval.",
+      "experience": "Implemented a 15-minute sweep cron job in JobPilot AI — queries upcoming follow-up jobs from MongoDB, sends HTML reminder emails via Nodemailer, and guards against startup race conditions.",
+      "implementedFeatures": [
+        "15-minute sweep for upcoming follow-up detection",
+        "MongoDB-indexed queries to avoid full collection scans",
+        "HTML email templates with injection-safe escaping",
+        "startup race condition guard for MongoDB connection readiness"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai"
+      ]
+    },
+    {
+      "slug": "swagger-openapi",
+      "name": "Swagger / OpenAPI",
+      "category": "backend",
+      "summary": "API documentation layer added to JobPilot AI backend — interactive endpoint explorer and machine-readable contract for all routes.",
+      "experience": "Integrated Swagger/OpenAPI documentation in JobPilot AI's Express 5 backend — all auth, job, reminder, and AI endpoints documented with request/response schemas.",
+      "implementedFeatures": [
+        "full API endpoint documentation for all routes",
+        "request and response schema definitions",
+        "interactive Swagger UI for manual endpoint testing",
+        "machine-readable OpenAPI contract for integration"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai"
       ]
     },
     {
       "slug": "mongodb",
       "name": "MongoDB",
       "category": "data",
-      "summary": "Primary database layer for user records, product entities, and subscription-aware data models.",
-      "experience": "Used with Mongoose to persist users, jobs, tasks, chats, subscription state, and other product data.",
+      "summary": "Primary document database for SaaS product entities — 16-model workspace schema in DsSyncHub and user/subscription records across JobPilot AI and DevFlow AI.",
+      "experience": "Used with Mongoose for all three MERN-stack products; DsSyncHub has the most complex schema with 16 models covering workspaces, channels, tasks, notes, and meetings.",
       "implementedFeatures": [
-        "user storage",
-        "job and task persistence",
-        "chat history persistence",
-        "subscription and workspace records"
+        "16-model multi-tenant workspace schema in DsSyncHub",
+        "user-indexed queries and MongoDB Atlas connection pooling",
+        "subscription-aware data models and plan enforcement",
+        "chat history and job application persistence"
       ],
       "projectSlugs": [
         "jobpilot-ai",
@@ -204,51 +371,82 @@
       ]
     },
     {
-      "slug": "tailwindcss",
-      "name": "Tailwind CSS",
-      "category": "frontend",
-      "summary": "Main styling system for rapid composition, theme control, and polished dashboard interfaces.",
-      "experience": "Used to shape responsive product UIs with reusable layout patterns, design consistency, and faster iteration.",
+      "slug": "supabase",
+      "name": "Supabase",
+      "category": "data",
+      "summary": "PostgreSQL backend-as-a-service with row-level security — the infrastructure layer for Valtrexa V2.",
+      "experience": "Used as the complete backend for Valtrexa V2: 37-table PostgreSQL schema with row-level security, Supabase-generated TypeScript types, auth, and real-time capabilities.",
       "implementedFeatures": [
-        "responsive sections",
-        "dashboard styling systems",
-        "theme variants",
-        "component-level visual consistency"
+        "row-level security (RLS) for multi-tenant data isolation",
+        "Supabase-generated TypeScript type definitions",
+        "37-table normalized schema design",
+        "Supabase auth and PostgreSQL connection pooling"
       ],
       "projectSlugs": [
-        "jobpilot-ai",
-        "dssynchub",
-        "devflow-ai"
+        "valtrexa-v2"
+      ]
+    },
+    {
+      "slug": "postgresql",
+      "name": "PostgreSQL",
+      "category": "data",
+      "summary": "Relational database used in Valtrexa V2 for a fully normalized 37-table schema covering the entire candidate lifecycle.",
+      "experience": "Designed a 37-table PostgreSQL schema covering candidate profiles, resume versions, job applications, recruiter CRM, outreach campaigns, interview prep, analytics events, and AI generation logs with per-request token tracking.",
+      "implementedFeatures": [
+        "37-table normalized schema with proper foreign-key relationships",
+        "candidate_brain, ai_generations, outreach_campaigns tables",
+        "per-request AI token and cost tracking in ai_generations",
+        "multi-tenant data model with Supabase RLS enforcement"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2"
       ]
     },
     {
       "slug": "redux",
       "name": "Redux",
       "category": "state",
-      "summary": "Used for global client state where product behavior needs structure across screens.",
-      "experience": "Applied in DsSyncHub and DevFlow AI to coordinate app state, user context, and product flows across multiple interfaces.",
+      "summary": "Used for structured global state management where product behavior needs coordination across multiple views and user context flows.",
+      "experience": "Applied in JobPilot AI (Kanban pipeline state with DnD position persistence), DsSyncHub (auth and workspace state), and DevFlow AI (plan-aware user state and feature gating).",
       "implementedFeatures": [
-        "global auth state",
-        "shared dashboard data",
-        "cross-screen user context",
-        "predictable UI updates"
+        "Kanban pipeline state with DnD position persistence",
+        "global auth and workspace context across views",
+        "plan-aware feature gating in DevFlow AI",
+        "cross-view user and subscription state"
       ],
       "projectSlugs": [
+        "jobpilot-ai",
         "dssynchub",
         "devflow-ai"
+      ]
+    },
+    {
+      "slug": "zustand",
+      "name": "Zustand",
+      "category": "state",
+      "summary": "Lightweight state management used in Valtrexa V2 for client-side state alongside TanStack Query for server state.",
+      "experience": "Used in Valtrexa V2 as the client state layer — managing UI state, user context, and application-level data that doesn't require server synchronization.",
+      "implementedFeatures": [
+        "client state management in Valtrexa V2",
+        "user context and session-aware state",
+        "UI state coordination across TanStack Start views",
+        "lightweight complement to TanStack Query server state"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2"
       ]
     },
     {
       "slug": "jwt",
       "name": "JWT",
       "category": "backend",
-      "summary": "Authentication backbone for protected routes and session-aware product flows.",
-      "experience": "Used across the flagship stack to secure user sessions, guarded APIs, and product-specific access patterns.",
+      "summary": "Authentication backbone for protected API routes and session-aware product flows across all MERN-backed SaaS applications.",
+      "experience": "Implemented JWT session management with bcrypt password hashing, middleware-protected routes, and proper 401/403 HTTP responses across three backend services.",
       "implementedFeatures": [
-        "protected APIs",
-        "session persistence",
-        "authorization-aware dashboards",
-        "secure login flows"
+        "middleware-guarded API routes with proper 401/403 responses",
+        "bcrypt-hashed credential storage",
+        "session persistence across dashboard views",
+        "combined JWT + Google OAuth auth stacks"
       ],
       "projectSlugs": [
         "jobpilot-ai",
@@ -260,13 +458,13 @@
       "slug": "rest-apis",
       "name": "REST APIs",
       "category": "backend",
-      "summary": "Primary communication layer between frontend applications and backend services.",
-      "experience": "Used to structure resources for jobs, tasks, billing, settings, chats, and content retrieval.",
+      "summary": "Primary communication layer between frontends and backend services — designed around resource boundaries with Swagger documentation.",
+      "experience": "Designed and documented REST APIs for auth, job tracking, workspace management, billing, chat, and AI interaction flows — with Swagger/OpenAPI docs in JobPilot AI.",
       "implementedFeatures": [
-        "resource-based endpoints",
-        "frontend-backend integration",
-        "CRUD operations",
-        "modular service boundaries"
+        "resource-oriented endpoint design across all products",
+        "Swagger/OpenAPI documentation in JobPilot AI",
+        "CORS-restricted production deployment",
+        "modular service and controller separation"
       ],
       "projectSlugs": [
         "jobpilot-ai",
@@ -275,18 +473,171 @@
       ]
     },
     {
+      "slug": "groq-api",
+      "name": "Groq API",
+      "category": "integration",
+      "summary": "Primary LLM integration layer across all AI product features — fast inference with llama-3.3-70b-versatile, structured prompts, and proper error handling.",
+      "experience": "Integrated Groq in JobPilot AI (follow-up email generation and job summarization), DsSyncHub (free-text to structured task conversion and chat thread summarization), and DevFlow AI (AI chat with usage limits).",
+      "implementedFeatures": [
+        "llama-3.3-70b-versatile with structured system prompts",
+        "90-second timeout handling and HTTP error propagation",
+        "per-user usage-limit middleware gating AI access",
+        "follow-up email generation, job summarization, and chat summarization"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "openrouter",
+      "name": "OpenRouter",
+      "category": "integration",
+      "summary": "Multi-model AI routing layer used in Valtrexa V2 for intelligent model selection, free-tier fallbacks, and cost-aware inference.",
+      "experience": "Applied in Valtrexa V2 for multi-model routing across resume analysis, company research, and application intelligence — with a fallback chain that retries free-tier models on rate limits.",
+      "implementedFeatures": [
+        "multi-model routing with per-task model selection",
+        "free-tier fallback chain on rate limit exhaustion",
+        "resume analysis and personalized content generation",
+        "AI generation logging with per-request token tracking"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2",
+        "jobpilot-ai"
+      ]
+    },
+    {
+      "slug": "oauth",
+      "name": "OAuth",
+      "category": "integration",
+      "summary": "Google OAuth 2.0 integrated across multiple SaaS products for frictionless, production-style authentication alongside JWT sessions.",
+      "experience": "Implemented Google OAuth via google-auth-library in JobPilot AI and DsSyncHub — credential vs. access token handling debugged in production, alongside JWT sessions and email verification flows.",
+      "implementedFeatures": [
+        "Google OAuth 2.0 sign-in with google-auth-library",
+        "credential vs. access token payload handling",
+        "combined OAuth + JWT session management",
+        "provider-based auth alongside email/password flows"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub"
+      ]
+    },
+    {
+      "slug": "razorpay",
+      "name": "Razorpay",
+      "category": "integration",
+      "summary": "Payment infrastructure for subscription billing, plan upgrades, and checkout flows across two SaaS products.",
+      "experience": "Integrated Razorpay in DsSyncHub and DevFlow AI — order creation, webhook handling, subscription billing, plan enforcement middleware, and UI-level feature gating.",
+      "implementedFeatures": [
+        "order creation and payment verification webhooks",
+        "subscription plan upgrades with tier enforcement",
+        "UI-level feature gating based on active subscription",
+        "billing screens with plan comparison and checkout"
+      ],
+      "projectSlugs": [
+        "dssynchub",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "nodemailer",
+      "name": "Nodemailer",
+      "category": "integration",
+      "summary": "Backend email delivery for automated reminders, account verification, and password reset flows.",
+      "experience": "Used in JobPilot AI for cron-driven follow-up reminders with HTML email templates, and in DsSyncHub for email verification and password reset with token expiry.",
+      "implementedFeatures": [
+        "cron-triggered follow-up reminder emails in JobPilot AI",
+        "HTML email templates with injection-safe escaping",
+        "email verification with expiring tokens in DsSyncHub",
+        "SMTP transport with environment-configured credentials"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "dssynchub"
+      ]
+    },
+    {
+      "slug": "cloudinary",
+      "name": "Cloudinary",
+      "category": "integration",
+      "summary": "Cloud media management for resume uploads and file storage across product builds with signed upload presets.",
+      "experience": "Integrated Cloudinary in JobPilot AI for resume file uploads and in DevFlow AI for media handling — configured with signed upload presets and HTTPS-secured delivery.",
+      "implementedFeatures": [
+        "resume file uploads with signed upload presets",
+        "media storage and secure HTTPS delivery",
+        "Multer-integrated upload pipeline",
+        "environment-configured Cloudinary credentials"
+      ],
+      "projectSlugs": [
+        "jobpilot-ai",
+        "devflow-ai"
+      ]
+    },
+    {
+      "slug": "cheerio",
+      "name": "Cheerio",
+      "category": "integration",
+      "summary": "Server-side DOM parsing used to build a job page scraper that extracts structured data from any job listing URL without site-specific configuration.",
+      "experience": "Built a Cheerio-based extraction pipeline in JobPilot AI that parses job title, company, location, salary, and employment type from OpenGraph meta tags, itemprop microdata, and CSS class heuristics.",
+      "implementedFeatures": [
+        "waterfall extraction: itemprop → OpenGraph → CSS heuristics → page title",
+        "multi-field extraction with sanitization and length limits",
+        "covers Naukri, LinkedIn, and direct company careers pages",
+        "HTML parsing without any site-specific configuration"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2",
+        "jobpilot-ai"
+      ]
+    },
+    {
+      "slug": "n8n",
+      "name": "N8N",
+      "category": "integration",
+      "summary": "Workflow automation platform integrated in Valtrexa V2 for event-driven job discovery, outreach scheduling, and autonomous career workflow orchestration.",
+      "experience": "Designed Valtrexa V2 with an event-driven architecture that emits workflow events (job discovered, application submitted, recruiter found) into N8N for automation — including a Telegram command interface for operational control.",
+      "implementedFeatures": [
+        "event-driven architecture with N8N workflow triggers",
+        "autonomous outreach scheduling and follow-up automation",
+        "Telegram HQ command interface for operational control",
+        "workflow orchestration for job discovery and application events"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2"
+      ]
+    },
+    {
+      "slug": "playwright",
+      "name": "Playwright",
+      "category": "tooling",
+      "summary": "Browser automation framework used in Valtrexa V2 for web scraping automation and end-to-end testing infrastructure.",
+      "experience": "Applied in Valtrexa V2 for browser automation — scraping job board data from boards not covered by Cheerio extraction and building automated workflow verification.",
+      "implementedFeatures": [
+        "browser automation for job board data extraction",
+        "end-to-end testing infrastructure configuration",
+        "scraping fallback for boards not covered by Cheerio",
+        "automated workflow verification"
+      ],
+      "projectSlugs": [
+        "valtrexa-v2"
+      ]
+    },
+    {
       "slug": "git",
       "name": "Git",
       "category": "tooling",
-      "summary": "Version control foundation for iteration, cleanup, and deployment-ready workflow.",
-      "experience": "Used consistently while building, refactoring, and deploying portfolio and product projects.",
+      "summary": "Version control backbone for iterative feature development, safe refactoring, and deployment-connected workflows across all products.",
+      "experience": "Used consistently across all four products — 87+ commits in the main web-dev-journey repository, with structured commit history across product modules.",
       "implementedFeatures": [
-        "incremental feature shipping",
-        "safe refactors",
-        "deployment-connected workflows",
-        "project history management"
+        "feature-branch shipping and safe refactors",
+        "deployment-integrated commit workflows",
+        "modular project history across a multi-project monorepo",
+        "consistent commit discipline across 87+ recorded commits"
       ],
       "projectSlugs": [
+        "valtrexa-v2",
         "jobpilot-ai",
         "dssynchub",
         "devflow-ai"
@@ -296,15 +647,16 @@
       "slug": "github",
       "name": "GitHub",
       "category": "tooling",
-      "summary": "Main collaboration and public code platform for repositories, project visibility, and deploy-connected workflows.",
-      "experience": "Used to host source code, maintain project history, and connect deployments across Vercel, Render, and Netlify.",
+      "summary": "Public code platform for all four projects — deployment-connected repositories with documentation and live link verification.",
+      "experience": "All production projects hosted on GitHub with public repositories, deployment integrations across Vercel, Render, and Netlify, and code audited externally for quality.",
       "implementedFeatures": [
-        "public repositories",
-        "deployment integrations",
-        "project documentation",
-        "portfolio-ready code sharing"
+        "public repositories with live deployment links",
+        "Vercel + Render + Netlify deployment integrations",
+        "code-reviewed and externally audited project history",
+        "multi-project portfolio visibility"
       ],
       "projectSlugs": [
+        "valtrexa-v2",
         "jobpilot-ai",
         "dssynchub",
         "devflow-ai"
@@ -314,13 +666,13 @@
       "slug": "postman",
       "name": "Postman",
       "category": "tooling",
-      "summary": "Used to inspect, verify, and debug API routes during backend development.",
-      "experience": "Part of the workflow for checking auth flows, CRUD routes, and integration behavior while building backend services.",
+      "summary": "Primary tool for API verification, auth flow testing, and endpoint debugging during backend development.",
+      "experience": "Used throughout all backend builds to verify routes, inspect JWT payloads, test auth flows, and debug integration behavior before frontend connection.",
       "implementedFeatures": [
-        "route verification",
-        "payload testing",
-        "auth token inspection",
-        "backend debugging"
+        "auth token inspection and route testing",
+        "CRUD endpoint verification across all backends",
+        "OAuth callback and payment webhook testing",
+        "backend integration debugging before frontend wiring"
       ],
       "projectSlugs": [
         "jobpilot-ai",
@@ -332,13 +684,13 @@
       "slug": "render",
       "name": "Render",
       "category": "deployment",
-      "summary": "Primary backend hosting platform for public API deployment.",
-      "experience": "Used to deploy Express APIs for production-style MERN products with environment-based configuration.",
+      "summary": "Primary backend hosting platform for all three MERN-backend APIs — Express services deployed with CORS-restricted, environment-separated configuration.",
+      "experience": "All three Node.js/Express backends deployed to Render with CORS-restricted access, environment variable management, and MongoDB Atlas connection pooling.",
       "implementedFeatures": [
-        "backend hosting",
-        "environment variable management",
-        "public API deployment",
-        "frontend-backend separation"
+        "production Express API hosting for three products",
+        "CORS-restricted, environment-configured deployments",
+        "MongoDB Atlas integration with connection pooling",
+        "frontend-backend separation across Vercel + Render"
       ],
       "projectSlugs": [
         "jobpilot-ai",
@@ -350,15 +702,16 @@
       "slug": "vercel",
       "name": "Vercel",
       "category": "deployment",
-      "summary": "Preferred frontend deployment platform for React and Next.js products.",
-      "experience": "Used to ship public frontends for JobPilot AI and DsSyncHub with fast iteration and GitHub-connected deployment.",
+      "summary": "Preferred frontend deployment platform for React, Next.js, and TanStack applications — GitHub-connected auto-deploy workflow.",
+      "experience": "Deployed JobPilot AI and DsSyncHub Next.js/React frontends with GitHub-connected auto-deployment, and Valtrexa V2 as a full-stack Supabase + Vercel application.",
       "implementedFeatures": [
-        "frontend hosting",
-        "preview-friendly deployment",
-        "environment variable management",
-        "production frontend delivery"
+        "Next.js and React frontend production hosting",
+        "GitHub-connected automatic deployment pipeline",
+        "environment variable management for API endpoints",
+        "Valtrexa V2 full-stack deployment on Vercel"
       ],
       "projectSlugs": [
+        "valtrexa-v2",
         "jobpilot-ai",
         "dssynchub"
       ]
@@ -367,90 +720,101 @@
       "slug": "netlify",
       "name": "Netlify",
       "category": "deployment",
-      "summary": "Used for public deployment of static and application frontends during the learning-to-product journey.",
-      "experience": "Used for earlier portfolio shipping and for deploying the DevFlow AI frontend.",
+      "summary": "Used for frontend deployment of the DevFlow AI SaaS platform and the personal portfolio.",
+      "experience": "Deployed the DevFlow AI Next.js frontend and portfolio site to Netlify with HTTPS configuration and environment variable management.",
       "implementedFeatures": [
-        "public portfolio deployment",
-        "frontend hosting",
-        "fast publishing workflow",
-        "product delivery during iteration"
+        "Next.js frontend hosting for DevFlow AI",
+        "personal portfolio deployment",
+        "HTTPS and SPA routing configuration",
+        "environment variable management"
       ],
       "projectSlugs": [
         "devflow-ai"
-      ]
-    },
-    {
-      "slug": "redis",
-      "name": "Redis",
-      "category": "data",
-      "summary": "Part of the backend scaling toolkit I am exploring for faster stateful workflows and performance-minded architecture.",
-      "experience": "Used as a learning focus while thinking through caching, queue-like behavior, and how real products handle short-lived data more efficiently.",
-      "implementedFeatures": [
-        "caching exploration",
-        "performance-oriented backend thinking",
-        "session and short-lived data awareness"
-      ],
-      "projectSlugs": []
-    },
-    {
-      "slug": "oauth",
-      "name": "OAuth",
-      "category": "integration",
-      "summary": "Used to provide simpler sign-in flows and more realistic product authentication.",
-      "experience": "Integrated Google OAuth into flagship applications to support a more production-style onboarding experience.",
-      "implementedFeatures": [
-        "Google sign-in",
-        "reduced signup friction",
-        "provider-based authentication flows"
-      ],
-      "projectSlugs": [
-        "jobpilot-ai",
-        "dssynchub"
-      ]
-    },
-    {
-      "slug": "razorpay",
-      "name": "Razorpay",
-      "category": "integration",
-      "summary": "Used to build payment-aware SaaS flows with plan upgrades and subscription handling.",
-      "experience": "Integrated in DsSyncHub and DevFlow AI to practice billing logic, upgrade paths, and real product monetization patterns.",
-      "implementedFeatures": [
-        "checkout flows",
-        "plan upgrades",
-        "subscription-aware backend logic",
-        "billing screens"
-      ],
-      "projectSlugs": [
-        "dssynchub",
-        "devflow-ai"
-      ]
-    },
-    {
-      "slug": "nodemailer",
-      "name": "Nodemailer",
-      "category": "integration",
-      "summary": "Used for product communication flows such as reminders, resets, and email-driven actions.",
-      "experience": "Applied in job reminder and account-related flows where the product needed outbound email behavior.",
-      "implementedFeatures": [
-        "reminder emails",
-        "account-related messages",
-        "backend-triggered communication"
-      ],
-      "projectSlugs": [
-        "jobpilot-ai",
-        "dssynchub"
       ]
     }
   ],
   "projects": [
     {
+      "slug": "valtrexa-v2",
+      "name": "Valtrexa V2",
+      "label": "AI career operating system",
+      "summary": "An autonomous AI career OS with a 37-table PostgreSQL schema, multi-model AI routing via OpenRouter and Groq, TanStack Start SSR, Supabase RLS, and N8N workflow automation.",
+      "description": "Valtrexa V2 started from a real observation: job searching is fragmented across a dozen tabs — resume builder, job boards, email drafts, recruiter contacts, and calendar events with nothing connecting them. The goal was a single system that handled the entire career workflow autonomously — from resume intelligence to recruiter CRM to interview prep.",
+      "challenge": "Design a normalized relational schema, a multi-model AI routing layer, and an event-driven automation architecture — all while working with a stack (TanStack Start, Supabase, OpenRouter, N8N) learned entirely during the build itself.",
+      "solution": "Built a 37-table PostgreSQL schema in Supabase with row-level security, a TanStack Start SSR frontend with 15+ structured views, multi-model AI routing via OpenRouter and Groq with a free-tier fallback chain, PDF/DOCX document parsing, Cheerio scraping, and an event architecture wired into N8N for autonomous workflow orchestration with a Telegram command interface.",
+      "palette": [
+        "#6366f1",
+        "#a855f7",
+        "#0f172a"
+      ],
+      "stack": [
+        "reactjs",
+        "typescript",
+        "tanstack-router",
+        "tailwindcss",
+        "zustand",
+        "react-hook-form",
+        "zod",
+        "radix-ui",
+        "supabase",
+        "postgresql",
+        "openrouter",
+        "groq-api",
+        "n8n",
+        "playwright",
+        "cheerio",
+        "vercel"
+      ],
+      "highlights": [
+        "37-table normalized PostgreSQL schema with Supabase row-level security",
+        "multi-model AI routing via OpenRouter and Groq with per-request token tracking",
+        "TanStack Start (file-based SSR) with 15+ structured views",
+        "provider abstraction for Greenhouse, Lever, and LinkedIn job import",
+        "N8N event-driven workflow automation with Telegram command interface",
+        "PDF/DOCX parsing pipeline with pdfkit, pdf-parse, and mammoth"
+      ],
+      "frontendDetails": [
+        "React 19 with TanStack Start — file-based SSR and structured route-based architecture",
+        "TanStack Query for server state, Zustand for client state",
+        "full Radix UI component library with react-hook-form and Zod validation",
+        "15+ views across job tracking, recruiter CRM, resume management, and interview prep"
+      ],
+      "backendDetails": [
+        "Supabase-managed PostgreSQL with RLS for multi-tenant data isolation",
+        "ai_generations table with per-request token and cost tracking",
+        "OpenRouter multi-model routing with free-tier fallback chain on rate limits",
+        "Cheerio and Playwright scraping pipeline with Google APIs and PDF/DOCX processing"
+      ],
+      "architectureHighlights": [
+        "event-driven architecture emitting workflow events into N8N for autonomous processing",
+        "provider abstraction layer supporting Greenhouse, Lever, Ashby, LinkedIn, and Wellfound",
+        "TypeScript 5 strict mode throughout with Supabase-generated type definitions",
+        "Telegram HQ command interface for real-time operational control"
+      ],
+      "deployment": {
+        "frontend": "Vercel",
+        "backend": "Supabase (PostgreSQL + Auth + RLS)",
+        "database": "Supabase / PostgreSQL"
+      },
+      "links": {
+        "live": "https://valtrexa-v2.vercel.app/",
+        "repository": "https://github.com/chauhandigvijay1/Valtrexa-V2",
+        "api": "https://valtrexa-v2.vercel.app/"
+      },
+      "images": [
+        "/assets/projects/valtrexa-v2/dashboard.png",
+        "/assets/projects/valtrexa-v2/jobs.png",
+        "/assets/projects/valtrexa-v2/recruiters.png"
+      ]
+    },
+    {
       "slug": "jobpilot-ai",
       "name": "JobPilot AI",
-      "label": "AI job tracker",
-      "summary": "A full-stack job application tracker with analytics, reminders, kanban workflow, and AI-assisted follow-up support.",
-      "description": "JobPilot AI was built around a real problem: keeping a job search organized once applications, reminders, follow-ups, and status changes start spreading across notes and tabs. The product brings those moving pieces into one focused dashboard.",
-      "challenge": "Turn job tracking into a workflow-driven product instead of a basic CRUD list, while still handling authentication, reminders, analytics, and AI assistance without making the interface feel noisy.",
-      "solution": "Structured the product around a clean dashboard, protected auth flows, kanban-based status movement, analytics views, and email reminder support so the experience feels useful beyond a demo.",
+      "label": "AI job application tracker",
+      "summary": "A full-stack AI job tracker with a Cheerio-based job page scraper, Groq-powered follow-up generation, drag-and-drop Kanban pipeline, and automated cron reminders.",
+      "description": "JobPilot AI was built around a specific pain: every job search spreads across a dozen browser tabs, and follow-ups never get sent because nothing tracks them. The product brings job import, tracking, AI follow-ups, reminders, and analytics into one dashboard.",
+      "challenge": "Build a job import system that works across every job board without site-specific configuration, and wire up AI follow-up generation, cron-driven reminders, and a Kanban workflow without making the interface feel overloaded.",
+      "solution": "Built a Cheerio DOM parser with a waterfall extraction strategy — itemprop, OpenGraph, CSS heuristics, page title fallback — for one-click job import from any URL. Integrated Groq (llama-3.3-70b-versatile) for follow-up email generation, DnD Kit for Kanban, node-cron for scheduled reminders, and Express 5 with native ESM modules for the backend.",
       "palette": [
         "#7c6df8",
         "#65e4c8",
@@ -459,40 +823,52 @@
       "stack": [
         "nextjs",
         "reactjs",
-        "javascript",
+        "typescript",
         "tailwindcss",
+        "redux",
+        "shadcn-ui",
+        "radix-ui",
+        "dnd-kit",
         "nodejs",
         "expressjs",
         "mongodb",
         "jwt",
         "rest-apis",
         "oauth",
+        "groq-api",
+        "cheerio",
+        "node-cron",
         "nodemailer",
+        "cloudinary",
+        "swagger-openapi",
         "vercel",
         "render"
       ],
       "highlights": [
-        "email and username based authentication",
-        "Google OAuth sign-in",
-        "kanban-style job workflow",
-        "AI follow-up message generation",
-        "analytics dashboard",
-        "email reminder system"
+        "Cheerio web scraper — extracts job fields from any URL using itemprop, OpenGraph, and CSS heuristics",
+        "Groq (llama-3.3-70b) for AI follow-up email generation and job summarization",
+        "drag-and-drop Kanban pipeline with DnD Kit and Redux Toolkit position persistence",
+        "node-cron automated reminders with HTML email templates via Nodemailer",
+        "Express 5 backend with native ESM modules, Swagger docs, and asyncHandler pattern",
+        "JWT + Google OAuth 2.0 with bcrypt hashing and middleware-protected routes"
       ],
       "frontendDetails": [
-        "Next.js application structure for a dashboard-first product",
-        "Tailwind-driven responsive cards, tables, and kanban surfaces",
-        "theme-aware interface patterns for a calmer working experience"
+        "Next.js 14 with TypeScript — structured application routing and SSR page loads",
+        "DnD Kit drag-and-drop Kanban across Applied, Interview, Offer, and Rejected columns",
+        "shadcn/ui component system with Radix primitives and Tailwind CSS",
+        "Redux Toolkit for Kanban state persistence and cross-view user context"
       ],
       "backendDetails": [
-        "Express API for authentication, jobs, reminders, and analytics logic",
-        "MongoDB-backed persistence for users, jobs, and workflow data",
-        "JWT-based protected routes and email handling with Nodemailer"
+        "Express 5 with native ESM modules, asyncHandler middleware, and Swagger/OpenAPI docs",
+        "Cheerio DOM parser with 4-stage extraction waterfall and per-field sanitization",
+        "Groq API integration with 90-second timeout, structured prompts, and HTTP error propagation",
+        "node-cron 15-minute reminder sweep with MongoDB-indexed queries and Nodemailer delivery"
       ],
       "architectureHighlights": [
-        "clear frontend and backend separation",
-        "workflow-oriented dashboard instead of simple form pages",
-        "deployment split across Vercel and Render"
+        "job scraper designed for any URL — no site-specific configuration required",
+        "Express 5 ESM backend deployed on Render with CORS-locked production config",
+        "MongoDB user-indexed queries to avoid full collection scans in cron sweeps",
+        "Cloudinary resume uploads with signed presets alongside Swagger-documented API"
       ],
       "deployment": {
         "frontend": "Vercel",
@@ -512,12 +888,12 @@
     },
     {
       "slug": "dssynchub",
-      "name": "DsSyncHub",
-      "label": "team workspace saas",
-      "summary": "A production-style collaboration platform for tasks, notes, workspace flows, billing, and team-oriented productivity modules.",
-      "description": "DsSyncHub pushes beyond a single module app. It brings workspace structure, task handling, notes, billing, and team-ready product thinking into one SaaS-style build designed to feel broader and more realistic.",
-      "challenge": "Build a multi-module product without letting the interface or architecture become fragmented, while also handling auth, global state, billing, and a more scalable frontend structure.",
-      "solution": "Used a typed React client, Redux-backed state handling, and modular backend routes so each feature could grow independently while still feeling like one coherent product.",
+      "name": "DsSync Hub",
+      "label": "multi-tenant team collaboration SaaS",
+      "summary": "A multi-tenant SaaS workspace with Socket.io real-time chat, Groq AI task intelligence, Razorpay subscription billing, and a 16-model MongoDB schema.",
+      "description": "DsSync Hub was designed as a real SaaS product problem: team collaboration tools are either too simple or too fragmented. The goal was a focused multi-module workspace covering tasks, notes, real-time chat, and billing — each module independent but coherent within one product.",
+      "challenge": "Build a multi-feature SaaS product without the interface or architecture becoming fragmented — while handling multi-tenant data isolation, real-time chat, AI integration, and subscription billing in a single coherent system.",
+      "solution": "Architected 16 MongoDB models covering workspaces, channels, tasks, notes, and meetings. Used Socket.io for room-scoped real-time chat, integrated Groq for free-text to structured task conversion and chat thread summarization, Razorpay for subscription billing with webhook validation, and Redux Toolkit for shared application state.",
       "palette": [
         "#4f46e5",
         "#22c55e",
@@ -528,39 +904,44 @@
         "typescript",
         "tailwindcss",
         "redux",
+        "socket-io",
         "nodejs",
         "expressjs",
         "mongodb",
         "jwt",
         "rest-apis",
         "oauth",
+        "groq-api",
         "razorpay",
         "nodemailer",
         "vercel",
         "render"
       ],
       "highlights": [
-        "workspace creation and management",
-        "task CRUD with status and priority flows",
-        "notes module",
-        "team chat-ready product structure",
-        "Razorpay billing integration",
-        "settings and profile management"
+        "16-model MongoDB schema — workspaces, channels, tasks, notes, meetings",
+        "Socket.io real-time chat with room-scoped messages and typing indicators",
+        "Groq AI layer — free-text to structured tasks, chat thread summarization, draft rewriting",
+        "Razorpay subscription billing with webhook handling and plan enforcement middleware",
+        "per-user AI usage-limit middleware gating Groq API access",
+        "JWT + Google OAuth 2.0 with email verification and password reset via Nodemailer"
       ],
       "frontendDetails": [
-        "React and TypeScript client with a more scalable component structure",
-        "Redux Toolkit for shared auth and application state",
-        "Tailwind-based SaaS interface across dashboard, billing, notes, and task views"
+        "React and TypeScript client with scalable module-oriented component structure",
+        "Redux Toolkit for shared auth state, workspace context, and cross-view data",
+        "Tailwind-based SaaS interface across dashboard, billing, notes, chat, and task views",
+        "socket-aware components for real-time message updates and typing feedback"
       ],
       "backendDetails": [
-        "Express API for auth, workspace flows, tasks, notes, billing, and account logic",
-        "MongoDB and Mongoose for product entities and user state",
-        "JWT security, Google OAuth integration, and Nodemailer support"
+        "Express API with 16 Mongoose models and workspace-scoped data isolation",
+        "Socket.io WebSocket layer for room-scoped real-time chat and typing events",
+        "Groq integration with per-user usage-limit middleware for controlled AI access",
+        "Razorpay webhooks, JWT sessions, Google OAuth, email verification, and CORS-locked deployment"
       ],
       "architectureHighlights": [
-        "typed frontend structure for a broader product surface",
-        "module-oriented SaaS thinking instead of a single-feature app",
-        "public deployment split between Vercel and Render"
+        "16-model MongoDB schema designed for workspace-scoped, role-based data access",
+        "real-time chat via Socket.io alongside REST API for all other product operations",
+        "Groq AI gated by per-user middleware — not just UI-level checks",
+        "separate Vercel frontend and Render backend with MongoDB Atlas connection pooling"
       ],
       "deployment": {
         "frontend": "Vercel",
@@ -581,11 +962,11 @@
     {
       "slug": "devflow-ai",
       "name": "DevFlow AI",
-      "label": "AI chat saas",
-      "summary": "A full-stack AI chat product with usage limits, billing, settings, and subscription-aware user flows.",
-      "description": "DevFlow AI focuses on a cleaner SaaS interaction model where chat, limits, billing, and account controls sit inside one cohesive product. It is less about novelty and more about handling several product concerns together.",
-      "challenge": "Blend AI chat interaction, usage restrictions, authentication, and billing into a simple experience that still feels product-ready.",
-      "solution": "Built a full-stack flow around chat persistence, guarded free-plan limits, upgrade paths through Razorpay, and settings-oriented account management backed by a separate API service.",
+      "label": "AI SaaS chat platform",
+      "summary": "A full-stack AI chat SaaS with role-based access control, per-account usage limits enforced at the API level, Groq-powered chat, Cloudinary media handling, and Razorpay billing.",
+      "description": "DevFlow AI was built to practice SaaS access control patterns — specifically how usage limits, billing tiers, and AI features interact without becoming messy. The goal was a clean AI chat product where free plan limits, upgrade flows, and account controls all work correctly at the API level, not just the UI.",
+      "challenge": "Implement role-based access control and usage limits that are actually enforced in the backend — not just hidden in the UI — while keeping the chat interface clean and the upgrade flow frictionless.",
+      "solution": "Built RBAC with admin/user roles and per-account daily usage limits enforced by API middleware. Integrated Groq for AI chat with chat history persistence, Razorpay for plan upgrades with payment verification, and Cloudinary for media. Deployed Next.js frontend on Netlify and Express API on Render with HTTPS CORS allowlists.",
       "palette": [
         "#14b8a6",
         "#38bdf8",
@@ -602,32 +983,37 @@
         "mongodb",
         "jwt",
         "rest-apis",
+        "groq-api",
         "razorpay",
+        "cloudinary",
         "netlify",
         "render"
       ],
       "highlights": [
-        "AI chat flow",
-        "chat history persistence",
-        "daily usage limits for free plans",
-        "Razorpay billing and upgrades",
-        "user settings and plan details",
-        "responsive app-style interface"
+        "role-based access control (RBAC) with admin/user roles enforced at the API level",
+        "per-account usage limits enforced by backend middleware — not just UI gating",
+        "Groq API chat with persistent chat history across sessions",
+        "Razorpay billing with plan upgrades and payment verification",
+        "Cloudinary media handling with signed upload presets",
+        "Next.js frontend on Netlify and Express API on Render with CORS allowlists"
       ],
       "frontendDetails": [
-        "Next.js frontend organized around chat, billing, and settings flows",
-        "Tailwind-based application UI with account-focused views",
-        "state management for user and plan-aware behavior"
+        "Next.js frontend organized around chat, billing, account settings, and plan management",
+        "Redux for plan-aware user state and feature access control in the UI layer",
+        "Tailwind-based responsive application interface with chat and account-focused views",
+        "subscription tier display and Razorpay-connected upgrade flow"
       ],
       "backendDetails": [
-        "Express API for auth, chat persistence, usage checks, and billing logic",
-        "MongoDB-backed storage for user and subscription-related data",
-        "JWT-protected routes and payment integration through Razorpay"
+        "Express API with RBAC middleware — admin and user roles with per-account usage limit enforcement",
+        "Groq AI chat with MongoDB-backed message persistence and session history",
+        "Razorpay payment verification with plan upgrade logic and subscription record updates",
+        "Cloudinary signed upload presets and environment-managed secrets on Render"
       ],
       "architectureHighlights": [
-        "subscription-aware product flow",
-        "separate frontend and backend deployment model",
-        "AI interaction integrated into a broader SaaS structure"
+        "usage limits enforced in Express middleware — correct even if the frontend is bypassed",
+        "separate Netlify (Next.js) and Render (Express) deployment with HTTPS CORS allowlists",
+        "RBAC implementation demonstrates security-first API design beyond typical project work",
+        "Groq chat integrated into a broader SaaS billing structure — not an isolated feature"
       ],
       "deployment": {
         "frontend": "Netlify",
@@ -651,7 +1037,7 @@
       "slug": "responsive-web-design",
       "title": "Responsive Web Design",
       "issuer": "freeCodeCamp",
-      "description": "Strengthened layout fundamentals, semantic structure, and responsive thinking that later carried into product UI work.",
+      "description": "Strengthened layout fundamentals, semantic structure, and responsive thinking that carries into every product UI built since.",
       "credentialUrl": "https://freecodecamp.org/certification/fcc-ac85199a-7052-48c8-a6ef-75176c20ef28/responsive-web-design",
       "image": "/assets/certifications/responsive-web-design.png"
     },
@@ -659,7 +1045,7 @@
       "slug": "generative-ai-introduction",
       "title": "Generative AI: Introduction and Applications",
       "issuer": "Coursera x IBM",
-      "description": "Helped connect product curiosity with practical AI-assisted workflows and modern tooling awareness.",
+      "description": "Connected AI product curiosity with practical LLM-assisted workflows — directly informing the Groq and OpenRouter integrations in every subsequent project.",
       "credentialUrl": "https://coursera.org/verify/IZJG7CO1IKEL",
       "image": "/assets/certifications/generative-ai-ibm.png"
     },
@@ -667,14 +1053,14 @@
       "slug": "javascript-algorithms",
       "title": "JavaScript Algorithms and Data Structures",
       "issuer": "freeCodeCamp",
-      "description": "Reinforced core JavaScript problem-solving and laid groundwork for stronger frontend and backend logic.",
+      "description": "Reinforced core JavaScript problem-solving and laid the groundwork for stronger frontend and backend logic across production builds.",
       "credentialUrl": "https://www.freecodecamp.org/certification/fcc-ac85199a-7052-48c8-a6ef-75176c20ef28/javascript-algorithms-and-data-structures-v8",
       "image": "/assets/certifications/javascript-algorithms.png"
     }
   ],
   "contact": {
-    "heading": "Let's build scalable products together.",
-    "description": "I am interested in software engineering opportunities, freelance projects, and collaborations focused on building high-quality web applications and modern digital products. Feel free to reach out if you want to connect, collaborate, or just chat about web development and product engineering.",
+    "heading": "Let's build something production-ready.",
+    "description": "If you need a developer who takes products from idea to deployed implementation — schema design, API architecture, AI integrations, and UI all included — I'm open to full-stack, SDE-1, and internship roles starting now.",
     "email": "chauhandigvijay669@gmail.com",
     "socials": [
       {

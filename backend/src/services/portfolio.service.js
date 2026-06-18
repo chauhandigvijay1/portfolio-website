@@ -1,15 +1,16 @@
+const fs = require("fs");
 const path = require("path");
 const { isDatabaseConnected } = require("../config/database");
 const { PortfolioContent } = require("../models/portfolio-content.model");
 
-const portfolioSeed = require(path.resolve(
+const portfolioContentPath = path.resolve(
   __dirname,
   "..",
   "..",
   "..",
   "shared",
   "portfolio-content.json"
-));
+);
 
 const sectionKeys = [
   "profile",
@@ -26,15 +27,19 @@ async function getSection(key) {
     return null;
   }
 
+  const portfolioSeed = readPortfolioSeed();
+
   if (!isDatabaseConnected()) {
     return portfolioSeed[key] || null;
   }
 
   const section = await PortfolioContent.findOne({ key }).lean();
-  return section?.data || portfolioSeed[key] || null;
+  return portfolioSeed[key] ?? section?.data ?? null;
 }
 
 async function getPortfolioContent() {
+  const portfolioSeed = readPortfolioSeed();
+
   if (!isDatabaseConnected()) {
     return portfolioSeed;
   }
@@ -43,14 +48,18 @@ async function getPortfolioContent() {
   const sectionMap = Object.fromEntries(sections.map((section) => [section.key, section.data]));
 
   return sectionKeys.reduce((accumulator, key) => {
-    accumulator[key] = sectionMap[key] || portfolioSeed[key];
+    accumulator[key] = portfolioSeed[key] ?? sectionMap[key] ?? null;
     return accumulator;
   }, {});
+}
+
+function readPortfolioSeed() {
+  return JSON.parse(fs.readFileSync(portfolioContentPath, "utf8"));
 }
 
 module.exports = {
   getPortfolioContent,
   getSection,
-  portfolioSeed,
+  readPortfolioSeed,
   sectionKeys
 };

@@ -2,6 +2,7 @@ import portfolioFallbackJson from "@/data/portfolio-fallback.json";
 import type { GithubSummary, PortfolioContent } from "@/types/portfolio";
 
 const portfolioFallback = portfolioFallbackJson as PortfolioContent;
+const shouldUsePortfolioApi = process.env.NEXT_PUBLIC_USE_PORTFOLIO_API === "true";
 
 const defaultGithubSummary: GithubSummary = {
   user: {
@@ -24,12 +25,14 @@ export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:30
   "",
 );
 
-async function fetchJson<T>(pathname: string, fallback: T, revalidate = 3600): Promise<T> {
+async function fetchJson<T>(
+  pathname: string,
+  fallback: T,
+  init?: RequestInit & { next?: { revalidate?: number } },
+): Promise<T> {
   try {
     const url = `${apiBaseUrl}${pathname}`;
-    const response = await fetch(url, {
-      next: { revalidate },
-    });
+    const response = await fetch(url, init);
 
     if (!response.ok) {
       console.error(`API request failed: ${url} - Status: ${response.status}`);
@@ -44,15 +47,19 @@ async function fetchJson<T>(pathname: string, fallback: T, revalidate = 3600): P
 }
 
 export async function getPortfolioContent(): Promise<PortfolioContent> {
-  return fetchJson<PortfolioContent>("/api/content/site", portfolioFallback, 3600);
+  if (!shouldUsePortfolioApi) {
+    return portfolioFallback;
+  }
+
+  return fetchJson<PortfolioContent>("/api/content/site", portfolioFallback, {
+    cache: "no-store",
+  });
 }
 
 export async function getGithubSummary(): Promise<GithubSummary> {
-  return fetchJson<GithubSummary>(
-    "/api/github/summary",
-    defaultGithubSummary,
-    1800
-  );
+  return fetchJson<GithubSummary>("/api/github/summary", defaultGithubSummary, {
+    next: { revalidate: 1800 },
+  });
 }
 
 export { portfolioFallback };
