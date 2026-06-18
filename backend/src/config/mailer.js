@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const dns = require("dns");
+const dns = require("dns").promises;
 const { env } = require("./env");
 const { logger } = require("./logger");
 
@@ -71,23 +71,39 @@ async function createTransporter() {
     };
   }
 
+  // Resolve SMTP Host to IPv4 manually using dns.resolve4
+  let targetHost = env.smtpHost;
+  try {
+    logger.info({ host: env.smtpHost }, `Manually resolving SMTP host ${env.smtpHost} using dns.resolve4()`);
+    const addresses = await dns.resolve4(env.smtpHost);
+    if (addresses && addresses.length > 0) {
+      targetHost = addresses[0];
+      logger.info({ originalHost: env.smtpHost, resolvedIp: targetHost }, `Successfully resolved SMTP host to IPv4 address`);
+    } else {
+      logger.warn({ host: env.smtpHost }, `dns.resolve4 returned no addresses. Using host directly.`);
+    }
+  } catch (error) {
+    logger.error({ err: error, host: env.smtpHost }, `dns.resolve4 failed. Using host directly.`);
+  }
+
   logger.info(
     {
-      smtpHost: env.smtpHost,
+      smtpHost: targetHost,
+      originalHost: env.smtpHost,
       smtpPort: env.smtpPort,
       smtpSecure: env.smtpSecure,
       smtpUser: env.smtpUser
     },
-    "Creating SMTP transporter..."
+    "Creating SMTP transporter with resolved IPv4 host..."
   );
 
   const transporter = nodemailer.createTransport({
-    host: env.smtpHost,
+    host: targetHost,
     port: env.smtpPort,
     secure: env.smtpSecure,
-    family: 4,
-    lookup: (hostname, options, callback) => {
-      dns.lookup(hostname, { family: 4 }, callback);
+    family: 4, // Force IPv4 connection only
+    tls: {
+      servername: env.smtpHost || "smtp.gmail.com"
     },
     connectionTimeout: smtpTimeout,
     greetingTimeout: smtpTimeout,
