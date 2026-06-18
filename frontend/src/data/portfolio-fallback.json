@@ -11,7 +11,7 @@
       "mern + supabase builder",
       "4 deployed products live"
     ],
-    "availability": "Open to full-stack and SDE-1 roles — internship now, full-time from June 2026.",
+    "availability": "Open to full-stack and SDE-1 roles — freelancing and contract work considered for the right fit.",
     "journey": [
       "Started MCA while restructuring web practice around end-to-end product builds — React, Node.js, Express, MongoDB, and multi-platform deployment learned not through isolated tutorials but by shipping real, working applications.",
       "Built and deployed three production-style SaaS applications across the MERN ecosystem: an AI job tracker with Cheerio web scraping and Groq integration, a multi-tenant collaboration workspace with Razorpay billing, and an AI chat SaaS with role-based access control — each deployed with separate frontend and backend services.",
