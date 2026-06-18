@@ -799,7 +799,7 @@
       "links": {
         "live": "https://valtrexa-v2.vercel.app/",
         "repository": "https://github.com/chauhandigvijay1/Valtrexa-V2",
-        "api": "https://valtrexa-v2.vercel.app"
+        "api": "https://valtrexa-v2.vercel.app/"
       },
       "images": [
         "/assets/projects/valtrexa-v2/dashboard.png",
