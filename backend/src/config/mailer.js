@@ -10,10 +10,63 @@ const escapeHtml = (value) =>
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
 
+const smtpTimeout = 10000;
+
+function getMissingSmtpCredentials() {
+  return [
+    ["SMTP_HOST", env.smtpHost],
+    ["SMTP_USER", env.smtpUser],
+    ["SMTP_PASS", env.smtpPass]
+  ]
+    .filter(([, value]) => !value)
+    .map(([name]) => name);
+}
+
+function classifySmtpError(error) {
+  const code = error?.code || "";
+  const command = error?.command || "";
+  const message = error?.message || "";
+
+  if (code === "EAUTH" || command === "AUTH" || /auth|invalid login|username and password/i.test(message)) {
+    return {
+      reason: "authentication_failed",
+      logMessage: "SMTP authentication failed."
+    };
+  }
+
+  if (code === "ETIMEDOUT" || /timeout|timed out|greeting never received/i.test(message)) {
+    return {
+      reason: "network_timeout",
+      logMessage: "SMTP network timeout."
+    };
+  }
+
+  if (code === "ENETUNREACH" && /ipv6|family 6|::/i.test(message)) {
+    return {
+      reason: "ipv6_unreachable",
+      logMessage: "SMTP IPv6 network unreachable."
+    };
+  }
+
+  return {
+    reason: "smtp_connection_failed",
+    logMessage: "SMTP connection failed."
+  };
+}
+
 async function createTransporter() {
-  if (!env.smtpHost || !env.smtpUser || !env.smtpPass) {
-    logger.info("SMTP credentials not configured, email delivery will be skipped");
-    return null;
+  const missingCredentials = getMissingSmtpCredentials();
+
+  if (missingCredentials.length > 0) {
+    logger.warn({ missingCredentials }, "SMTP credentials not configured. Contact email delivery was skipped.");
+    return {
+      transporter: null,
+      delivery: {
+        delivered: false,
+        skipped: true,
+        reason: "missing_credentials"
+      }
+    };
   }
 
   try {
@@ -21,6 +74,10 @@ async function createTransporter() {
       host: env.smtpHost,
       port: env.smtpPort,
       secure: env.smtpSecure,
+      family: 4,
+      connectionTimeout: smtpTimeout,
+      greetingTimeout: smtpTimeout,
+      socketTimeout: smtpTimeout,
       auth: {
         user: env.smtpUser,
         pass: env.smtpPass
@@ -29,27 +86,29 @@ async function createTransporter() {
 
     await transporter.verify();
     logger.info("SMTP transporter verified successfully");
-    return transporter;
+    return {
+      transporter
+    };
   } catch (error) {
-    logger.error({ err: error }, "Failed to create/verify SMTP transporter");
-    return null;
+    const smtpError = classifySmtpError(error);
+    logger.error({ err: error, reason: smtpError.reason }, smtpError.logMessage);
+    return {
+      transporter: null,
+      delivery: {
+        delivered: false,
+        skipped: false,
+        reason: smtpError.reason
+      }
+    };
   }
 }
 
 async function sendContactEmail(payload) {
   try {
-    const transporter = await createTransporter();
+    const { transporter, delivery } = await createTransporter();
 
     if (!transporter) {
-      logger.warn(
-        { email: payload.email },
-        "SMTP credentials are missing. Contact email delivery was skipped."
-      );
-
-      return {
-        delivered: false,
-        skipped: true
-      };
+      return delivery;
     }
 
     const subject = `[Portfolio] ${payload.subject}`;
@@ -92,10 +151,12 @@ async function sendContactEmail(payload) {
       messageId: info.messageId
     };
   } catch (error) {
-    logger.error({ err: error }, "Failed to send contact email");
+    const smtpError = classifySmtpError(error);
+    logger.error({ err: error, reason: smtpError.reason }, smtpError.logMessage);
     return {
       delivered: false,
-      skipped: false
+      skipped: false,
+      reason: smtpError.reason
     };
   }
 }
