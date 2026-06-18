@@ -29,14 +29,27 @@ router.post(
       source: "portfolio-contact-form"
     });
 
-    logger.info({ stored: result.stored, delivered: result.delivery.delivered }, "Contact message processed");
+    const isSkipped = !!result?.delivery?.skipped;
+    const isDelivered = !!result?.delivery?.delivered;
 
+    logger.info(
+      { 
+        stored: result.stored, 
+        delivered: isDelivered, 
+        skipped: isSkipped,
+        reason: result?.delivery?.reason 
+      }, 
+      "Contact message processed"
+    );
+
+    // If email delivery was skipped due to missing credentials, return disabled message.
+    // If it was a network/SMTP connection failure, return the standard success message.
     response.status(201).json({
-      message: result.delivery.skipped
+      message: isSkipped
         ? "Message received. Email delivery is currently disabled in this environment."
         : "Message received. I will get back to you soon.",
       stored: result.stored,
-      delivered: result.delivery.delivered
+      delivered: isDelivered
     });
   })
 );

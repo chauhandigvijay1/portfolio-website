@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const dns = require("dns");
 const { env } = require("./env");
 const { logger } = require("./logger");
 
@@ -23,34 +24,35 @@ function getMissingSmtpCredentials() {
 }
 
 function classifySmtpError(error) {
-  const code = error?.code || "";
-  const command = error?.command || "";
+  const code = error?.code || "UNKNOWN";
+  const command = error?.command || "NONE";
   const message = error?.message || "";
 
   if (code === "EAUTH" || command === "AUTH" || /auth|invalid login|username and password/i.test(message)) {
     return {
       reason: "authentication_failed",
-      logMessage: "SMTP authentication failed."
+      logMessage: `SMTP authentication failed (code: ${code}, command: ${command}, msg: ${message}).`
     };
   }
 
-  if (code === "ETIMEDOUT" || /timeout|timed out|greeting never received/i.test(message)) {
+  if (
+    code === "ETIMEDOUT" ||
+    code === "ESOCKET" ||
+    code === "ECONNREFUSED" ||
+    code === "ENETUNREACH" ||
+    /timeout|timed out|greeting never received/i.test(message) ||
+    /ipv6|family 6|::/i.test(message) ||
+    /socket|refused|unreachable/i.test(message)
+  ) {
     return {
-      reason: "network_timeout",
-      logMessage: "SMTP network timeout."
-    };
-  }
-
-  if (code === "ENETUNREACH" && /ipv6|family 6|::/i.test(message)) {
-    return {
-      reason: "ipv6_unreachable",
-      logMessage: "SMTP IPv6 network unreachable."
+      reason: `smtp_connection_failed_${code.toLowerCase()}`,
+      logMessage: `SMTP connection/network failure (code: ${code}, command: ${command}, msg: ${message}).`
     };
   }
 
   return {
-    reason: "smtp_connection_failed",
-    logMessage: "SMTP connection failed."
+    reason: `smtp_failed_${code.toLowerCase()}`,
+    logMessage: `SMTP error (code: ${code}, command: ${command}, msg: ${message}).`
   };
 }
 
@@ -69,38 +71,51 @@ async function createTransporter() {
     };
   }
 
-  try {
-    const transporter = nodemailer.createTransport({
-      host: env.smtpHost,
-      port: env.smtpPort,
-      secure: env.smtpSecure,
-      family: 4,
-      connectionTimeout: smtpTimeout,
-      greetingTimeout: smtpTimeout,
-      socketTimeout: smtpTimeout,
-      auth: {
-        user: env.smtpUser,
-        pass: env.smtpPass
-      }
-    });
+  logger.info(
+    {
+      smtpHost: env.smtpHost,
+      smtpPort: env.smtpPort,
+      smtpSecure: env.smtpSecure,
+      smtpUser: env.smtpUser
+    },
+    "Creating SMTP transporter..."
+  );
 
+  const transporter = nodemailer.createTransport({
+    host: env.smtpHost,
+    port: env.smtpPort,
+    secure: env.smtpSecure,
+    family: 4,
+    lookup: (hostname, options, callback) => {
+      dns.lookup(hostname, { family: 4 }, callback);
+    },
+    connectionTimeout: smtpTimeout,
+    greetingTimeout: smtpTimeout,
+    socketTimeout: smtpTimeout,
+    auth: {
+      user: env.smtpUser,
+      pass: env.smtpPass
+    }
+  });
+
+  try {
     await transporter.verify();
     logger.info("SMTP transporter verified successfully");
-    return {
-      transporter
-    };
   } catch (error) {
     const smtpError = classifySmtpError(error);
-    logger.error({ err: error, reason: smtpError.reason }, smtpError.logMessage);
-    return {
-      transporter: null,
-      delivery: {
-        delivered: false,
-        skipped: false,
-        reason: smtpError.reason
-      }
-    };
+    logger.error(
+      { err: error, reason: smtpError.reason },
+      `SMTP transporter verification failed, but proceeding anyway: ${smtpError.logMessage}`
+    );
   }
+
+  return {
+    transporter,
+    delivery: {
+      delivered: false,
+      skipped: false
+    }
+  };
 }
 
 async function sendContactEmail(payload) {
@@ -143,7 +158,7 @@ async function sendContactEmail(payload) {
       text
     });
 
-    logger.info({ messageId: info.messageId }, "Portfolio contact email delivered.");
+    logger.info({ messageId: info.messageId }, "Portfolio contact email delivered successfully.");
 
     return {
       delivered: true,
@@ -152,7 +167,10 @@ async function sendContactEmail(payload) {
     };
   } catch (error) {
     const smtpError = classifySmtpError(error);
-    logger.error({ err: error, reason: smtpError.reason }, smtpError.logMessage);
+    logger.error(
+      { err: error, reason: smtpError.reason },
+      `SMTP sendMail failed: ${smtpError.logMessage}`
+    );
     return {
       delivered: false,
       skipped: false,
