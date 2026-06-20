@@ -49,7 +49,7 @@ async function sendContactEmail(payload) {
     const { data, error } = await resend.emails.send({
       from: env.mailFrom || "onboarding@resend.dev",
       to: env.mailTo,
-      reply_to: payload.email,
+      replyTo: payload.email,
       subject,
       html,
       text
