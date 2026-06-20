@@ -28,10 +28,13 @@ const parseSecure = (value) => {
 const env = {
   nodeEnv: process.env.NODE_ENV || "development",
   port: parseNumber(process.env.PORT, 5000),
-  clientOrigins: (process.env.CLIENT_ORIGIN || "http://localhost:3000")
-    .split(",")
-    .map((value) => value.trim())
-    .filter(Boolean),
+  clientOrigins: [
+    ...(process.env.CLIENT_ORIGIN || "http://localhost:3000")
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean),
+    "https://dsc-portfolio-website.netlify.app"
+  ],
   mongodbUri: process.env.MONGODB_URI || "",
   resendApiKey: process.env.RESEND_API_KEY || "",
   smtpHost: process.env.SMTP_HOST || "",
