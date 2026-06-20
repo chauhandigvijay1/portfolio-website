@@ -56,7 +56,7 @@ async function sendContactEmail(payload) {
     });
 
     if (error) {
-      logger.error({ err: error }, \`Resend API failed: \${error.message}\`);
+      logger.error({ err: error }, `Resend API failed: ${error.message}`);
       return {
         delivered: false,
         skipped: false,
@@ -72,7 +72,7 @@ async function sendContactEmail(payload) {
       messageId: data.id
     };
   } catch (error) {
-    logger.error({ err: error }, \`Resend sendMail failed: \${error.message}\`);
+    logger.error({ err: error }, `Resend sendMail failed: ${error.message}`);
     return {
       delivered: false,
       skipped: false,
