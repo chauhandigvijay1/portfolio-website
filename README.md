@@ -36,7 +36,7 @@ Premium full-stack portfolio rebuilt as a production-style monorepo.
   - DsSyncHub
   - DevFlow AI
 - GitHub activity section powered by the backend
-- Contact form API with validation, rate limiting, optional MongoDB storage, and Nodemailer delivery
+- Contact form API with validation, rate limiting, optional MongoDB storage, and Resend delivery
 - Dark/light theming with persistence
 - Command palette navigation
 - SEO metadata, `sitemap.xml`, and `robots.txt`
@@ -155,12 +155,11 @@ PORT=5000
 NODE_ENV=development
 CLIENT_ORIGIN=http://localhost:3000
 MONGODB_URI=
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_SECURE=false
-SMTP_USER=
-SMTP_PASS=
+# Resend API key for email delivery
+RESEND_API_KEY=
+# Verified sender email/domain on Resend
 MAIL_FROM=
+# Destination inbox where portfolio messages arrive
 MAIL_TO=chauhandigvijay669@gmail.com
 GITHUB_USERNAME=chauhandigvijay1
 GITHUB_TOKEN=
